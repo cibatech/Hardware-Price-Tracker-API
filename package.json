@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fastify": "^5.1.0",
+    "prisma": "^5.22.0"
+  }
+}
