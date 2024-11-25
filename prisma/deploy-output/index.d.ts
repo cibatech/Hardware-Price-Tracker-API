@@ -3134,19 +3134,19 @@ export namespace Prisma {
 
   export type ProductWhereUniqueInput = Prisma.AtLeast<{
     Id?: string
+    Link?: string
     AND?: ProductWhereInput | ProductWhereInput[]
     OR?: ProductWhereInput[]
     NOT?: ProductWhereInput | ProductWhereInput[]
     Title?: StringNullableFilter<"Product"> | string | null
     Description?: StringNullableFilter<"Product"> | string | null
     Value?: FloatFilter<"Product"> | number
-    Link?: StringFilter<"Product"> | string
     Where?: StringFilter<"Product"> | string
     Kind?: EnumkindFilter<"Product"> | $Enums.kind
     ImageUrl?: StringNullableFilter<"Product"> | string | null
     Slug?: StringFilter<"Product"> | string
     PriceHistory?: PriceListRelationFilter
-  }, "Id">
+  }, "Id" | "Link">
 
   export type ProductOrderByWithAggregationInput = {
     Id?: SortOrder
@@ -3322,14 +3322,14 @@ export namespace Prisma {
 
   export type PriceCreateInput = {
     Id?: string
-    AtDate: Date | string
+    AtDate?: Date | string
     Price: number
     prodRef: ProductCreateNestedOneWithoutPriceHistoryInput
   }
 
   export type PriceUncheckedCreateInput = {
     Id?: string
-    AtDate: Date | string
+    AtDate?: Date | string
     Price: number
     ProdId: string
   }
@@ -3350,7 +3350,7 @@ export namespace Prisma {
 
   export type PriceCreateManyInput = {
     Id?: string
-    AtDate: Date | string
+    AtDate?: Date | string
     Price: number
     ProdId: string
   }
@@ -3831,13 +3831,13 @@ export namespace Prisma {
 
   export type PriceCreateWithoutProdRefInput = {
     Id?: string
-    AtDate: Date | string
+    AtDate?: Date | string
     Price: number
   }
 
   export type PriceUncheckedCreateWithoutProdRefInput = {
     Id?: string
-    AtDate: Date | string
+    AtDate?: Date | string
     Price: number
   }
 
@@ -3943,7 +3943,7 @@ export namespace Prisma {
 
   export type PriceCreateManyProdRefInput = {
     Id?: string
-    AtDate: Date | string
+    AtDate?: Date | string
     Price: number
   }
 

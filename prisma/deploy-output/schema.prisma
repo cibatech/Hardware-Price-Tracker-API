@@ -19,7 +19,7 @@ model Product {
   Title       String?
   Description String?
   Value       Float
-  Link        String
+  Link        String  @unique
   Where       String
   Kind        kind
   ImageUrl    String?
@@ -32,7 +32,7 @@ model Product {
 model Price {
   Id String @id @default(uuid())
 
-  AtDate DateTime
+  AtDate DateTime @default(now())
   Price  Float
 
   prodRef Product @relation(fields: [ProdId], references: [Id])
