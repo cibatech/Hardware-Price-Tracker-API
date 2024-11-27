@@ -10,6 +10,13 @@ export class PrismaProductRepository implements ProductRepository{
             }
         })
     }
+    async findById(Id: string): Promise<Product | null> {
+        return await prisma.product.findUnique({
+            where:{
+                Id
+            }
+        })
+    }
 
     async findBySearchQuery(Query: string, Page: number): Promise<Product[]> {
         return await prisma.product.findMany({
@@ -22,18 +29,22 @@ export class PrismaProductRepository implements ProductRepository{
             skip:(Page-1)*20
         })
     }
-    async findBySite(WebSite: kind): Promise<Product[]> {
+    async findBySite(WebSite: kind,Page:number): Promise<Product[]> {
         return await prisma.product.findMany({
             where:{
                 Kind:WebSite
-            }
+            },
+            take:Page*20,
+            skip:(Page-1)*20
         })
     }
-    async findBySiteCategory(Where: string): Promise<Product[]> {
+    async findBySiteCategory(Where: string,Page:number): Promise<Product[]> {
         return await prisma.product.findMany({
             where:{
                 Where
-            }
+            },
+            take:Page*20,
+            skip:(Page-1)*20
         })
     }
     async returnByPage(Page: number): Promise<Product[]> {

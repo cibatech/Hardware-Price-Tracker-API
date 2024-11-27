@@ -4,15 +4,16 @@ import { GetProductListUseCase } from "../../../src/services";
 import { faker } from "@faker-js/faker";
 import { randomUUID } from "crypto";
 import {Choose} from "../../../src/utils/Choose"
+import { GetProdListFromASpecificStoreUseCase } from "../../../src/services/Products/GetProductListFromAnSpecificStore";
 
-var SUT:GetProductListUseCase;
+var SUT:GetProdListFromASpecificStoreUseCase;
 var ProdRepo:InMemoryProductRepository; 
 
 describe("Good Case",()=>{
     beforeEach(async()=>{
         ProdRepo = new InMemoryProductRepository;
 
-        for(let i = 0;i<22;i++){
+        for(let i = 0;i<44;i++){
             ProdRepo.itens.push({
                 Description:String(faker.lorem.text()),
                 Id:String(randomUUID()),
@@ -29,16 +30,17 @@ describe("Good Case",()=>{
             })   
         }
         
-        SUT = new GetProductListUseCase(ProdRepo);
+        SUT = new GetProdListFromASpecificStoreUseCase(ProdRepo);
     })
 
     it("Should be able to Return the products list paginated",async()=>{
-        const responseFromPageOne = await SUT.execute({Page:1});
-        const responseFromPageTwo = await SUT.execute({Page:2});
+        const responseWhenTriedToFindKabumProducts = await SUT.execute({Store:"Kabum",Page:1});
+        const responseWhenTriedToFindTerabyteProducts = await SUT.execute({Store:"TeraByte",Page:1});
+        const responseWhenTriedToFindPichauProducts = await SUT.execute({Store:"Pichau",Page:1});
 
-
-        expect(responseFromPageOne.ProductList.length).toBe(20);
-        expect(responseFromPageTwo.ProductList.length).toBe(2);
+        expect(responseWhenTriedToFindKabumProducts.prodListFromProvidedStore[0].Kind).toBe("Kabum");
+        expect(responseWhenTriedToFindTerabyteProducts.prodListFromProvidedStore[0].Kind).toBe("TeraByte");
+        expect(responseWhenTriedToFindPichauProducts.prodListFromProvidedStore[0].Kind).toBe("Pichau");
     })
 
 })

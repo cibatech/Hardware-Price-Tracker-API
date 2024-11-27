@@ -7,16 +7,16 @@ export class InMemoryProductRepository implements ProductRepository{
         const finUnique = this.itens.find(iten=>iten.Link == Link);
         return finUnique?finUnique:null
     }
-    async findBySite(WebSite: kind): Promise<Product[]> {
-        const findMany = this.itens.filter(iten => iten.Kind == WebSite);
+    async findBySite(WebSite: kind,Page:number): Promise<Product[]> {
+        const findMany = this.itens.filter(iten => iten.Kind == WebSite).slice((Page-1)*20,Page*20);
         return findMany
     }
     //fix this latter
     async findBySearchQuery(Query: string, Page: number): Promise<Product[]> {
         return this.itens
     }
-    async findBySiteCategory(Where: string): Promise<Product[]> {
-        return this.itens.filter(iten=>iten.Where == Where);
+    async findBySiteCategory(Where: string,Page:number): Promise<Product[]> {
+        return this.itens.filter(iten=>iten.Where == Where).slice((Page-1)*20,Page*20);
     }
     async returnByPage(Page: number): Promise<Product[]> {
         return this.itens.slice((Page-1)*20,Page*20)
