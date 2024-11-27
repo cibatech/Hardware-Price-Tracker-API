@@ -21,4 +21,8 @@ export class InMemoryProductRepository implements ProductRepository{
     async returnByPage(Page: number): Promise<Product[]> {
         return this.itens.slice((Page-1)*20,Page*20)
     }
+    async findById(Id: string): Promise<Product | null> {
+        const finUnique = this.itens.find(iten=>iten.Id == Id);
+        return finUnique?finUnique:null
+    }
 }
