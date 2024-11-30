@@ -11,9 +11,11 @@ export class InMemoryProductRepository implements ProductRepository{
         const findMany = this.itens.filter(iten => iten.Kind == WebSite).slice((Page-1)*20,Page*20);
         return findMany
     }
-    //fix this latter
     async findBySearchQuery(Query: string, Page: number): Promise<Product[]> {
-        return this.itens
+        var fixArray:Product[] = [];
+        const findByDescription = this.itens.filter(iten => iten.Description?iten.Description.includes(Query):null);
+        fixArray = fixArray.concat(findByDescription);
+        return fixArray
     }
     async findBySiteCategory(Where: string,Page:number): Promise<Product[]> {
         return this.itens.filter(iten=>iten.Where == Where).slice((Page-1)*20,Page*20);
@@ -24,5 +26,9 @@ export class InMemoryProductRepository implements ProductRepository{
     async findById(Id: string): Promise<Product | null> {
         const finUnique = this.itens.find(iten=>iten.Id == Id);
         return finUnique?finUnique:null
+    }
+    async findByProductByCategory(Category: string): Promise<Product[]> {
+        const findMany = this.itens.filter(iten=> iten.Where == Category);
+        return findMany
     }
 }

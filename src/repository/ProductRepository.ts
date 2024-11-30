@@ -8,5 +8,5 @@ export interface ProductRepository {
     findBySite(WebSite:kind,Page:number):Promise<Product[]>
     findBySiteCategory(Where:string,Page:number):Promise<Product[]>
     findBySearchQuery(Query:string,Page:number):Promise<Product[]>
-    
+    findByProductByCategory(Category:string):Promise<Product[]>
 }
