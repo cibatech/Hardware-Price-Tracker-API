@@ -1,3 +1,4 @@
+import { evaluation } from "../../lib/enums";
 import { PriceReferenceRepository } from "../../repository/PriceRefRepository";
 import { ProductRepository } from "../../repository/ProductRepository";
 import { ResourceNotFoundError } from "../Error/ResourceNotFound";
@@ -5,20 +6,7 @@ import { ResourceNotFoundError } from "../Error/ResourceNotFound";
 /**
  * Enum que define os tipos de avaliação de preço para um produto.
  */
-enum evaluation{
-    /**
-     * Indica que o preço do produto é considerado bom (abaixo da média).
-     */
-    Good,
-    /**
-     * Indica que o preço do produto é considerado ruim (acima da média).
-     */
-    Bad,
-    /**
-     * Indica que o preço do produto é considerado normal (próximo à média).
-     */
-    Normal
-}
+
 
 /**
  * Interface que descreve a resposta da avaliação de preço de um produto.
