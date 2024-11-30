@@ -9,6 +9,7 @@
     "@types/node": "^22.9.3",
     "fastify": "^5.1.0",
     "prisma": "^5.22.0",
+    "string-similarity": "^4.0.4",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.5",

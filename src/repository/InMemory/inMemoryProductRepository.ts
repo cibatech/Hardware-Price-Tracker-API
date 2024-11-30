@@ -8,8 +8,11 @@ export class InMemoryProductRepository implements ProductRepository{
         return finUnique?finUnique:null
     }
     async findBySite(WebSite: kind,Page:number): Promise<Product[]> {
-        const findMany = this.itens.filter(iten => iten.Kind == WebSite).slice((Page-1)*20,Page*20);
-        return findMany
+        if(Page>0){
+            return this.itens.filter(iten=>iten.Kind == WebSite).slice((Page-1)*20,Page*20);
+        }else{ // do this for dev and test algorithism latter
+            return this.itens.filter(iten=>iten.Kind == WebSite)
+        }
     }
     async findBySearchQuery(Query: string, Page: number): Promise<Product[]> {
         var fixArray:Product[] = [];
@@ -18,7 +21,12 @@ export class InMemoryProductRepository implements ProductRepository{
         return fixArray
     }
     async findBySiteCategory(Where: string,Page:number): Promise<Product[]> {
-        return this.itens.filter(iten=>iten.Where == Where).slice((Page-1)*20,Page*20);
+        if(Page>0){
+            return this.itens.filter(iten=>iten.Where == Where).slice((Page-1)*20,Page*20);
+        }else{ // do this for dev and test algorithism latter
+            return this.itens.filter(iten=>iten.Where == Where)
+        }
+
     }
     async returnByPage(Page: number): Promise<Product[]> {
         return this.itens.slice((Page-1)*20,Page*20)
