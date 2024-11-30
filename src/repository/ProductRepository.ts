@@ -1,7 +1,6 @@
 import { kind, Product } from "../../prisma/deploy-output";
 
 export interface ProductRepository {
-
     returnByPage(Page:number):Promise<Product[]>
     findById(Id:string):Promise<Product | null>
     findByLink(Link:string):Promise<Product | null>
@@ -9,4 +8,5 @@ export interface ProductRepository {
     findBySiteCategory(Where:string,Page:number):Promise<Product[]>
     findBySearchQuery(Query:string,Page:number):Promise<Product[]>
     findByProductByCategory(Category:string,Page:number):Promise<Product[]>
+    findAll():Promise<Product[]>
 }

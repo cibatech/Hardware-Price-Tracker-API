@@ -39,4 +39,7 @@ export class InMemoryProductRepository implements ProductRepository{
         const findMany = this.itens.filter(iten=> iten.Where == Category).slice((Page-1)*20,Page*20);
         return findMany
     }
+    async findAll(): Promise<Product[]> {
+        return this.itens
+    }
 }

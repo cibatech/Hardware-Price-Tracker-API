@@ -1,28 +1,35 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { GetProdListFromASpecificStoreUseCase } from "../../../services";
+import { GetProductListUseCase, GetProductsByFilterUseCase } from "../../../services";
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 import { z } from "zod";
-import { kind } from "../../../../prisma/deploy-output";
 import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
 
-export async function GETProductListFromASpecificStoreController(req:FastifyRequest,res:FastifyReply) {
-    const service = new GetProdListFromASpecificStoreUseCase(new PrismaProductRepository)
-    const {Page,Store} = z.object({
+export async function GETProductsListWithFilltersController(req:FastifyRequest,res:FastifyReply) {
+    const service = new GetProductsByFilterUseCase(new PrismaProductRepository);
+    
+    const {Page,Category,Max,Min,Store} = z.object({
+        Page:z.string(),
+        Category:z.string().optional(),
+        Min:z.string().optional(),
+        Max:z.string().optional(),
         Store:z.enum(["TeraByte","Pichau","Kabum"]),
-        Page:z.string()
-    }).parse(req.params)
 
+    }).parse(req.params)
+    
     try{
+        let a = Number(Page)
         const response = await service.execute({
-            Page:Number(Page),
-            Store
+            Page:a,
+            Max:Max?Number(Max):null,
+            Category:Category?Category:null,
+            Min:Min?Number(Min):null,
+            Store:Store?Store:null
         })
 
         res.status(200).send({
-            Description:"Successfully returned Information",
+            Description:"Successfully returned products list",
             response,
             Config:{
-                SelectedStore:Store,
                 Page
             }
         })
@@ -33,11 +40,12 @@ export async function GETProductListFromASpecificStoreController(req:FastifyRequ
                 Reason:"Page number is invalid. Try to provide something between 0 and 999999999",
                 Error:{
                     err
-                }
+                },
+                
             })
         }else{
             res.status(500).send({
-                Description:"Unknow Server Error!"
+                Description:"Unknow Server Error"
             })
         }
     }

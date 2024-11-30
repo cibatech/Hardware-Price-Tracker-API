@@ -34,6 +34,7 @@ export class GetProductListUseCase{
      * @throws {ResourceNotFoundError} If no product is found with the specified link.
     */
     async execute({Page}:GetProductListParams):Promise<GetProductListResponse>{
+        console.log("Get service called")
         if(Page<0){
             throw new InvalidParameterError("Page","use something between 0 and 999")
         }

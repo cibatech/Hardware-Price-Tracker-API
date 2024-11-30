@@ -67,5 +67,8 @@ export class PrismaProductRepository implements ProductRepository{
             skip:(Page-1)*20
         })
     }
+    async findAll(): Promise<Product[]> {
+        return await prisma.product.findMany()
+    }
 
 }
