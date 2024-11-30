@@ -34,7 +34,7 @@ describe("Good Case",()=>{
     })
 
     it("Should be able to Return the products list paginated",async()=>{
-        const resp = await SUT.execute("hardware");
+        const resp = await SUT.execute("hardware",1);
 
         expect(resp.ProductWithCategory[0].Where).toBe("hardware")
     })

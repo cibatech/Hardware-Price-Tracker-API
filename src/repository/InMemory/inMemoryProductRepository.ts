@@ -27,8 +27,8 @@ export class InMemoryProductRepository implements ProductRepository{
         const finUnique = this.itens.find(iten=>iten.Id == Id);
         return finUnique?finUnique:null
     }
-    async findByProductByCategory(Category: string): Promise<Product[]> {
-        const findMany = this.itens.filter(iten=> iten.Where == Category);
+    async findByProductByCategory(Category: string,Page:number): Promise<Product[]> {
+        const findMany = this.itens.filter(iten=> iten.Where == Category).slice((Page-1)*20,Page*20);
         return findMany
     }
 }
