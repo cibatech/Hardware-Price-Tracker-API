@@ -6,17 +6,16 @@ import { kind } from "../../../../prisma/deploy-output";
 import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
 import { PrismaPriceRepository } from "../../../repository/Prisma/PrismaPriceRepository";
 import { ResourceNotFoundError } from "../../../services/Error/ResourceNotFound";
+import { GetProductPriceEvaluationUseCase } from "../../../services/Products/GetProductPriceEvalutation";
 
 export async function GETProductEvaluationController(req:FastifyRequest,res:FastifyReply) {
-    const service = new GetPriceReferenceFromSingleProductByIdUseCase(new PrismaProductRepository, new PrismaPriceRepository)
+    const service = new GetProductPriceEvaluationUseCase(new PrismaProductRepository, new PrismaPriceRepository)
     const {Id} = z.object({
         Id:z.string().uuid()
     }).parse(req.params)
 
     try{
-        const response = await service.execute({
-            Id
-        })
+        const response = await service.execute(Id)
 
         res.status(200).send({
             Description:"Successfully returned Information",

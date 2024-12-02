@@ -4,7 +4,7 @@ import {GETProductsListWithFilltersController , GETBestProductFromAllStoresContr
 export async function ProductRouter(app:FastifyInstance) {
     app.route({
         method:"GET",
-        url:"/comparasion/Id", //request by docs
+        url:"/comparasion/:Id", //request by docs
         handler:GETBestProductFromAllStoresController
     })
     app.route({
@@ -29,7 +29,12 @@ export async function ProductRouter(app:FastifyInstance) {
     })
     app.route({
         method:"GET",
-        url:"/:Category/:Min--:Max/:Store",
+        url:"/:Category/:Min--:Max/:Store/:Page",
+        handler:GETProductsListWithFilltersController
+    })
+    app.route({
+        method:"GET",
+        url:"/:Id",
         handler:GETProductsListWithFilltersController
     })
 }

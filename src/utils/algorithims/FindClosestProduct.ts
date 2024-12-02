@@ -12,7 +12,6 @@ import { Product } from "../../../prisma/deploy-output";
 
     Video mais detalhado:
     https://youtu.be/Qf5R-uYQRPk
-    
 */
 
 function FindSimilarity(title1: string, title2: string): number {
@@ -37,7 +36,7 @@ function FindSimilarity(title1: string, title2: string): number {
     const lcsLength = lcs(title1, title2);
     const maxLength = Math.max(title1.length, title2.length);
     return lcsLength / maxLength; // Similaridade como proporção do LCS
-  }
+}
   
 //Return the product with the biggest similarity (Compares each product with every singles product in the list)
 export function ClosestProduct(refTitle: string, ProdList: Product[]): Product {
@@ -60,7 +59,7 @@ export function ClosestProduct(refTitle: string, ProdList: Product[]): Product {
     }
   
     return bestProduct[0];
-  }
+}
   
 
 // const referenceTitle = "Processador Intel Core I5 13400f, 2.5GHz (4.6GHz Turbo), Cache 20MB, 10 Núcleos, 16 Threads, LGA 1700, Sem Vídeo - Bx8071513400f";

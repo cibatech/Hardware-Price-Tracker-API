@@ -1,10 +1,5 @@
-### Comparar o melhor produto de todas as lojas
-GET http://[::1]:3678/api/products/comparasion/Id
-Content-Type: application/json
 
-### Avaliação de tendências de um produto específico
-GET http://[::1]:3678/api/products/trends/01a16e68-2770-4f01-ba9c-f70825fe2111
-Content-Type: application/json
+
 
 ### Listar produtos de uma loja específica (página {{Page}})
 GET http://[::1]:3678/api/products/byStore/Pichau/1
@@ -18,6 +13,16 @@ Content-Type: application/json
 GET http://[::1]:3678/api/products/all/1
 Content-Type: application/json
 
+######## Rotas Requisitos alex ############
+
 ### Listar produtos de uma categoria com filtros (Categoria: {{Category}}, Min: {{Min}}, Max: {{Max}}, Loja: {{Store}})
-GET http://[::1]:3678/api/products/hardware/Min--Max/Store
+GET  http://[::1]:3678/api/products/hardware/null--null/Pichau/1
+Content-Type: application/json
+
+### Comparar o melhor produto de todas as lojas
+GET http://[::1]:3678/api/products/comparasion/01a16e68-2770-4f01-ba9c-f70825fe2111
+Content-Type: application/json
+
+### Avaliação de tendências de um produto específico
+GET http://[::1]:3678/api/products/trends/01a16e68-2770-4f01-ba9c-f70825fe2111
 Content-Type: application/json

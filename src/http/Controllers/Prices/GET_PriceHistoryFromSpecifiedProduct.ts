@@ -1,36 +1,26 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { GetProductListUseCase, GetProductsByFilterUseCase } from "../../../services";
+import { GetPriceReferenceFromSingleProductByIdUseCase, GetProductListUseCase, GetProductsByFilterUseCase } from "../../../services";
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 import { z } from "zod";
 import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
+import { PrismaPriceRepository } from "../../../repository/Prisma/PrismaPriceRepository";
 
 export async function GETProductsListWithFilltersController(req:FastifyRequest,res:FastifyReply) {
-    const service = new GetProductsByFilterUseCase(new PrismaProductRepository);
+    const service = new GetPriceReferenceFromSingleProductByIdUseCase(new PrismaProductRepository,new PrismaPriceRepository);
     
-    const {Page,Category,Max,Min,Store} = z.object({
-        Page:z.string(),
-        Category:z.string(),
-        Min:z.string(),
-        Max:z.string(),
-        Store:z.enum(["TeraByte","Pichau","Kabum","null"]),
+    const {Id} = z.object({
+        Id:z.string().uuid()
 
     }).parse(req.params)
     
     try{
-        let a = Number(Page)
-        const response = await service.execute({
-            Page:a,
-            Max:Max=="!null"?Number(Max):null,
-            Category:Category?Category:null,
-            Min:Min!="null"?Number(Min):null,
-            Store:Store!="null"?Store:null
-        })
+        const response = await service.execute({Id})
 
         res.status(200).send({
             Description:"Successfully returned products list",
             response,
             Config:{
-                Page
+                Id
             }
         })
     }catch(err){
@@ -41,7 +31,6 @@ export async function GETProductsListWithFilltersController(req:FastifyRequest,r
                 Error:{
                     err
                 },
-                
             })
         }else{
             res.status(500).send({
