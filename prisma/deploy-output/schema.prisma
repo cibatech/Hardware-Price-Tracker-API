@@ -1,11 +1,13 @@
 generator client {
-  provider = "prisma-client-js"
-  output   = "deploy-output"
+  provider      = "prisma-client-js"
+  output        = "deploy-output"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
-  provider = "postgres"
-  url      = env("DATABASE_URL_PRIMARY")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL_PRIMARY")
+  directUrl = env("DIRECT_URL")
 }
 
 enum kind {
