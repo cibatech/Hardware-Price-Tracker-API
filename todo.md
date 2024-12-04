@@ -1,0 +1,2 @@
+- fix inMemory Search Route (currently i was slothful)
+- Writes test about product value update
