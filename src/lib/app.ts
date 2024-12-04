@@ -2,8 +2,7 @@ import fastify from "fastify";
 import { Router } from "../http/Router";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import fastifySwagger from "@fastify/swagger";
-import { config, OpenAPIoptions } from "./docs";
-
+import cors from "@fastify/cors";
 
 export const app = fastify()
 
@@ -95,7 +94,21 @@ app.register(fastifySwagger, {
                           Description: 'Successfully returned products list',
                           response: {
                             providedParams: { Category: 'hardware', Page: 1 },
-                            Return: { TotalList: [/* Lista de produtos */] },
+                            Return: { TotalList: [
+                              JSON.parse(`
+                                 {
+                                    "Id": "5ffc66d8-8def-44bf-b88d-29bf6926359b",
+                                    "Title": "Pasta Termica SnowDog Husky, 12.8W/mk, 3g, SNOWD-3G",
+                                                            "Description": "Pasta Termica SnowDog Husky, 12.8W/mk, 3g, SNOWD-3G",
+                                                            "Value": 117.53,
+                                                            "Link": "https://www.pichau.com.br/pasta-termica-snowdog-husky-12-8w-mk-3g-snowd-3g",
+                                                            "Where": "hardware",
+                                                            "Kind": "Pichau",
+                                                            "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/s/n/snowd-3g2155110.jpg",
+                                                            "Slug": "pasta-termica-snowdog-husky-128wmk-3g-snowd-3g"
+                                                        }
+                                `)
+                            ] },
                           },
                         },
                       },
@@ -113,3 +126,11 @@ app.register(fastifySwagger, {
 app.register(fastifySwaggerUi,{
     routePrefix:"/docs"
 })
+
+//register CORS
+app.register(cors, { 
+    origin: true, // Permite todas as origens. Para restringir, você pode especificar uma URL, como 'http://localhost:3000'
+    methods: ['GET', 'POST', 'PUT', 'DELETE', "PATCH"], // Métodos HTTP permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
+    credentials: true // Permite o envio de cookies e headers de autorização entre o frontend e o backend
+});

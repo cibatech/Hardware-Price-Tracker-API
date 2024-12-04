@@ -155,6 +155,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -180,8 +184,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"deploy-output\"\n}\n\ndatasource db {\n  provider = \"postgres\"\n  url      = env(\"DATABASE_URL_PRIMARY\")\n}\n\nenum kind {\n  TeraByte\n  Pichau\n  Kabum\n}\n\nmodel Product {\n  Id          String  @id @default(uuid())\n  Title       String?\n  Description String?\n  Value       Float\n  Link        String  @unique\n  Where       String\n  Kind        kind\n  ImageUrl    String?\n\n  Slug String //Core key to the product\n\n  PriceHistory Price[]\n}\n\nmodel Price {\n  Id String @id @default(uuid())\n\n  AtDate DateTime @default(now())\n  Price  Float\n\n  prodRef Product @relation(fields: [ProdId], references: [Id])\n  ProdId  String\n}\n",
-  "inlineSchemaHash": "098f2068adf44fc627c6a39f298844183d922328b52511a0f301195011721322",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"deploy-output\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider  = \"postgresql\"\n  url       = env(\"DATABASE_URL_PRIMARY\")\n  directUrl = env(\"DIRECT_URL\")\n}\n\nenum kind {\n  TeraByte\n  Pichau\n  Kabum\n}\n\nmodel Product {\n  Id          String  @id @default(uuid())\n  Title       String?\n  Description String?\n  Value       Float\n  Link        String  @unique\n  Where       String\n  Kind        kind\n  ImageUrl    String?\n\n  Slug String //Core key to the product\n\n  PriceHistory Price[]\n}\n\nmodel Price {\n  Id String @id @default(uuid())\n\n  AtDate DateTime @default(now())\n  Price  Float\n\n  prodRef Product @relation(fields: [ProdId], references: [Id])\n  ProdId  String\n}\n",
+  "inlineSchemaHash": "82a201381d47e5e9720c4c7f56b3a39945754ab03a29f6865328df4660a51592",
   "copyEngine": true
 }
 config.dirname = '/'
