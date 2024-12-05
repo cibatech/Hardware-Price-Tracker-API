@@ -19,8 +19,66 @@ app.register(fastifySwagger, {
         version: '1.0.0',
       },
       paths: {
-'/api/products/comparasion/:id': {
-          description: "Rota utilizada para Comparar o melhor preço de um produto entre diferentes lojas.",
+        
+        "/api/products/prices/:Id":{
+          description:"Rota utilizada pra retornar o histórico de preços de um determinado produto",
+          get:{
+            tags:["api","Products"],
+            parameters:[{
+              name:"Id",
+              description:"O ID do produto que se deseja acessar",
+              schema:{
+                type:"string"
+              },
+              required:true,
+              in:"query"
+            }],
+            responses:{
+              200:{
+                description:"Successfully returned the price list of a single product",
+                content:{
+                  "application/json":{
+                    examples:{
+                      Response:{
+                        value:JSON.parse(`
+                            {
+      "Description": "Successfully returned product's price list",
+      "response": {
+        "Product": {
+          "Id": "0910beb5-489c-4428-9378-62492e58503a",
+          "Title": "Water Cooler Rise Mode Gamer Black, RGB, 240mm, AMD/Intel, Preto - RM-WCB-02-RGB",
+          "Description": "Water Cooler Rise Mode Gamer Black, RGB, 240mm, AMD/Intel, Preto - RM-WCB-02-RGB",
+          "Value": 169,
+          "Link": "https://www.kabum.com.br/produto/130043/water-cooler-rise-mode-gamer-black-rgb-240mm-amd-intel-preto-rm-wcb-02-rgb",
+          "Where": "hardware",
+          "Kind": "Kabum",
+          "ImageUrl": "https://images.kabum.com.br/produtos/fotos/130043/water-cooler-rise-mode-gamer-black-rgb-240mm-preto-rm-wcb-02-rgb_1663776681_m.jpg",
+          "Slug": "water-cooler-rise-mode-gamer-black-rgb-240mm-amdintel-preto-rm-wcb-02-rgb"
+        },
+        "PriceRef": [
+          {
+            "Id": "e99e7e9b-504c-4461-b24c-726d76c814b8",
+            "AtDate": "2024-12-04T00:35:04.444Z",
+            "Price": 169,
+            "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+          }
+        ]
+      },
+      "Config": {
+        "Id": "0910beb5-489c-4428-9378-62492e58503a"
+      }
+    }
+                          `)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        '/api/products/comparasion/:id': {
+          description: "Rota utilizada para Comparar o melhor preço de um produto entre diferentes lojas.(Essa rota não está em funcionamento no momento)",
           get: {
             tags: ['api', 'Products'],
             parameters: [
