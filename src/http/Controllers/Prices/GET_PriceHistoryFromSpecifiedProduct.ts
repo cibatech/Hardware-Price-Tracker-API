@@ -5,7 +5,7 @@ import { z } from "zod";
 import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
 import { PrismaPriceRepository } from "../../../repository/Prisma/PrismaPriceRepository";
 
-export async function GETProductsListWithFilltersController(req:FastifyRequest,res:FastifyReply) {
+export async function GETPRiceReferenceFromSingleProductController(req:FastifyRequest,res:FastifyReply) {
     const service = new GetPriceReferenceFromSingleProductByIdUseCase(new PrismaProductRepository,new PrismaPriceRepository);
     
     const {Id} = z.object({
@@ -15,9 +15,9 @@ export async function GETProductsListWithFilltersController(req:FastifyRequest,r
     
     try{
         const response = await service.execute({Id})
-
+        console.log(response)
         res.status(200).send({
-            Description:"Successfully returned products list",
+            Description:"Successfully returned product's price list",
             response,
             Config:{
                 Id

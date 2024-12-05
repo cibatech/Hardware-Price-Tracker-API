@@ -40,7 +40,7 @@ export class GetPriceReferenceFromSingleProductByIdUseCase{
         if(!TheresAnyProductWithThisId){
             //Retorna um Error informando a entidade que nao foi encontrada e a chave que nao foi encontrada (No caso o Link).
             throw new ResourceNotFoundError("Product",Id);
-        }
+        }   
 
         const FindPriceReferenceWithThisId = await this.priceRepo.findByProduct(TheresAnyProductWithThisId.Id);
         

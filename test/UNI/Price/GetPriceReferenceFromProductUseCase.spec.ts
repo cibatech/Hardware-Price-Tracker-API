@@ -48,7 +48,7 @@ describe("Good Case",()=>{
 
         SUT = new GetPriceReferenceFromSingleProductByIdUseCase(ProdRepo,PriceRepo);
     })
-    it("Should be able to return a single product from a random product",async()=>{
+    it("Should be able to return a price list from a single product",async()=>{
         const {Id} = ProdRepo.itens[0]
         const response = await SUT.execute({Id});
 
