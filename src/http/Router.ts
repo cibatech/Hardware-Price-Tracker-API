@@ -1,5 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { ProductRouter } from "./Routes/ProductsRouter";
+import { UserRouter } from "./Routes/UserRouter";
 
 export async function Router(app:FastifyInstance) {
     app.addHook("preHandler",(req,res,done)=>{
@@ -9,5 +10,9 @@ export async function Router(app:FastifyInstance) {
     
     app.register(ProductRouter,{
         prefix:"/products"
+    })
+
+    app.register(UserRouter,{
+        prefix:"/user"
     })
 }

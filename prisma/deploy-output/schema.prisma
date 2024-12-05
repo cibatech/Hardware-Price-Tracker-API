@@ -16,6 +16,25 @@ enum kind {
   Kabum
 }
 
+model TriggerWarning {
+  Id          String @id @default(uuid())
+  TargetPrice Int
+
+  uRef   User   @relation(fields: [UserId], references: [Id])
+  UserId String
+
+  pRef   Product @relation(fields: [ProdId], references: [Id])
+  ProdId String
+}
+
+model User {
+  Id       String @id @default(uuid())
+  Email    String
+  Password String
+
+  Triggers TriggerWarning[]
+}
+
 model Product {
   Id          String  @id @default(uuid())
   Title       String?
@@ -29,6 +48,7 @@ model Product {
   Slug String //Core key to the product
 
   PriceHistory Price[]
+  TrackerList  TriggerWarning[]
 }
 
 model Price {

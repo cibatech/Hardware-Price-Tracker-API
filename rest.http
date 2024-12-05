@@ -2,16 +2,27 @@
 
 
 ### Listar produtos de uma loja específica (página {{Page}})
-GET http://[::1]:3678/api/products/byStore/Pichau/1
+GET http://127.0.0.1:2467/api/products/byStore/Pichau/1
 Content-Type: application/json
 
 ### Listar produtos de uma categoria específica (página {{Page}})
-GET http://[::1]:3678/api/products/category/hardware/1
+GET http://127.0.0.1:2467/api/products/category/hardware/1
 Content-Type: application/json
 
 ### Listar todos os produtos (página {{Page}})
-GET http://[::1]:3678/api/products/all/1
+GET http://127.0.0.1:2467/api/products/all/1
 Content-Type: application/json
+
+### Rotas de usuario #####
+
+### Criar Usuário
+POST http://127.0.0.1:2467/api/user/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "Email":"testeDev@gmail.com",
+    "Password":"admin123"
+}
 
 ######## Rotas Requisitos alex ############
 
@@ -24,9 +35,10 @@ GET http://127.0.0.1:2467/api/products/comparasion/09922dc0-e1e0-40df-9295-7accf
 Content-Type: application/json
 
 ### Avaliação de tendências de um produto específico
-GET http://127.0.0.1:2467/api/products/trends/01a16e68-2770-4f01-ba9c-f70825fe2111
+GET http://127.0.0.1:2467/api/products/trends/0910beb5-489c-4428-9378-62492e58503a
 Content-Type: application/json
 
 ### Retorno da lista de preços de um determinado produto
 GET http://127.0.0.1:2467/api/products/prices/0910beb5-489c-4428-9378-62492e58503a
 Content-Type: application/json
+

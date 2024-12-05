@@ -14,6 +14,16 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
+ * Model TriggerWarning
+ * 
+ */
+export type TriggerWarning = $Result.DefaultSelection<Prisma.$TriggerWarningPayload>
+/**
+ * Model User
+ * 
+ */
+export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
  * Model Product
  * 
  */
@@ -49,8 +59,8 @@ export const kind: typeof $Enums.kind
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Products
- * const products = await prisma.product.findMany()
+ * // Fetch zero or more TriggerWarnings
+ * const triggerWarnings = await prisma.triggerWarning.findMany()
  * ```
  *
  * 
@@ -70,8 +80,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Products
-   * const products = await prisma.product.findMany()
+   * // Fetch zero or more TriggerWarnings
+   * const triggerWarnings = await prisma.triggerWarning.findMany()
    * ```
    *
    * 
@@ -166,6 +176,26 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb, ExtArgs>
 
       /**
+   * `prisma.triggerWarning`: Exposes CRUD operations for the **TriggerWarning** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TriggerWarnings
+    * const triggerWarnings = await prisma.triggerWarning.findMany()
+    * ```
+    */
+  get triggerWarning(): Prisma.TriggerWarningDelegate<ExtArgs>;
+
+  /**
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
+    * ```
+    */
+  get user(): Prisma.UserDelegate<ExtArgs>;
+
+  /**
    * `prisma.product`: Exposes CRUD operations for the **Product** model.
     * Example usage:
     * ```ts
@@ -625,6 +655,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
+    TriggerWarning: 'TriggerWarning',
+    User: 'User',
     Product: 'Product',
     Price: 'Price'
   };
@@ -642,10 +674,150 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "product" | "price"
+      modelProps: "triggerWarning" | "user" | "product" | "price"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
+      TriggerWarning: {
+        payload: Prisma.$TriggerWarningPayload<ExtArgs>
+        fields: Prisma.TriggerWarningFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TriggerWarningFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TriggerWarningFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload>
+          }
+          findFirst: {
+            args: Prisma.TriggerWarningFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TriggerWarningFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload>
+          }
+          findMany: {
+            args: Prisma.TriggerWarningFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload>[]
+          }
+          create: {
+            args: Prisma.TriggerWarningCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload>
+          }
+          createMany: {
+            args: Prisma.TriggerWarningCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TriggerWarningCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload>[]
+          }
+          delete: {
+            args: Prisma.TriggerWarningDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload>
+          }
+          update: {
+            args: Prisma.TriggerWarningUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload>
+          }
+          deleteMany: {
+            args: Prisma.TriggerWarningDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TriggerWarningUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TriggerWarningUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TriggerWarningPayload>
+          }
+          aggregate: {
+            args: Prisma.TriggerWarningAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTriggerWarning>
+          }
+          groupBy: {
+            args: Prisma.TriggerWarningGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TriggerWarningGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TriggerWarningCountArgs<ExtArgs>
+            result: $Utils.Optional<TriggerWarningCountAggregateOutputType> | number
+          }
+        }
+      }
+      User: {
+        payload: Prisma.$UserPayload<ExtArgs>
+        fields: Prisma.UserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findFirst: {
+            args: Prisma.UserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findMany: {
+            args: Prisma.UserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          create: {
+            args: Prisma.UserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          createMany: {
+            args: Prisma.UserCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          delete: {
+            args: Prisma.UserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          update: {
+            args: Prisma.UserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.UserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          aggregate: {
+            args: Prisma.UserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser>
+          }
+          groupBy: {
+            args: Prisma.UserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserCountArgs<ExtArgs>
+            result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
       Product: {
         payload: Prisma.$ProductPayload<ExtArgs>
         fields: Prisma.ProductFieldRefs
@@ -943,15 +1115,48 @@ export namespace Prisma {
 
 
   /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    Triggers: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Triggers?: boolean | UserCountOutputTypeCountTriggersArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountTriggersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TriggerWarningWhereInput
+  }
+
+
+  /**
    * Count Type ProductCountOutputType
    */
 
   export type ProductCountOutputType = {
     PriceHistory: number
+    TrackerList: number
   }
 
   export type ProductCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     PriceHistory?: boolean | ProductCountOutputTypeCountPriceHistoryArgs
+    TrackerList?: boolean | ProductCountOutputTypeCountTrackerListArgs
   }
 
   // Custom InputTypes
@@ -972,10 +1177,1902 @@ export namespace Prisma {
     where?: PriceWhereInput
   }
 
+  /**
+   * ProductCountOutputType without action
+   */
+  export type ProductCountOutputTypeCountTrackerListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TriggerWarningWhereInput
+  }
+
 
   /**
    * Models
    */
+
+  /**
+   * Model TriggerWarning
+   */
+
+  export type AggregateTriggerWarning = {
+    _count: TriggerWarningCountAggregateOutputType | null
+    _avg: TriggerWarningAvgAggregateOutputType | null
+    _sum: TriggerWarningSumAggregateOutputType | null
+    _min: TriggerWarningMinAggregateOutputType | null
+    _max: TriggerWarningMaxAggregateOutputType | null
+  }
+
+  export type TriggerWarningAvgAggregateOutputType = {
+    TargetPrice: number | null
+  }
+
+  export type TriggerWarningSumAggregateOutputType = {
+    TargetPrice: number | null
+  }
+
+  export type TriggerWarningMinAggregateOutputType = {
+    Id: string | null
+    TargetPrice: number | null
+    UserId: string | null
+    ProdId: string | null
+  }
+
+  export type TriggerWarningMaxAggregateOutputType = {
+    Id: string | null
+    TargetPrice: number | null
+    UserId: string | null
+    ProdId: string | null
+  }
+
+  export type TriggerWarningCountAggregateOutputType = {
+    Id: number
+    TargetPrice: number
+    UserId: number
+    ProdId: number
+    _all: number
+  }
+
+
+  export type TriggerWarningAvgAggregateInputType = {
+    TargetPrice?: true
+  }
+
+  export type TriggerWarningSumAggregateInputType = {
+    TargetPrice?: true
+  }
+
+  export type TriggerWarningMinAggregateInputType = {
+    Id?: true
+    TargetPrice?: true
+    UserId?: true
+    ProdId?: true
+  }
+
+  export type TriggerWarningMaxAggregateInputType = {
+    Id?: true
+    TargetPrice?: true
+    UserId?: true
+    ProdId?: true
+  }
+
+  export type TriggerWarningCountAggregateInputType = {
+    Id?: true
+    TargetPrice?: true
+    UserId?: true
+    ProdId?: true
+    _all?: true
+  }
+
+  export type TriggerWarningAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TriggerWarning to aggregate.
+     */
+    where?: TriggerWarningWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TriggerWarnings to fetch.
+     */
+    orderBy?: TriggerWarningOrderByWithRelationInput | TriggerWarningOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TriggerWarningWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TriggerWarnings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TriggerWarnings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TriggerWarnings
+    **/
+    _count?: true | TriggerWarningCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TriggerWarningAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TriggerWarningSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TriggerWarningMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TriggerWarningMaxAggregateInputType
+  }
+
+  export type GetTriggerWarningAggregateType<T extends TriggerWarningAggregateArgs> = {
+        [P in keyof T & keyof AggregateTriggerWarning]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTriggerWarning[P]>
+      : GetScalarType<T[P], AggregateTriggerWarning[P]>
+  }
+
+
+
+
+  export type TriggerWarningGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TriggerWarningWhereInput
+    orderBy?: TriggerWarningOrderByWithAggregationInput | TriggerWarningOrderByWithAggregationInput[]
+    by: TriggerWarningScalarFieldEnum[] | TriggerWarningScalarFieldEnum
+    having?: TriggerWarningScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TriggerWarningCountAggregateInputType | true
+    _avg?: TriggerWarningAvgAggregateInputType
+    _sum?: TriggerWarningSumAggregateInputType
+    _min?: TriggerWarningMinAggregateInputType
+    _max?: TriggerWarningMaxAggregateInputType
+  }
+
+  export type TriggerWarningGroupByOutputType = {
+    Id: string
+    TargetPrice: number
+    UserId: string
+    ProdId: string
+    _count: TriggerWarningCountAggregateOutputType | null
+    _avg: TriggerWarningAvgAggregateOutputType | null
+    _sum: TriggerWarningSumAggregateOutputType | null
+    _min: TriggerWarningMinAggregateOutputType | null
+    _max: TriggerWarningMaxAggregateOutputType | null
+  }
+
+  type GetTriggerWarningGroupByPayload<T extends TriggerWarningGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TriggerWarningGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TriggerWarningGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TriggerWarningGroupByOutputType[P]>
+            : GetScalarType<T[P], TriggerWarningGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TriggerWarningSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Id?: boolean
+    TargetPrice?: boolean
+    UserId?: boolean
+    ProdId?: boolean
+    uRef?: boolean | UserDefaultArgs<ExtArgs>
+    pRef?: boolean | ProductDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["triggerWarning"]>
+
+  export type TriggerWarningSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Id?: boolean
+    TargetPrice?: boolean
+    UserId?: boolean
+    ProdId?: boolean
+    uRef?: boolean | UserDefaultArgs<ExtArgs>
+    pRef?: boolean | ProductDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["triggerWarning"]>
+
+  export type TriggerWarningSelectScalar = {
+    Id?: boolean
+    TargetPrice?: boolean
+    UserId?: boolean
+    ProdId?: boolean
+  }
+
+  export type TriggerWarningInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    uRef?: boolean | UserDefaultArgs<ExtArgs>
+    pRef?: boolean | ProductDefaultArgs<ExtArgs>
+  }
+  export type TriggerWarningIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    uRef?: boolean | UserDefaultArgs<ExtArgs>
+    pRef?: boolean | ProductDefaultArgs<ExtArgs>
+  }
+
+  export type $TriggerWarningPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TriggerWarning"
+    objects: {
+      uRef: Prisma.$UserPayload<ExtArgs>
+      pRef: Prisma.$ProductPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Id: string
+      TargetPrice: number
+      UserId: string
+      ProdId: string
+    }, ExtArgs["result"]["triggerWarning"]>
+    composites: {}
+  }
+
+  type TriggerWarningGetPayload<S extends boolean | null | undefined | TriggerWarningDefaultArgs> = $Result.GetResult<Prisma.$TriggerWarningPayload, S>
+
+  type TriggerWarningCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TriggerWarningFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TriggerWarningCountAggregateInputType | true
+    }
+
+  export interface TriggerWarningDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TriggerWarning'], meta: { name: 'TriggerWarning' } }
+    /**
+     * Find zero or one TriggerWarning that matches the filter.
+     * @param {TriggerWarningFindUniqueArgs} args - Arguments to find a TriggerWarning
+     * @example
+     * // Get one TriggerWarning
+     * const triggerWarning = await prisma.triggerWarning.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TriggerWarningFindUniqueArgs>(args: SelectSubset<T, TriggerWarningFindUniqueArgs<ExtArgs>>): Prisma__TriggerWarningClient<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one TriggerWarning that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {TriggerWarningFindUniqueOrThrowArgs} args - Arguments to find a TriggerWarning
+     * @example
+     * // Get one TriggerWarning
+     * const triggerWarning = await prisma.triggerWarning.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TriggerWarningFindUniqueOrThrowArgs>(args: SelectSubset<T, TriggerWarningFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TriggerWarningClient<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first TriggerWarning that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TriggerWarningFindFirstArgs} args - Arguments to find a TriggerWarning
+     * @example
+     * // Get one TriggerWarning
+     * const triggerWarning = await prisma.triggerWarning.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TriggerWarningFindFirstArgs>(args?: SelectSubset<T, TriggerWarningFindFirstArgs<ExtArgs>>): Prisma__TriggerWarningClient<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first TriggerWarning that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TriggerWarningFindFirstOrThrowArgs} args - Arguments to find a TriggerWarning
+     * @example
+     * // Get one TriggerWarning
+     * const triggerWarning = await prisma.triggerWarning.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TriggerWarningFindFirstOrThrowArgs>(args?: SelectSubset<T, TriggerWarningFindFirstOrThrowArgs<ExtArgs>>): Prisma__TriggerWarningClient<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more TriggerWarnings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TriggerWarningFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TriggerWarnings
+     * const triggerWarnings = await prisma.triggerWarning.findMany()
+     * 
+     * // Get first 10 TriggerWarnings
+     * const triggerWarnings = await prisma.triggerWarning.findMany({ take: 10 })
+     * 
+     * // Only select the `Id`
+     * const triggerWarningWithIdOnly = await prisma.triggerWarning.findMany({ select: { Id: true } })
+     * 
+     */
+    findMany<T extends TriggerWarningFindManyArgs>(args?: SelectSubset<T, TriggerWarningFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a TriggerWarning.
+     * @param {TriggerWarningCreateArgs} args - Arguments to create a TriggerWarning.
+     * @example
+     * // Create one TriggerWarning
+     * const TriggerWarning = await prisma.triggerWarning.create({
+     *   data: {
+     *     // ... data to create a TriggerWarning
+     *   }
+     * })
+     * 
+     */
+    create<T extends TriggerWarningCreateArgs>(args: SelectSubset<T, TriggerWarningCreateArgs<ExtArgs>>): Prisma__TriggerWarningClient<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many TriggerWarnings.
+     * @param {TriggerWarningCreateManyArgs} args - Arguments to create many TriggerWarnings.
+     * @example
+     * // Create many TriggerWarnings
+     * const triggerWarning = await prisma.triggerWarning.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TriggerWarningCreateManyArgs>(args?: SelectSubset<T, TriggerWarningCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TriggerWarnings and returns the data saved in the database.
+     * @param {TriggerWarningCreateManyAndReturnArgs} args - Arguments to create many TriggerWarnings.
+     * @example
+     * // Create many TriggerWarnings
+     * const triggerWarning = await prisma.triggerWarning.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TriggerWarnings and only return the `Id`
+     * const triggerWarningWithIdOnly = await prisma.triggerWarning.createManyAndReturn({ 
+     *   select: { Id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TriggerWarningCreateManyAndReturnArgs>(args?: SelectSubset<T, TriggerWarningCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a TriggerWarning.
+     * @param {TriggerWarningDeleteArgs} args - Arguments to delete one TriggerWarning.
+     * @example
+     * // Delete one TriggerWarning
+     * const TriggerWarning = await prisma.triggerWarning.delete({
+     *   where: {
+     *     // ... filter to delete one TriggerWarning
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TriggerWarningDeleteArgs>(args: SelectSubset<T, TriggerWarningDeleteArgs<ExtArgs>>): Prisma__TriggerWarningClient<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one TriggerWarning.
+     * @param {TriggerWarningUpdateArgs} args - Arguments to update one TriggerWarning.
+     * @example
+     * // Update one TriggerWarning
+     * const triggerWarning = await prisma.triggerWarning.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TriggerWarningUpdateArgs>(args: SelectSubset<T, TriggerWarningUpdateArgs<ExtArgs>>): Prisma__TriggerWarningClient<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more TriggerWarnings.
+     * @param {TriggerWarningDeleteManyArgs} args - Arguments to filter TriggerWarnings to delete.
+     * @example
+     * // Delete a few TriggerWarnings
+     * const { count } = await prisma.triggerWarning.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TriggerWarningDeleteManyArgs>(args?: SelectSubset<T, TriggerWarningDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TriggerWarnings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TriggerWarningUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TriggerWarnings
+     * const triggerWarning = await prisma.triggerWarning.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TriggerWarningUpdateManyArgs>(args: SelectSubset<T, TriggerWarningUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TriggerWarning.
+     * @param {TriggerWarningUpsertArgs} args - Arguments to update or create a TriggerWarning.
+     * @example
+     * // Update or create a TriggerWarning
+     * const triggerWarning = await prisma.triggerWarning.upsert({
+     *   create: {
+     *     // ... data to create a TriggerWarning
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TriggerWarning we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TriggerWarningUpsertArgs>(args: SelectSubset<T, TriggerWarningUpsertArgs<ExtArgs>>): Prisma__TriggerWarningClient<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of TriggerWarnings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TriggerWarningCountArgs} args - Arguments to filter TriggerWarnings to count.
+     * @example
+     * // Count the number of TriggerWarnings
+     * const count = await prisma.triggerWarning.count({
+     *   where: {
+     *     // ... the filter for the TriggerWarnings we want to count
+     *   }
+     * })
+    **/
+    count<T extends TriggerWarningCountArgs>(
+      args?: Subset<T, TriggerWarningCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TriggerWarningCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TriggerWarning.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TriggerWarningAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TriggerWarningAggregateArgs>(args: Subset<T, TriggerWarningAggregateArgs>): Prisma.PrismaPromise<GetTriggerWarningAggregateType<T>>
+
+    /**
+     * Group by TriggerWarning.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TriggerWarningGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TriggerWarningGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TriggerWarningGroupByArgs['orderBy'] }
+        : { orderBy?: TriggerWarningGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TriggerWarningGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTriggerWarningGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TriggerWarning model
+   */
+  readonly fields: TriggerWarningFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TriggerWarning.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TriggerWarningClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    uRef<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    pRef<T extends ProductDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProductDefaultArgs<ExtArgs>>): Prisma__ProductClient<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TriggerWarning model
+   */ 
+  interface TriggerWarningFieldRefs {
+    readonly Id: FieldRef<"TriggerWarning", 'String'>
+    readonly TargetPrice: FieldRef<"TriggerWarning", 'Int'>
+    readonly UserId: FieldRef<"TriggerWarning", 'String'>
+    readonly ProdId: FieldRef<"TriggerWarning", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TriggerWarning findUnique
+   */
+  export type TriggerWarningFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * Filter, which TriggerWarning to fetch.
+     */
+    where: TriggerWarningWhereUniqueInput
+  }
+
+  /**
+   * TriggerWarning findUniqueOrThrow
+   */
+  export type TriggerWarningFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * Filter, which TriggerWarning to fetch.
+     */
+    where: TriggerWarningWhereUniqueInput
+  }
+
+  /**
+   * TriggerWarning findFirst
+   */
+  export type TriggerWarningFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * Filter, which TriggerWarning to fetch.
+     */
+    where?: TriggerWarningWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TriggerWarnings to fetch.
+     */
+    orderBy?: TriggerWarningOrderByWithRelationInput | TriggerWarningOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TriggerWarnings.
+     */
+    cursor?: TriggerWarningWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TriggerWarnings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TriggerWarnings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TriggerWarnings.
+     */
+    distinct?: TriggerWarningScalarFieldEnum | TriggerWarningScalarFieldEnum[]
+  }
+
+  /**
+   * TriggerWarning findFirstOrThrow
+   */
+  export type TriggerWarningFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * Filter, which TriggerWarning to fetch.
+     */
+    where?: TriggerWarningWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TriggerWarnings to fetch.
+     */
+    orderBy?: TriggerWarningOrderByWithRelationInput | TriggerWarningOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TriggerWarnings.
+     */
+    cursor?: TriggerWarningWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TriggerWarnings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TriggerWarnings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TriggerWarnings.
+     */
+    distinct?: TriggerWarningScalarFieldEnum | TriggerWarningScalarFieldEnum[]
+  }
+
+  /**
+   * TriggerWarning findMany
+   */
+  export type TriggerWarningFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * Filter, which TriggerWarnings to fetch.
+     */
+    where?: TriggerWarningWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TriggerWarnings to fetch.
+     */
+    orderBy?: TriggerWarningOrderByWithRelationInput | TriggerWarningOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TriggerWarnings.
+     */
+    cursor?: TriggerWarningWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TriggerWarnings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TriggerWarnings.
+     */
+    skip?: number
+    distinct?: TriggerWarningScalarFieldEnum | TriggerWarningScalarFieldEnum[]
+  }
+
+  /**
+   * TriggerWarning create
+   */
+  export type TriggerWarningCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TriggerWarning.
+     */
+    data: XOR<TriggerWarningCreateInput, TriggerWarningUncheckedCreateInput>
+  }
+
+  /**
+   * TriggerWarning createMany
+   */
+  export type TriggerWarningCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TriggerWarnings.
+     */
+    data: TriggerWarningCreateManyInput | TriggerWarningCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TriggerWarning createManyAndReturn
+   */
+  export type TriggerWarningCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many TriggerWarnings.
+     */
+    data: TriggerWarningCreateManyInput | TriggerWarningCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TriggerWarning update
+   */
+  export type TriggerWarningUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TriggerWarning.
+     */
+    data: XOR<TriggerWarningUpdateInput, TriggerWarningUncheckedUpdateInput>
+    /**
+     * Choose, which TriggerWarning to update.
+     */
+    where: TriggerWarningWhereUniqueInput
+  }
+
+  /**
+   * TriggerWarning updateMany
+   */
+  export type TriggerWarningUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TriggerWarnings.
+     */
+    data: XOR<TriggerWarningUpdateManyMutationInput, TriggerWarningUncheckedUpdateManyInput>
+    /**
+     * Filter which TriggerWarnings to update
+     */
+    where?: TriggerWarningWhereInput
+  }
+
+  /**
+   * TriggerWarning upsert
+   */
+  export type TriggerWarningUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TriggerWarning to update in case it exists.
+     */
+    where: TriggerWarningWhereUniqueInput
+    /**
+     * In case the TriggerWarning found by the `where` argument doesn't exist, create a new TriggerWarning with this data.
+     */
+    create: XOR<TriggerWarningCreateInput, TriggerWarningUncheckedCreateInput>
+    /**
+     * In case the TriggerWarning was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TriggerWarningUpdateInput, TriggerWarningUncheckedUpdateInput>
+  }
+
+  /**
+   * TriggerWarning delete
+   */
+  export type TriggerWarningDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    /**
+     * Filter which TriggerWarning to delete.
+     */
+    where: TriggerWarningWhereUniqueInput
+  }
+
+  /**
+   * TriggerWarning deleteMany
+   */
+  export type TriggerWarningDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TriggerWarnings to delete
+     */
+    where?: TriggerWarningWhereInput
+  }
+
+  /**
+   * TriggerWarning without action
+   */
+  export type TriggerWarningDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model User
+   */
+
+  export type AggregateUser = {
+    _count: UserCountAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  export type UserMinAggregateOutputType = {
+    Id: string | null
+    Email: string | null
+    Password: string | null
+  }
+
+  export type UserMaxAggregateOutputType = {
+    Id: string | null
+    Email: string | null
+    Password: string | null
+  }
+
+  export type UserCountAggregateOutputType = {
+    Id: number
+    Email: number
+    Password: number
+    _all: number
+  }
+
+
+  export type UserMinAggregateInputType = {
+    Id?: true
+    Email?: true
+    Password?: true
+  }
+
+  export type UserMaxAggregateInputType = {
+    Id?: true
+    Email?: true
+    Password?: true
+  }
+
+  export type UserCountAggregateInputType = {
+    Id?: true
+    Email?: true
+    Password?: true
+    _all?: true
+  }
+
+  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which User to aggregate.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Users
+    **/
+    _count?: true | UserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type GetUserAggregateType<T extends UserAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
+  }
+
+
+
+
+  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
+    by: UserScalarFieldEnum[] | UserScalarFieldEnum
+    having?: UserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserCountAggregateInputType | true
+    _min?: UserMinAggregateInputType
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type UserGroupByOutputType = {
+    Id: string
+    Email: string
+    Password: string
+    _count: UserCountAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Id?: boolean
+    Email?: boolean
+    Password?: boolean
+    Triggers?: boolean | User$TriggersArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Id?: boolean
+    Email?: boolean
+    Password?: boolean
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectScalar = {
+    Id?: boolean
+    Email?: boolean
+    Password?: boolean
+  }
+
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Triggers?: boolean | User$TriggersArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "User"
+    objects: {
+      Triggers: Prisma.$TriggerWarningPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Id: string
+      Email: string
+      Password: string
+    }, ExtArgs["result"]["user"]>
+    composites: {}
+  }
+
+  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+
+  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserCountAggregateInputType | true
+    }
+
+  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+    /**
+     * Find zero or one User that matches the filter.
+     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one User that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first User that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first User that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Users that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Users
+     * const users = await prisma.user.findMany()
+     * 
+     * // Get first 10 Users
+     * const users = await prisma.user.findMany({ take: 10 })
+     * 
+     * // Only select the `Id`
+     * const userWithIdOnly = await prisma.user.findMany({ select: { Id: true } })
+     * 
+     */
+    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a User.
+     * @param {UserCreateArgs} args - Arguments to create a User.
+     * @example
+     * // Create one User
+     * const User = await prisma.user.create({
+     *   data: {
+     *     // ... data to create a User
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Users.
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Users and returns the data saved in the database.
+     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Users and only return the `Id`
+     * const userWithIdOnly = await prisma.user.createManyAndReturn({ 
+     *   select: { Id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a User.
+     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * @example
+     * // Delete one User
+     * const User = await prisma.user.delete({
+     *   where: {
+     *     // ... filter to delete one User
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one User.
+     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * @example
+     * // Update one User
+     * const user = await prisma.user.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Users.
+     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * @example
+     * // Delete a few Users
+     * const { count } = await prisma.user.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Users
+     * const user = await prisma.user.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one User.
+     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * @example
+     * // Update or create a User
+     * const user = await prisma.user.upsert({
+     *   create: {
+     *     // ... data to create a User
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the User we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @example
+     * // Count the number of Users
+     * const count = await prisma.user.count({
+     *   where: {
+     *     // ... the filter for the Users we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserCountArgs>(
+      args?: Subset<T, UserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+
+    /**
+     * Group by User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the User model
+   */
+  readonly fields: UserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for User.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Triggers<T extends User$TriggersArgs<ExtArgs> = {}>(args?: Subset<T, User$TriggersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the User model
+   */ 
+  interface UserFieldRefs {
+    readonly Id: FieldRef<"User", 'String'>
+    readonly Email: FieldRef<"User", 'String'>
+    readonly Password: FieldRef<"User", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * User findUnique
+   */
+  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findUniqueOrThrow
+   */
+  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findFirst
+   */
+  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findFirstOrThrow
+   */
+  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findMany
+   */
+  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which Users to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User create
+   */
+  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a User.
+     */
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+  }
+
+  /**
+   * User createMany
+   */
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * User createManyAndReturn
+   */
+  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * User update
+   */
+  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a User.
+     */
+    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    /**
+     * Choose, which User to update.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User updateMany
+   */
+  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+  }
+
+  /**
+   * User upsert
+   */
+  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the User to update in case it exists.
+     */
+    where: UserWhereUniqueInput
+    /**
+     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     */
+    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    /**
+     * In case the User was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+  }
+
+  /**
+   * User delete
+   */
+  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter which User to delete.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User deleteMany
+   */
+  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Users to delete
+     */
+    where?: UserWhereInput
+  }
+
+  /**
+   * User.Triggers
+   */
+  export type User$TriggersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    where?: TriggerWarningWhereInput
+    orderBy?: TriggerWarningOrderByWithRelationInput | TriggerWarningOrderByWithRelationInput[]
+    cursor?: TriggerWarningWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TriggerWarningScalarFieldEnum | TriggerWarningScalarFieldEnum[]
+  }
+
+  /**
+   * User without action
+   */
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+  }
+
 
   /**
    * Model Product
@@ -1208,6 +3305,7 @@ export namespace Prisma {
     ImageUrl?: boolean
     Slug?: boolean
     PriceHistory?: boolean | Product$PriceHistoryArgs<ExtArgs>
+    TrackerList?: boolean | Product$TrackerListArgs<ExtArgs>
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
 
@@ -1237,6 +3335,7 @@ export namespace Prisma {
 
   export type ProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     PriceHistory?: boolean | Product$PriceHistoryArgs<ExtArgs>
+    TrackerList?: boolean | Product$TrackerListArgs<ExtArgs>
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProductIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1245,6 +3344,7 @@ export namespace Prisma {
     name: "Product"
     objects: {
       PriceHistory: Prisma.$PricePayload<ExtArgs>[]
+      TrackerList: Prisma.$TriggerWarningPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       Id: string
@@ -1621,6 +3721,7 @@ export namespace Prisma {
   export interface Prisma__ProductClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     PriceHistory<T extends Product$PriceHistoryArgs<ExtArgs> = {}>(args?: Subset<T, Product$PriceHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PricePayload<ExtArgs>, T, "findMany"> | Null>
+    TrackerList<T extends Product$TrackerListArgs<ExtArgs> = {}>(args?: Subset<T, Product$TrackerListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TriggerWarningPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1990,6 +4091,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PriceScalarFieldEnum | PriceScalarFieldEnum[]
+  }
+
+  /**
+   * Product.TrackerList
+   */
+  export type Product$TrackerListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TriggerWarning
+     */
+    select?: TriggerWarningSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TriggerWarningInclude<ExtArgs> | null
+    where?: TriggerWarningWhereInput
+    orderBy?: TriggerWarningOrderByWithRelationInput | TriggerWarningOrderByWithRelationInput[]
+    cursor?: TriggerWarningWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TriggerWarningScalarFieldEnum | TriggerWarningScalarFieldEnum[]
   }
 
   /**
@@ -2976,6 +5097,25 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+  export const TriggerWarningScalarFieldEnum: {
+    Id: 'Id',
+    TargetPrice: 'TargetPrice',
+    UserId: 'UserId',
+    ProdId: 'ProdId'
+  };
+
+  export type TriggerWarningScalarFieldEnum = (typeof TriggerWarningScalarFieldEnum)[keyof typeof TriggerWarningScalarFieldEnum]
+
+
+  export const UserScalarFieldEnum: {
+    Id: 'Id',
+    Email: 'Email',
+    Password: 'Password'
+  };
+
+  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
   export const ProductScalarFieldEnum: {
     Id: 'Id',
     Title: 'Title',
@@ -3045,6 +5185,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3084,24 +5238,110 @@ export namespace Prisma {
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
-
-
-  /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
   /**
    * Deep Input Types
    */
 
+
+  export type TriggerWarningWhereInput = {
+    AND?: TriggerWarningWhereInput | TriggerWarningWhereInput[]
+    OR?: TriggerWarningWhereInput[]
+    NOT?: TriggerWarningWhereInput | TriggerWarningWhereInput[]
+    Id?: StringFilter<"TriggerWarning"> | string
+    TargetPrice?: IntFilter<"TriggerWarning"> | number
+    UserId?: StringFilter<"TriggerWarning"> | string
+    ProdId?: StringFilter<"TriggerWarning"> | string
+    uRef?: XOR<UserRelationFilter, UserWhereInput>
+    pRef?: XOR<ProductRelationFilter, ProductWhereInput>
+  }
+
+  export type TriggerWarningOrderByWithRelationInput = {
+    Id?: SortOrder
+    TargetPrice?: SortOrder
+    UserId?: SortOrder
+    ProdId?: SortOrder
+    uRef?: UserOrderByWithRelationInput
+    pRef?: ProductOrderByWithRelationInput
+  }
+
+  export type TriggerWarningWhereUniqueInput = Prisma.AtLeast<{
+    Id?: string
+    AND?: TriggerWarningWhereInput | TriggerWarningWhereInput[]
+    OR?: TriggerWarningWhereInput[]
+    NOT?: TriggerWarningWhereInput | TriggerWarningWhereInput[]
+    TargetPrice?: IntFilter<"TriggerWarning"> | number
+    UserId?: StringFilter<"TriggerWarning"> | string
+    ProdId?: StringFilter<"TriggerWarning"> | string
+    uRef?: XOR<UserRelationFilter, UserWhereInput>
+    pRef?: XOR<ProductRelationFilter, ProductWhereInput>
+  }, "Id">
+
+  export type TriggerWarningOrderByWithAggregationInput = {
+    Id?: SortOrder
+    TargetPrice?: SortOrder
+    UserId?: SortOrder
+    ProdId?: SortOrder
+    _count?: TriggerWarningCountOrderByAggregateInput
+    _avg?: TriggerWarningAvgOrderByAggregateInput
+    _max?: TriggerWarningMaxOrderByAggregateInput
+    _min?: TriggerWarningMinOrderByAggregateInput
+    _sum?: TriggerWarningSumOrderByAggregateInput
+  }
+
+  export type TriggerWarningScalarWhereWithAggregatesInput = {
+    AND?: TriggerWarningScalarWhereWithAggregatesInput | TriggerWarningScalarWhereWithAggregatesInput[]
+    OR?: TriggerWarningScalarWhereWithAggregatesInput[]
+    NOT?: TriggerWarningScalarWhereWithAggregatesInput | TriggerWarningScalarWhereWithAggregatesInput[]
+    Id?: StringWithAggregatesFilter<"TriggerWarning"> | string
+    TargetPrice?: IntWithAggregatesFilter<"TriggerWarning"> | number
+    UserId?: StringWithAggregatesFilter<"TriggerWarning"> | string
+    ProdId?: StringWithAggregatesFilter<"TriggerWarning"> | string
+  }
+
+  export type UserWhereInput = {
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    Id?: StringFilter<"User"> | string
+    Email?: StringFilter<"User"> | string
+    Password?: StringFilter<"User"> | string
+    Triggers?: TriggerWarningListRelationFilter
+  }
+
+  export type UserOrderByWithRelationInput = {
+    Id?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+    Triggers?: TriggerWarningOrderByRelationAggregateInput
+  }
+
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
+    Id?: string
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    Email?: StringFilter<"User"> | string
+    Password?: StringFilter<"User"> | string
+    Triggers?: TriggerWarningListRelationFilter
+  }, "Id">
+
+  export type UserOrderByWithAggregationInput = {
+    Id?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+    _count?: UserCountOrderByAggregateInput
+    _max?: UserMaxOrderByAggregateInput
+    _min?: UserMinOrderByAggregateInput
+  }
+
+  export type UserScalarWhereWithAggregatesInput = {
+    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    OR?: UserScalarWhereWithAggregatesInput[]
+    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    Id?: StringWithAggregatesFilter<"User"> | string
+    Email?: StringWithAggregatesFilter<"User"> | string
+    Password?: StringWithAggregatesFilter<"User"> | string
+  }
 
   export type ProductWhereInput = {
     AND?: ProductWhereInput | ProductWhereInput[]
@@ -3117,6 +5357,7 @@ export namespace Prisma {
     ImageUrl?: StringNullableFilter<"Product"> | string | null
     Slug?: StringFilter<"Product"> | string
     PriceHistory?: PriceListRelationFilter
+    TrackerList?: TriggerWarningListRelationFilter
   }
 
   export type ProductOrderByWithRelationInput = {
@@ -3130,6 +5371,7 @@ export namespace Prisma {
     ImageUrl?: SortOrderInput | SortOrder
     Slug?: SortOrder
     PriceHistory?: PriceOrderByRelationAggregateInput
+    TrackerList?: TriggerWarningOrderByRelationAggregateInput
   }
 
   export type ProductWhereUniqueInput = Prisma.AtLeast<{
@@ -3146,6 +5388,7 @@ export namespace Prisma {
     ImageUrl?: StringNullableFilter<"Product"> | string | null
     Slug?: StringFilter<"Product"> | string
     PriceHistory?: PriceListRelationFilter
+    TrackerList?: TriggerWarningListRelationFilter
   }, "Id" | "Link">
 
   export type ProductOrderByWithAggregationInput = {
@@ -3232,6 +5475,99 @@ export namespace Prisma {
     ProdId?: StringWithAggregatesFilter<"Price"> | string
   }
 
+  export type TriggerWarningCreateInput = {
+    Id?: string
+    TargetPrice: number
+    uRef: UserCreateNestedOneWithoutTriggersInput
+    pRef: ProductCreateNestedOneWithoutTrackerListInput
+  }
+
+  export type TriggerWarningUncheckedCreateInput = {
+    Id?: string
+    TargetPrice: number
+    UserId: string
+    ProdId: string
+  }
+
+  export type TriggerWarningUpdateInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    uRef?: UserUpdateOneRequiredWithoutTriggersNestedInput
+    pRef?: ProductUpdateOneRequiredWithoutTrackerListNestedInput
+  }
+
+  export type TriggerWarningUncheckedUpdateInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    UserId?: StringFieldUpdateOperationsInput | string
+    ProdId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TriggerWarningCreateManyInput = {
+    Id?: string
+    TargetPrice: number
+    UserId: string
+    ProdId: string
+  }
+
+  export type TriggerWarningUpdateManyMutationInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type TriggerWarningUncheckedUpdateManyInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    UserId?: StringFieldUpdateOperationsInput | string
+    ProdId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserCreateInput = {
+    Id?: string
+    Email: string
+    Password: string
+    Triggers?: TriggerWarningCreateNestedManyWithoutURefInput
+  }
+
+  export type UserUncheckedCreateInput = {
+    Id?: string
+    Email: string
+    Password: string
+    Triggers?: TriggerWarningUncheckedCreateNestedManyWithoutURefInput
+  }
+
+  export type UserUpdateInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Triggers?: TriggerWarningUpdateManyWithoutURefNestedInput
+  }
+
+  export type UserUncheckedUpdateInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Triggers?: TriggerWarningUncheckedUpdateManyWithoutURefNestedInput
+  }
+
+  export type UserCreateManyInput = {
+    Id?: string
+    Email: string
+    Password: string
+  }
+
+  export type UserUpdateManyMutationInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserUncheckedUpdateManyInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+  }
+
   export type ProductCreateInput = {
     Id?: string
     Title?: string | null
@@ -3243,6 +5579,7 @@ export namespace Prisma {
     ImageUrl?: string | null
     Slug: string
     PriceHistory?: PriceCreateNestedManyWithoutProdRefInput
+    TrackerList?: TriggerWarningCreateNestedManyWithoutPRefInput
   }
 
   export type ProductUncheckedCreateInput = {
@@ -3256,6 +5593,7 @@ export namespace Prisma {
     ImageUrl?: string | null
     Slug: string
     PriceHistory?: PriceUncheckedCreateNestedManyWithoutProdRefInput
+    TrackerList?: TriggerWarningUncheckedCreateNestedManyWithoutPRefInput
   }
 
   export type ProductUpdateInput = {
@@ -3269,6 +5607,7 @@ export namespace Prisma {
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
     PriceHistory?: PriceUpdateManyWithoutProdRefNestedInput
+    TrackerList?: TriggerWarningUpdateManyWithoutPRefNestedInput
   }
 
   export type ProductUncheckedUpdateInput = {
@@ -3282,6 +5621,7 @@ export namespace Prisma {
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
     PriceHistory?: PriceUncheckedUpdateManyWithoutProdRefNestedInput
+    TrackerList?: TriggerWarningUncheckedUpdateManyWithoutPRefNestedInput
   }
 
   export type ProductCreateManyInput = {
@@ -3383,6 +5723,118 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type UserRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type ProductRelationFilter = {
+    is?: ProductWhereInput
+    isNot?: ProductWhereInput
+  }
+
+  export type TriggerWarningCountOrderByAggregateInput = {
+    Id?: SortOrder
+    TargetPrice?: SortOrder
+    UserId?: SortOrder
+    ProdId?: SortOrder
+  }
+
+  export type TriggerWarningAvgOrderByAggregateInput = {
+    TargetPrice?: SortOrder
+  }
+
+  export type TriggerWarningMaxOrderByAggregateInput = {
+    Id?: SortOrder
+    TargetPrice?: SortOrder
+    UserId?: SortOrder
+    ProdId?: SortOrder
+  }
+
+  export type TriggerWarningMinOrderByAggregateInput = {
+    Id?: SortOrder
+    TargetPrice?: SortOrder
+    UserId?: SortOrder
+    ProdId?: SortOrder
+  }
+
+  export type TriggerWarningSumOrderByAggregateInput = {
+    TargetPrice?: SortOrder
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type TriggerWarningListRelationFilter = {
+    every?: TriggerWarningWhereInput
+    some?: TriggerWarningWhereInput
+    none?: TriggerWarningWhereInput
+  }
+
+  export type TriggerWarningOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserCountOrderByAggregateInput = {
+    Id?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+  }
+
+  export type UserMaxOrderByAggregateInput = {
+    Id?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+  }
+
+  export type UserMinOrderByAggregateInput = {
+    Id?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -3475,24 +5927,6 @@ export namespace Prisma {
     Value?: SortOrder
   }
 
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -3548,11 +5982,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type ProductRelationFilter = {
-    is?: ProductWhereInput
-    isNot?: ProductWhereInput
-  }
-
   export type PriceCountOrderByAggregateInput = {
     Id?: SortOrder
     AtDate?: SortOrder
@@ -3596,11 +6025,100 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type UserCreateNestedOneWithoutTriggersInput = {
+    create?: XOR<UserCreateWithoutTriggersInput, UserUncheckedCreateWithoutTriggersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutTriggersInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ProductCreateNestedOneWithoutTrackerListInput = {
+    create?: XOR<ProductCreateWithoutTrackerListInput, ProductUncheckedCreateWithoutTrackerListInput>
+    connectOrCreate?: ProductCreateOrConnectWithoutTrackerListInput
+    connect?: ProductWhereUniqueInput
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneRequiredWithoutTriggersNestedInput = {
+    create?: XOR<UserCreateWithoutTriggersInput, UserUncheckedCreateWithoutTriggersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutTriggersInput
+    upsert?: UserUpsertWithoutTriggersInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTriggersInput, UserUpdateWithoutTriggersInput>, UserUncheckedUpdateWithoutTriggersInput>
+  }
+
+  export type ProductUpdateOneRequiredWithoutTrackerListNestedInput = {
+    create?: XOR<ProductCreateWithoutTrackerListInput, ProductUncheckedCreateWithoutTrackerListInput>
+    connectOrCreate?: ProductCreateOrConnectWithoutTrackerListInput
+    upsert?: ProductUpsertWithoutTrackerListInput
+    connect?: ProductWhereUniqueInput
+    update?: XOR<XOR<ProductUpdateToOneWithWhereWithoutTrackerListInput, ProductUpdateWithoutTrackerListInput>, ProductUncheckedUpdateWithoutTrackerListInput>
+  }
+
+  export type TriggerWarningCreateNestedManyWithoutURefInput = {
+    create?: XOR<TriggerWarningCreateWithoutURefInput, TriggerWarningUncheckedCreateWithoutURefInput> | TriggerWarningCreateWithoutURefInput[] | TriggerWarningUncheckedCreateWithoutURefInput[]
+    connectOrCreate?: TriggerWarningCreateOrConnectWithoutURefInput | TriggerWarningCreateOrConnectWithoutURefInput[]
+    createMany?: TriggerWarningCreateManyURefInputEnvelope
+    connect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+  }
+
+  export type TriggerWarningUncheckedCreateNestedManyWithoutURefInput = {
+    create?: XOR<TriggerWarningCreateWithoutURefInput, TriggerWarningUncheckedCreateWithoutURefInput> | TriggerWarningCreateWithoutURefInput[] | TriggerWarningUncheckedCreateWithoutURefInput[]
+    connectOrCreate?: TriggerWarningCreateOrConnectWithoutURefInput | TriggerWarningCreateOrConnectWithoutURefInput[]
+    createMany?: TriggerWarningCreateManyURefInputEnvelope
+    connect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+  }
+
+  export type TriggerWarningUpdateManyWithoutURefNestedInput = {
+    create?: XOR<TriggerWarningCreateWithoutURefInput, TriggerWarningUncheckedCreateWithoutURefInput> | TriggerWarningCreateWithoutURefInput[] | TriggerWarningUncheckedCreateWithoutURefInput[]
+    connectOrCreate?: TriggerWarningCreateOrConnectWithoutURefInput | TriggerWarningCreateOrConnectWithoutURefInput[]
+    upsert?: TriggerWarningUpsertWithWhereUniqueWithoutURefInput | TriggerWarningUpsertWithWhereUniqueWithoutURefInput[]
+    createMany?: TriggerWarningCreateManyURefInputEnvelope
+    set?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    disconnect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    delete?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    connect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    update?: TriggerWarningUpdateWithWhereUniqueWithoutURefInput | TriggerWarningUpdateWithWhereUniqueWithoutURefInput[]
+    updateMany?: TriggerWarningUpdateManyWithWhereWithoutURefInput | TriggerWarningUpdateManyWithWhereWithoutURefInput[]
+    deleteMany?: TriggerWarningScalarWhereInput | TriggerWarningScalarWhereInput[]
+  }
+
+  export type TriggerWarningUncheckedUpdateManyWithoutURefNestedInput = {
+    create?: XOR<TriggerWarningCreateWithoutURefInput, TriggerWarningUncheckedCreateWithoutURefInput> | TriggerWarningCreateWithoutURefInput[] | TriggerWarningUncheckedCreateWithoutURefInput[]
+    connectOrCreate?: TriggerWarningCreateOrConnectWithoutURefInput | TriggerWarningCreateOrConnectWithoutURefInput[]
+    upsert?: TriggerWarningUpsertWithWhereUniqueWithoutURefInput | TriggerWarningUpsertWithWhereUniqueWithoutURefInput[]
+    createMany?: TriggerWarningCreateManyURefInputEnvelope
+    set?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    disconnect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    delete?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    connect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    update?: TriggerWarningUpdateWithWhereUniqueWithoutURefInput | TriggerWarningUpdateWithWhereUniqueWithoutURefInput[]
+    updateMany?: TriggerWarningUpdateManyWithWhereWithoutURefInput | TriggerWarningUpdateManyWithWhereWithoutURefInput[]
+    deleteMany?: TriggerWarningScalarWhereInput | TriggerWarningScalarWhereInput[]
+  }
+
   export type PriceCreateNestedManyWithoutProdRefInput = {
     create?: XOR<PriceCreateWithoutProdRefInput, PriceUncheckedCreateWithoutProdRefInput> | PriceCreateWithoutProdRefInput[] | PriceUncheckedCreateWithoutProdRefInput[]
     connectOrCreate?: PriceCreateOrConnectWithoutProdRefInput | PriceCreateOrConnectWithoutProdRefInput[]
     createMany?: PriceCreateManyProdRefInputEnvelope
     connect?: PriceWhereUniqueInput | PriceWhereUniqueInput[]
+  }
+
+  export type TriggerWarningCreateNestedManyWithoutPRefInput = {
+    create?: XOR<TriggerWarningCreateWithoutPRefInput, TriggerWarningUncheckedCreateWithoutPRefInput> | TriggerWarningCreateWithoutPRefInput[] | TriggerWarningUncheckedCreateWithoutPRefInput[]
+    connectOrCreate?: TriggerWarningCreateOrConnectWithoutPRefInput | TriggerWarningCreateOrConnectWithoutPRefInput[]
+    createMany?: TriggerWarningCreateManyPRefInputEnvelope
+    connect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
   }
 
   export type PriceUncheckedCreateNestedManyWithoutProdRefInput = {
@@ -3610,8 +6128,11 @@ export namespace Prisma {
     connect?: PriceWhereUniqueInput | PriceWhereUniqueInput[]
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
+  export type TriggerWarningUncheckedCreateNestedManyWithoutPRefInput = {
+    create?: XOR<TriggerWarningCreateWithoutPRefInput, TriggerWarningUncheckedCreateWithoutPRefInput> | TriggerWarningCreateWithoutPRefInput[] | TriggerWarningUncheckedCreateWithoutPRefInput[]
+    connectOrCreate?: TriggerWarningCreateOrConnectWithoutPRefInput | TriggerWarningCreateOrConnectWithoutPRefInput[]
+    createMany?: TriggerWarningCreateManyPRefInputEnvelope
+    connect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -3644,6 +6165,20 @@ export namespace Prisma {
     deleteMany?: PriceScalarWhereInput | PriceScalarWhereInput[]
   }
 
+  export type TriggerWarningUpdateManyWithoutPRefNestedInput = {
+    create?: XOR<TriggerWarningCreateWithoutPRefInput, TriggerWarningUncheckedCreateWithoutPRefInput> | TriggerWarningCreateWithoutPRefInput[] | TriggerWarningUncheckedCreateWithoutPRefInput[]
+    connectOrCreate?: TriggerWarningCreateOrConnectWithoutPRefInput | TriggerWarningCreateOrConnectWithoutPRefInput[]
+    upsert?: TriggerWarningUpsertWithWhereUniqueWithoutPRefInput | TriggerWarningUpsertWithWhereUniqueWithoutPRefInput[]
+    createMany?: TriggerWarningCreateManyPRefInputEnvelope
+    set?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    disconnect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    delete?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    connect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    update?: TriggerWarningUpdateWithWhereUniqueWithoutPRefInput | TriggerWarningUpdateWithWhereUniqueWithoutPRefInput[]
+    updateMany?: TriggerWarningUpdateManyWithWhereWithoutPRefInput | TriggerWarningUpdateManyWithWhereWithoutPRefInput[]
+    deleteMany?: TriggerWarningScalarWhereInput | TriggerWarningScalarWhereInput[]
+  }
+
   export type PriceUncheckedUpdateManyWithoutProdRefNestedInput = {
     create?: XOR<PriceCreateWithoutProdRefInput, PriceUncheckedCreateWithoutProdRefInput> | PriceCreateWithoutProdRefInput[] | PriceUncheckedCreateWithoutProdRefInput[]
     connectOrCreate?: PriceCreateOrConnectWithoutProdRefInput | PriceCreateOrConnectWithoutProdRefInput[]
@@ -3656,6 +6191,20 @@ export namespace Prisma {
     update?: PriceUpdateWithWhereUniqueWithoutProdRefInput | PriceUpdateWithWhereUniqueWithoutProdRefInput[]
     updateMany?: PriceUpdateManyWithWhereWithoutProdRefInput | PriceUpdateManyWithWhereWithoutProdRefInput[]
     deleteMany?: PriceScalarWhereInput | PriceScalarWhereInput[]
+  }
+
+  export type TriggerWarningUncheckedUpdateManyWithoutPRefNestedInput = {
+    create?: XOR<TriggerWarningCreateWithoutPRefInput, TriggerWarningUncheckedCreateWithoutPRefInput> | TriggerWarningCreateWithoutPRefInput[] | TriggerWarningUncheckedCreateWithoutPRefInput[]
+    connectOrCreate?: TriggerWarningCreateOrConnectWithoutPRefInput | TriggerWarningCreateOrConnectWithoutPRefInput[]
+    upsert?: TriggerWarningUpsertWithWhereUniqueWithoutPRefInput | TriggerWarningUpsertWithWhereUniqueWithoutPRefInput[]
+    createMany?: TriggerWarningCreateManyPRefInputEnvelope
+    set?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    disconnect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    delete?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    connect?: TriggerWarningWhereUniqueInput | TriggerWarningWhereUniqueInput[]
+    update?: TriggerWarningUpdateWithWhereUniqueWithoutPRefInput | TriggerWarningUpdateWithWhereUniqueWithoutPRefInput[]
+    updateMany?: TriggerWarningUpdateManyWithWhereWithoutPRefInput | TriggerWarningUpdateManyWithWhereWithoutPRefInput[]
+    deleteMany?: TriggerWarningScalarWhereInput | TriggerWarningScalarWhereInput[]
   }
 
   export type ProductCreateNestedOneWithoutPriceHistoryInput = {
@@ -3690,36 +6239,15 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type NestedEnumkindFilter<$PrismaModel = never> = {
-    equals?: $Enums.kind | EnumkindFieldRefInput<$PrismaModel>
-    in?: $Enums.kind[] | ListEnumkindFieldRefInput<$PrismaModel>
-    notIn?: $Enums.kind[] | ListEnumkindFieldRefInput<$PrismaModel>
-    not?: NestedEnumkindFilter<$PrismaModel> | $Enums.kind
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -3739,7 +6267,7 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -3747,7 +6275,44 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedEnumkindFilter<$PrismaModel = never> = {
+    equals?: $Enums.kind | EnumkindFieldRefInput<$PrismaModel>
+    in?: $Enums.kind[] | ListEnumkindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.kind[] | ListEnumkindFieldRefInput<$PrismaModel>
+    not?: NestedEnumkindFilter<$PrismaModel> | $Enums.kind
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -3829,6 +6394,162 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type UserCreateWithoutTriggersInput = {
+    Id?: string
+    Email: string
+    Password: string
+  }
+
+  export type UserUncheckedCreateWithoutTriggersInput = {
+    Id?: string
+    Email: string
+    Password: string
+  }
+
+  export type UserCreateOrConnectWithoutTriggersInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutTriggersInput, UserUncheckedCreateWithoutTriggersInput>
+  }
+
+  export type ProductCreateWithoutTrackerListInput = {
+    Id?: string
+    Title?: string | null
+    Description?: string | null
+    Value: number
+    Link: string
+    Where: string
+    Kind: $Enums.kind
+    ImageUrl?: string | null
+    Slug: string
+    PriceHistory?: PriceCreateNestedManyWithoutProdRefInput
+  }
+
+  export type ProductUncheckedCreateWithoutTrackerListInput = {
+    Id?: string
+    Title?: string | null
+    Description?: string | null
+    Value: number
+    Link: string
+    Where: string
+    Kind: $Enums.kind
+    ImageUrl?: string | null
+    Slug: string
+    PriceHistory?: PriceUncheckedCreateNestedManyWithoutProdRefInput
+  }
+
+  export type ProductCreateOrConnectWithoutTrackerListInput = {
+    where: ProductWhereUniqueInput
+    create: XOR<ProductCreateWithoutTrackerListInput, ProductUncheckedCreateWithoutTrackerListInput>
+  }
+
+  export type UserUpsertWithoutTriggersInput = {
+    update: XOR<UserUpdateWithoutTriggersInput, UserUncheckedUpdateWithoutTriggersInput>
+    create: XOR<UserCreateWithoutTriggersInput, UserUncheckedCreateWithoutTriggersInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutTriggersInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutTriggersInput, UserUncheckedUpdateWithoutTriggersInput>
+  }
+
+  export type UserUpdateWithoutTriggersInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UserUncheckedUpdateWithoutTriggersInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProductUpsertWithoutTrackerListInput = {
+    update: XOR<ProductUpdateWithoutTrackerListInput, ProductUncheckedUpdateWithoutTrackerListInput>
+    create: XOR<ProductCreateWithoutTrackerListInput, ProductUncheckedCreateWithoutTrackerListInput>
+    where?: ProductWhereInput
+  }
+
+  export type ProductUpdateToOneWithWhereWithoutTrackerListInput = {
+    where?: ProductWhereInput
+    data: XOR<ProductUpdateWithoutTrackerListInput, ProductUncheckedUpdateWithoutTrackerListInput>
+  }
+
+  export type ProductUpdateWithoutTrackerListInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    Title?: NullableStringFieldUpdateOperationsInput | string | null
+    Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Value?: FloatFieldUpdateOperationsInput | number
+    Link?: StringFieldUpdateOperationsInput | string
+    Where?: StringFieldUpdateOperationsInput | string
+    Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
+    ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    Slug?: StringFieldUpdateOperationsInput | string
+    PriceHistory?: PriceUpdateManyWithoutProdRefNestedInput
+  }
+
+  export type ProductUncheckedUpdateWithoutTrackerListInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    Title?: NullableStringFieldUpdateOperationsInput | string | null
+    Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Value?: FloatFieldUpdateOperationsInput | number
+    Link?: StringFieldUpdateOperationsInput | string
+    Where?: StringFieldUpdateOperationsInput | string
+    Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
+    ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    Slug?: StringFieldUpdateOperationsInput | string
+    PriceHistory?: PriceUncheckedUpdateManyWithoutProdRefNestedInput
+  }
+
+  export type TriggerWarningCreateWithoutURefInput = {
+    Id?: string
+    TargetPrice: number
+    pRef: ProductCreateNestedOneWithoutTrackerListInput
+  }
+
+  export type TriggerWarningUncheckedCreateWithoutURefInput = {
+    Id?: string
+    TargetPrice: number
+    ProdId: string
+  }
+
+  export type TriggerWarningCreateOrConnectWithoutURefInput = {
+    where: TriggerWarningWhereUniqueInput
+    create: XOR<TriggerWarningCreateWithoutURefInput, TriggerWarningUncheckedCreateWithoutURefInput>
+  }
+
+  export type TriggerWarningCreateManyURefInputEnvelope = {
+    data: TriggerWarningCreateManyURefInput | TriggerWarningCreateManyURefInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TriggerWarningUpsertWithWhereUniqueWithoutURefInput = {
+    where: TriggerWarningWhereUniqueInput
+    update: XOR<TriggerWarningUpdateWithoutURefInput, TriggerWarningUncheckedUpdateWithoutURefInput>
+    create: XOR<TriggerWarningCreateWithoutURefInput, TriggerWarningUncheckedCreateWithoutURefInput>
+  }
+
+  export type TriggerWarningUpdateWithWhereUniqueWithoutURefInput = {
+    where: TriggerWarningWhereUniqueInput
+    data: XOR<TriggerWarningUpdateWithoutURefInput, TriggerWarningUncheckedUpdateWithoutURefInput>
+  }
+
+  export type TriggerWarningUpdateManyWithWhereWithoutURefInput = {
+    where: TriggerWarningScalarWhereInput
+    data: XOR<TriggerWarningUpdateManyMutationInput, TriggerWarningUncheckedUpdateManyWithoutURefInput>
+  }
+
+  export type TriggerWarningScalarWhereInput = {
+    AND?: TriggerWarningScalarWhereInput | TriggerWarningScalarWhereInput[]
+    OR?: TriggerWarningScalarWhereInput[]
+    NOT?: TriggerWarningScalarWhereInput | TriggerWarningScalarWhereInput[]
+    Id?: StringFilter<"TriggerWarning"> | string
+    TargetPrice?: IntFilter<"TriggerWarning"> | number
+    UserId?: StringFilter<"TriggerWarning"> | string
+    ProdId?: StringFilter<"TriggerWarning"> | string
+  }
+
   export type PriceCreateWithoutProdRefInput = {
     Id?: string
     AtDate?: Date | string
@@ -3848,6 +6569,28 @@ export namespace Prisma {
 
   export type PriceCreateManyProdRefInputEnvelope = {
     data: PriceCreateManyProdRefInput | PriceCreateManyProdRefInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TriggerWarningCreateWithoutPRefInput = {
+    Id?: string
+    TargetPrice: number
+    uRef: UserCreateNestedOneWithoutTriggersInput
+  }
+
+  export type TriggerWarningUncheckedCreateWithoutPRefInput = {
+    Id?: string
+    TargetPrice: number
+    UserId: string
+  }
+
+  export type TriggerWarningCreateOrConnectWithoutPRefInput = {
+    where: TriggerWarningWhereUniqueInput
+    create: XOR<TriggerWarningCreateWithoutPRefInput, TriggerWarningUncheckedCreateWithoutPRefInput>
+  }
+
+  export type TriggerWarningCreateManyPRefInputEnvelope = {
+    data: TriggerWarningCreateManyPRefInput | TriggerWarningCreateManyPRefInput[]
     skipDuplicates?: boolean
   }
 
@@ -3877,6 +6620,22 @@ export namespace Prisma {
     ProdId?: StringFilter<"Price"> | string
   }
 
+  export type TriggerWarningUpsertWithWhereUniqueWithoutPRefInput = {
+    where: TriggerWarningWhereUniqueInput
+    update: XOR<TriggerWarningUpdateWithoutPRefInput, TriggerWarningUncheckedUpdateWithoutPRefInput>
+    create: XOR<TriggerWarningCreateWithoutPRefInput, TriggerWarningUncheckedCreateWithoutPRefInput>
+  }
+
+  export type TriggerWarningUpdateWithWhereUniqueWithoutPRefInput = {
+    where: TriggerWarningWhereUniqueInput
+    data: XOR<TriggerWarningUpdateWithoutPRefInput, TriggerWarningUncheckedUpdateWithoutPRefInput>
+  }
+
+  export type TriggerWarningUpdateManyWithWhereWithoutPRefInput = {
+    where: TriggerWarningScalarWhereInput
+    data: XOR<TriggerWarningUpdateManyMutationInput, TriggerWarningUncheckedUpdateManyWithoutPRefInput>
+  }
+
   export type ProductCreateWithoutPriceHistoryInput = {
     Id?: string
     Title?: string | null
@@ -3887,6 +6646,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    TrackerList?: TriggerWarningCreateNestedManyWithoutPRefInput
   }
 
   export type ProductUncheckedCreateWithoutPriceHistoryInput = {
@@ -3899,6 +6659,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    TrackerList?: TriggerWarningUncheckedCreateNestedManyWithoutPRefInput
   }
 
   export type ProductCreateOrConnectWithoutPriceHistoryInput = {
@@ -3927,6 +6688,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    TrackerList?: TriggerWarningUpdateManyWithoutPRefNestedInput
   }
 
   export type ProductUncheckedUpdateWithoutPriceHistoryInput = {
@@ -3939,12 +6701,43 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    TrackerList?: TriggerWarningUncheckedUpdateManyWithoutPRefNestedInput
+  }
+
+  export type TriggerWarningCreateManyURefInput = {
+    Id?: string
+    TargetPrice: number
+    ProdId: string
+  }
+
+  export type TriggerWarningUpdateWithoutURefInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    pRef?: ProductUpdateOneRequiredWithoutTrackerListNestedInput
+  }
+
+  export type TriggerWarningUncheckedUpdateWithoutURefInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    ProdId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TriggerWarningUncheckedUpdateManyWithoutURefInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    ProdId?: StringFieldUpdateOperationsInput | string
   }
 
   export type PriceCreateManyProdRefInput = {
     Id?: string
     AtDate?: Date | string
     Price: number
+  }
+
+  export type TriggerWarningCreateManyPRefInput = {
+    Id?: string
+    TargetPrice: number
+    UserId: string
   }
 
   export type PriceUpdateWithoutProdRefInput = {
@@ -3965,15 +6758,45 @@ export namespace Prisma {
     Price?: FloatFieldUpdateOperationsInput | number
   }
 
+  export type TriggerWarningUpdateWithoutPRefInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    uRef?: UserUpdateOneRequiredWithoutTriggersNestedInput
+  }
+
+  export type TriggerWarningUncheckedUpdateWithoutPRefInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    UserId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TriggerWarningUncheckedUpdateManyWithoutPRefInput = {
+    Id?: StringFieldUpdateOperationsInput | string
+    TargetPrice?: IntFieldUpdateOperationsInput | number
+    UserId?: StringFieldUpdateOperationsInput | string
+  }
+
 
 
   /**
    * Aliases for legacy arg types
    */
     /**
+     * @deprecated Use UserCountOutputTypeDefaultArgs instead
+     */
+    export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use ProductCountOutputTypeDefaultArgs instead
      */
     export type ProductCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProductCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TriggerWarningDefaultArgs instead
+     */
+    export type TriggerWarningArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TriggerWarningDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use UserDefaultArgs instead
+     */
+    export type UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserDefaultArgs<ExtArgs>
     /**
      * @deprecated Use ProductDefaultArgs instead
      */
