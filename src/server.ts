@@ -1,10 +1,12 @@
+import { number } from "zod";
 import { app } from "./lib/app";
+import { HOST, PORT } from "./lib/env";
 
 
 
 app.listen({
-    port:3678,
-    host:"localhost"
+    port:Number(PORT),
+    host:HOST
 },(err,path)=>{
     console.log(err||path)
 })
