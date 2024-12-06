@@ -8,8 +8,12 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
         description: 'Source API for consuming Hardware Price Tracker WebScrapping Service',
         version: '1.0.0',
       },
-      tags:[{name:"api",description:"Todas as rotas da aplicação"},
-            {name:"Products",description:"Rotas utilizadas para acessar os produtos"}],
+      tags:[
+          {name:"Core",description:"Rotas nescessarias"},
+          {name:"api",description:"Todas as rotas da aplicação"},
+          {name:"Products",description:"Rotas utilizadas para acessar os produtos"},
+          {name:"User",description:"Rotas utilizadas para acessar os usuários da aplicação"},
+        ],
       paths: {
         "/api/products/byStore/:Store/:Page":{
             description:"Rota que retorna todas os produtos dentro de uma loja",
@@ -308,7 +312,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
         "/api/products/trends/:Id":{
             description:"Rota que retorna uma avaliação das tendencias de preço de um produto em especifico.",
             get:{
-                tags:["api","Products"],
+                tags:["api","Products","Core"],
                 parameters:[{
                     name:"Id",
                     description:"Id do produto que se deseja acessar",
@@ -351,7 +355,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
         "/api/products/prices/:Id":{
           description:"Rota utilizada pra retornar o histórico de preços de um determinado produto",
           get:{
-            tags:["api","Products"],
+            tags:["api","Products","Core"],
             parameters:[{
               name:"Id",
               description:"O ID do produto que se deseja acessar",
@@ -408,7 +412,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
         '/api/products/comparasion/:id': {
           description: "Rota utilizada para Comparar o melhor preço de um produto entre diferentes lojas.(Essa rota não está em funcionamento no momento)",
           get: {
-            tags: ['api', 'Products'],
+            tags: ['api', 'Products',"Core"],
             parameters: [
               {
                 name: 'Id',
@@ -459,7 +463,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
         '/api/products/:Category/:Min--:Max/:Store/:Page': {
           description: "Rota utilizada para realizar uma pesquisa de retorno com filtros.",
           get: {
-            tags: ['api', 'Products'],
+            tags: ['api', 'Products',"Core"],
             parameters: [
               {
                 name: 'Max',
@@ -851,6 +855,50 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                     }
                 }
             }
+        },
+        "/api/user/create":{
+          description:"Rota utilizada para fazer um registro de um usuário no banco de dados da aplicação.",
+          post:{
+            tags:["api","User"],
+            requestBody:{
+              description:"Informações utilizadas para criar o usuário",
+              content:{
+                "application/json":{
+                  examples:{
+                    JonDoe:{
+                      value:JSON.parse(`{"Email":"jonDoe@gmail.com","Password":"JonDoePassword"}`)
+                    }
+                  }
+                }
+              }
+            },
+            responses:{
+              201:{
+                description:"Criou com sucesso o usuário",
+                content:{
+                  "application/json":{
+                    examples:{
+                      jonDoe:{
+                        value:JSON.parse(`
+                          {
+  "Description": "Successfully created the user",
+  "data": {
+    "Id": "e8eec215-74f7-463a-9aab-29647f3784f5",
+    "Email": "jonDoe@gmail.com",
+    "Password": "JonDoe"
+  }
+}
+                          `)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "api/user/login":{
+          
         }
       },
     },
