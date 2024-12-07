@@ -898,7 +898,320 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
           }
         },
         "api/user/login":{
-          
+          description:"Rota utilizada para realizar login de um usuário na aplicação. Fará a verificação de um email fornecido e a sua senha e fornecerá em troca o ID do usuário",
+          patch:{
+            tags:["api","User"],
+            responses:{
+              200:{
+                description:"Requisição feita com sucesso",
+                content:{
+                  "application/json":{
+                    examples:{
+                      Response:{
+                        description:"Um exemplo do retorno do ID do usuário que possui email JonDoe@gmail.com com a senha JonDoe",
+                        value:JSON.parse(`{
+                          "Description": "Password e Email foram checados. O login Foi um sucesso!",
+                          "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5"
+                        }`)
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            requestBody:{
+              description:"Corpo que será utilizado para fazer a verificação. Passe um Email cadastrado e a senha desse email.",
+              content:{
+                "application/json":{
+                  examples:{
+                    Request:{
+                      description:"Um exemplo comum de requisção da rota para logar no email JonDoe@gmail.com",
+                      value:JSON.parse(`
+                                                  {
+                            "Email":"jonDoe@gmail.com",
+                            "Password":"JonDoe"
+                        }
+                        `)
+                    }
+                  }
+                }
+              },
+              required:true
+            }
+          }
+        },
+        "/api/products/search/:Query/:Page":{
+          description:"Rota de pesquisa. Retorna uma lista de produtos que contenham o parametro query em suas descrições paginados em 20 elementos por página (definido a partir do parametro page)",
+          get:{
+            description:"Rota de pesquisa. Retorna uma lista de produtos que contenham o parametro query em suas descrições paginados em 20 elementos por página (definido a partir do parametro page)",
+            tags:["api","Products"],
+            parameters:[
+              {
+                name: "Page",
+                description: 'Valor de qual pagina será retornado(20 itens por pagina).',
+                schema: {
+                type: 'integer',
+                },
+                in: 'query',
+              },
+              {
+                name: "Query",
+                description: 'Valor que será utilizado na pesquisa.',
+                schema: {
+                type: 'string',
+                },
+                in: 'query',
+              }
+            ],
+            responses:{
+              200:{
+                description:"Sucesso",
+                content:{
+                  "application/json":{
+                    examples:{
+                      Succes:{
+                        description:"Quando a query foi 'Fonte' e a Page foi '1' ",
+                        value:JSON.parse(`
+                          
+{
+  "Description": "Successfully returned products list from a query",
+  "response": [
+    {
+      "Id": "001ea65f-88f7-431e-a371-5f6958a0c939",
+      "Title": "Fonte Duex Pulse Pro, 850W, ATX 3.1, Full-Modular, Cybenetics Gold, PCIe 5.1, Preto, DXFOPRO850WG3",
+      "Description": "Fonte Duex Pulse Pro, 850W, ATX 3.1, Full-Modular, Cybenetics Gold, PCIe 5.1, Preto, DXFOPRO850WG3",
+      "Value": 799.99,
+      "Link": "https://www.pichau.com.br/fonte-duex-pulse-pro-850w-atx-3-1-full-modular-cybenetics-gold-pcie-5-1-preto-dxfopro850wg3",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/d/x/dxfopro850wg3.jpg",
+      "Slug": "fonte-duex-pulse-pro-850w-atx-31-full-modular-cybenetics-gold-pcie-51-preto-dxfopro850wg3"
+    },
+    {
+      "Id": "01b76354-1470-4426-a9a6-a6e01bcd9bcc",
+      "Title": "Fonte Galax Omega GL500S, 500W, 80 Plus Bronze, Preto, PGO50BOTNATB0",
+      "Description": "Fonte Galax Omega GL500S, 500W, 80 Plus Bronze, Preto, PGO50BOTNATB0",
+      "Value": 411.75,
+      "Link": "https://www.pichau.com.br/fonte-galax-omega-gl500s-500w-80-plus-bronze-preto-pgo50botnatb0",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo50botnatb01.jpg",
+      "Slug": "fonte-galax-omega-gl500s-500w-80-plus-bronze-preto-pgo50botnatb0"
+    },
+    {
+      "Id": "08c97801-a54c-4e55-89a9-6e0db3a49444",
+      "Title": "Fonte MSI MAG A850GL, 850W, ATX 3.0, PCI-E 5.0, Full Modular, 80 Plus Gold, Preta, 306-7ZP8A39-CE0",
+      "Description": "Fonte MSI MAG A850GL, 850W, ATX 3.0, PCI-E 5.0, Full Modular, 80 Plus Gold, Preta, 306-7ZP8A39-CE0",
+      "Value": 976.46,
+      "Link": "https://www.pichau.com.br/fonte-msi-mag-a850gl-850w-atx-3-0-pci-e-5-0-full-modular-80-plus-gold-preta-306-7zp8a39-ce0",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/3/0/306-7zp8a39-ce03.jpg",
+      "Slug": "fonte-msi-mag-a850gl-850w-atx-30-pci-e-50-full-modular-80-plus-gold-preta-306-7zp8a39-ce0"
+    },
+    {
+      "Id": "09922dc0-e1e0-40df-9295-7accfb50cc94",
+      "Title": "Fonte Galax Omega GLX1000, 1000W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1AGPFNAFB0",
+      "Description": "Fonte Galax Omega GLX1000, 1000W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1AGPFNAFB0",
+      "Value": 156,
+      "Link": "https://www.pichau.com.br/fonte-galax-omega-glx1000-1000w-atx-3-0-pcie-5-0-full-modular-80-plus-platinum-pgo1agpfnafb0",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo1agpfnafb02.jpg",
+      "Slug": "fonte-galax-omega-glx1000-1000w-atx-30-pcie-50-full-modular-80-plus-platinum-pgo1agpfnafb0"
+    },
+    {
+      "Id": "0be2f086-cac5-40d4-8ac2-ee49558ab9a1",
+      "Title": "Fonte XPG, Pylon, 650W, 80 Plus Bronze, PFC Ativo, PYLON650B-BKCBR",
+      "Description": "Fonte XPG, Pylon, 650W, 80 Plus Bronze, PFC Ativo, PYLON650B-BKCBR",
+      "Value": 349.9,
+      "Link": "https://www.terabyteshop.com.br/produto/15885/fonte-xpg-pylon-650w-80-plus-bronze-pfc-ativo-75260163",
+      "Where": "hardware",
+      "Kind": "TeraByte",
+      "ImageUrl": "https://img.terabyteshop.com.br/produto/p/fonte-xpg-pylon-650w-80-plus-bronze-pfc-ativo-75260163_108407.png",
+      "Slug": "fonte-xpg-pylon-650w-80-plus-bronze-pfc-ativo-pylon650b-bkcbr"
+    },
+    {
+      "Id": "12e4fd66-48ed-44ce-8dc6-b346058cb9f6",
+      "Title": "Fonte Acer AC1000, 1000W, 80 Plus Gold, Full Modular Preto, ACER-AC1000",
+      "Description": "Fonte Acer AC1000, 1000W, 80 Plus Gold, Full Modular Preto, ACER-AC1000",
+      "Value": 1764.69,
+      "Link": "https://www.pichau.com.br/fonte-acer-ac1000-1000w-80-plus-gold-full-modular-preto-acer-ac1000",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/a/c/acer-ac1000.jpg",
+      "Slug": "fonte-acer-ac1000-1000w-80-plus-gold-full-modular-preto-acer-ac1000"
+    },
+    {
+      "Id": "19566310-59f0-4196-bfc8-77ca84d7c9fa",
+      "Title": "Fonte Seasonic Vertex GX-850, 850W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12851GXAFS",
+      "Description": "Fonte Seasonic Vertex GX-850, 850W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12851GXAFS",
+      "Value": 156,
+      "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-gx-850-850w-atx-3-0-pcie-5-0-full-modular-80-plus-gold-preto-12851gxafs",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12851gxafs2.jpg",
+      "Slug": "fonte-seasonic-vertex-gx-850-850w-atx-30-pcie-50-full-modular-80-plus-gold-preto-12851gxafs"
+    },
+    {
+      "Id": "1ce300d5-0a5f-492a-953c-d13e07928926",
+      "Title": "Fonte Cooler Master V750 SFX Gold, 750W, PCI-E 5.0, Full Modular, 80 Plus Gold, Preto, MPY-7501-SFHAGV-3WO",
+      "Description": "Fonte Cooler Master V750 SFX Gold, 750W, PCI-E 5.0, Full Modular, 80 Plus Gold, Preto, MPY-7501-SFHAGV-3WO",
+      "Value": 1529.4,
+      "Link": "https://www.pichau.com.br/fonte-cooler-master-v750-sfx-gold-750w-pci-e-5-0-full-modular-80-plus-gold-preto-mpy-7501-sfhagv-3wo",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/m/p/mpy-7501-sfhagv-3wo3.jpg",
+      "Slug": "fonte-cooler-master-v750-sfx-gold-750w-pci-e-50-full-modular-80-plus-gold-preto-mpy-7501-sfhagv-3wo"
+    },
+    {
+      "Id": "28a6a7f9-bf0b-4b53-ba1c-86f9d4dbf285",
+      "Title": "Fonte Seasonic Vertex PX-1200, Full-Modular, 1200W, ATX 3.0, PCIe 5.0, 80 Plus Platinum, Preta, 12122PXAFS",
+      "Description": "Fonte Seasonic Vertex PX-1200, Full-Modular, 1200W, ATX 3.0, PCIe 5.0, 80 Plus Platinum, Preta, 12122PXAFS",
+      "Value": 156,
+      "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-px-1200-full-modular-1200w-atx-3-0-pcie-5-0-80-plus-platinum-preta-12122pxafs",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12122pxafs.jpg",
+      "Slug": "fonte-seasonic-vertex-px-1200-full-modular-1200w-atx-30-pcie-50-80-plus-platinum-preta-12122pxafs"
+    },
+    {
+      "Id": "2a1cff32-0f19-4dc1-a21f-bb9ed83723f6",
+      "Title": "Fonte XPG, Core Reactor, 850W, 80 Plus Gold, Modular, PFC Ativo, COREREACTOR850G-BKCBR",
+      "Description": "Fonte XPG, Core Reactor, 850W, 80 Plus Gold, Modular, PFC Ativo, COREREACTOR850G-BKCBR",
+      "Value": 659.9,
+      "Link": "https://www.terabyteshop.com.br/produto/15880/fonte-xpg-core-reactor-850w-80-plus-gold-modular-pfc-ativo-75260040",
+      "Where": "hardware",
+      "Kind": "TeraByte",
+      "ImageUrl": "https://img.terabyteshop.com.br/produto/p/fonte-xpg-core-reactor-850w-80-plus-gold-modular-pfc-ativo-75260040_146874.png",
+      "Slug": "fonte-xpg-core-reactor-850w-80-plus-gold-modular-pfc-ativo-corereactor850g-bkcbr"
+    },
+    {
+      "Id": "2e6b1579-cdb2-4246-9c4a-ad7e06aecfe8",
+      "Title": "Fonte Galax Omega GL650S, 650W, 80 Plus Bronze, Preto, PGO65BOTNATB0",
+      "Description": "Fonte Galax Omega GL650S, 650W, 80 Plus Bronze, Preto, PGO65BOTNATB0",
+      "Value": 517.63,
+      "Link": "https://www.pichau.com.br/fonte-galax-omega-gl650s-650w-80-plus-bronze-preto-pgo65botnatb0",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo65botnatb02.jpg",
+      "Slug": "fonte-galax-omega-gl650s-650w-80-plus-bronze-preto-pgo65botnatb0"
+    },
+    {
+      "Id": "2f565b7c-f82d-46c0-a0d7-f8dc448a9248",
+      "Title": "Fonte Gigabyte UD Gold, 750W, Full Modular, 80 Plus Gold, Preto, GP-UD750GM",
+      "Description": "Fonte Gigabyte UD Gold, 750W, Full Modular, 80 Plus Gold, Preto, GP-UD750GM",
+      "Value": 156,
+      "Link": "https://www.pichau.com.br/fonte-gigabyte-ud-gold-750w-full-modular-80-plus-gold-preto-gp-ud750gm",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/g/p/gp-ud750gm3.jpg",
+      "Slug": "fonte-gigabyte-ud-gold-750w-full-modular-80-plus-gold-preto-gp-ud750gm"
+    },
+    {
+      "Id": "31cd6f38-2eac-4827-b438-c5ed5262e796",
+      "Title": "Gabinete Gamer Cooler Master Ncore 100 Max, Com 1 Fan, Fonte 850W e Water Cooler 120mm, Bronze, NR100-ZNNN85-SL0",
+      "Description": "Gabinete Gamer Cooler Master Ncore 100 Max, Com 1 Fan, Fonte 850W e Water Cooler 120mm, Bronze, NR100-ZNNN85-SL0",
+      "Value": 4117.63,
+      "Link": "https://www.pichau.com.br/gabinete-gamer-cooler-master-ncore-100-max-com-1-fan-fonte-850w-e-water-cooler-120mm-bronze-nr100-znnn85-sl0",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/n/r/nr100-znnn85-sl09_1_1.jpg",
+      "Slug": "gabinete-gamer-cooler-master-ncore-100-max-com-1-fan-fonte-850w-e-water-cooler-120mm-bronze-nr100-znnn85-sl0"
+    },
+    {
+      "Id": "33860449-7f79-4b0e-8e7c-3d89f73f1b60",
+      "Title": "Fonte Redragon RGPS 600W, 80 Plus Bronze, PFC Ativo, Cabo Flat, GC-PS002",
+      "Description": "Fonte Redragon RGPS 600W, 80 Plus Bronze, PFC Ativo, Cabo Flat, GC-PS002",
+      "Value": 299.9,
+      "Link": "https://www.terabyteshop.com.br/produto/13095/fonte-redragon-rgps-600w-80-plus-bronze-pfc-ativo-cabo-flat-gc-ps002",
+      "Where": "hardware",
+      "Kind": "TeraByte",
+      "ImageUrl": "https://img.terabyteshop.com.br/produto/p/fonte-redragon-rgps-600w-80-plus-bronze-pfc-ativo-cabo-flat-gc-ps002_189087.jpg",
+      "Slug": "fonte-redragon-rgps-600w-80-plus-bronze-pfc-ativo-cabo-flat-gc-ps002"
+    },
+    {
+      "Id": "3de1527c-ebaf-4932-aea5-b36fe877f358",
+      "Title": "Fonte BRX Rainbow RGB, 450W, 80 Plus Bronze, PFC Ativo, RB450W",
+      "Description": "Fonte BRX Rainbow RGB, 450W, 80 Plus Bronze, PFC Ativo, RB450W",
+      "Value": 149.9,
+      "Link": "https://www.terabyteshop.com.br/produto/27218/fonte-brx-rainbow-rgb-450w-80-plus-bronze-pfc-ativo-rb450w",
+      "Where": "hardware",
+      "Kind": "TeraByte",
+      "ImageUrl": "https://img.terabyteshop.com.br/produto/p/fonte-brx-rainbow-rgb-450w-80-plus-bronze-pfc-ativo-rb450w_185542.png",
+      "Slug": "fonte-brx-rainbow-rgb-450w-80-plus-bronze-pfc-ativo-rb450w"
+    },
+    {
+      "Id": "41513a75-1a12-412b-a7bd-fa1235076f09",
+      "Title": "Fonte Seasonic S12-500, 500W, 80 Plus Bronze, Preta, SSR-500GB",
+      "Description": "Fonte Seasonic S12-500, 500W, 80 Plus Bronze, Preta, SSR-500GB",
+      "Value": 588.22,
+      "Link": "https://www.pichau.com.br/fonte-seasonic-s12-500-500w-80-plus-bronze-preta-ssr-500gb",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/s/s/ssr-500gb.jpg",
+      "Slug": "fonte-seasonic-s12-500-500w-80-plus-bronze-preta-ssr-500gb"
+    },
+    {
+      "Id": "542c3edb-3645-45ce-b7c1-34620ca770e6",
+      "Title": "Fonte SuperFrame, 850W, 80 Plus Gold, Full Modular, Com Conector PCIe 5.0, PFC Ativo, SF-G850M",
+      "Description": "Fonte SuperFrame, 850W, 80 Plus Gold, Full Modular, Com Conector PCIe 5.0, PFC Ativo, SF-G850M",
+      "Value": 599.9,
+      "Link": "https://www.terabyteshop.com.br/produto/22006/fonte-superframe-850w-80-plus-gold-full-modular-pfc-ativo-sf-g850m",
+      "Where": "hardware",
+      "Kind": "TeraByte",
+      "ImageUrl": "https://img.terabyteshop.com.br/produto/p/fonte-superframe-850w-80-plus-gold-full-modular-pfc-ativo-sf-g850m_178704.jpg",
+      "Slug": "fonte-superframe-850w-80-plus-gold-full-modular-com-conector-pcie-50-pfc-ativo-sf-g850m"
+    },
+    {
+      "Id": "56493c15-8eab-4785-af89-371127a49e29",
+      "Title": "Fonte Galax Omega GLX850, 850W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Gold, PGO85GPTNAFB0",
+      "Description": "Fonte Galax Omega GLX850, 850W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Gold, PGO85GPTNAFB0",
+      "Value": 1058.81,
+      "Link": "https://www.pichau.com.br/fonte-galax-omega-glx850-850w-atx-3-0-pcie-5-0-full-modular-80-plus-gold-pgo85gptnafb0",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo85gptnafb02.jpg",
+      "Slug": "fonte-galax-omega-glx850-850w-atx-30-pcie-50-full-modular-80-plus-gold-pgo85gptnafb0"
+    },
+    {
+      "Id": "582c3718-8fb0-4811-9be7-418a9c4c2baa",
+      "Title": "Fonte Seasonic Prime GX-1000, Full-Modular, 1000W, 80 Plus Gold, Preta, SSR-1000GD",
+      "Description": "Fonte Seasonic Prime GX-1000, Full-Modular, 1000W, 80 Plus Gold, Preta, SSR-1000GD",
+      "Value": 156,
+      "Link": "https://www.pichau.com.br/fonte-seasonic-prime-gx-1000-full-modular-1000w-80-plus-gold-preta-ssr-1000gd",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/s/s/ssr-1000gd2.jpg",
+      "Slug": "fonte-seasonic-prime-gx-1000-full-modular-1000w-80-plus-gold-preta-ssr-1000gd"
+    },
+    {
+      "Id": "599aea1a-87e5-44a8-b35d-c25c3331c7a1",
+      "Title": "Fonte Seasonic Vertex PX-750, ATX 3.0, PCIe 5.0, Full-Modular, 750W, 80 Plus Platinum, Preta, 12751PXAFS",
+      "Description": "Fonte Seasonic Vertex PX-750, ATX 3.0, PCIe 5.0, Full-Modular, 750W, 80 Plus Platinum, Preta, 12751PXAFS",
+      "Value": 156,
+      "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-px-750-atx-3-0-pcie-5-0-full-modular-750w-80-plus-platinum-preta-12751pxafs",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12751pxafs.jpg",
+      "Slug": "fonte-seasonic-vertex-px-750-atx-30-pcie-50-full-modular-750w-80-plus-platinum-preta-12751pxafs"
+    }
+  ],
+  "Config": {
+    "Page": "1",
+    "Query": "Fonte"
+  }
+}
+
+                            
+                          `)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
     },

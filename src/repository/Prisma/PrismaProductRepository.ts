@@ -53,10 +53,14 @@ export class PrismaProductRepository implements ProductRepository{
         
     }
     async returnByPage(Page: number): Promise<Product[]> {
-        return await prisma.product.findMany({
-            take:Page*20,
-            skip:(Page-1)*20
-        })
+        if(Page<0){
+            return await prisma.product.findMany({})
+        }else{
+            return await prisma.product.findMany({
+                take:Page*20,
+                skip:(Page-1)*20
+            })
+        }
     }
     async findByProductByCategory(Category: string,Page:number): Promise<Product[]> {
         return await prisma.product.findMany({

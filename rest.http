@@ -10,8 +10,11 @@ GET http://127.0.0.1:2467/api/products/category/hardware/1
 Content-Type: application/json
 
 ### Listar todos os produtos (página {{Page}})
-GET http://127.0.0.1:2467/api/products/all/1
+GET http://127.0.0.1:2467/api/products/all/-1
 Content-Type: application/json
+
+### Rota de Pesquisa
+GET http://127.0.0.1:2467/api/products/search/Fonte/1
 
 ### Rotas de usuario #####
 

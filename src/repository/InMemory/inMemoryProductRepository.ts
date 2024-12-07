@@ -26,10 +26,13 @@ export class InMemoryProductRepository implements ProductRepository{
         }else{ // do this for dev and test algorithism latter
             return this.itens.filter(iten=>iten.Where == Where)
         }
-
     }
     async returnByPage(Page: number): Promise<Product[]> {
-        return this.itens.slice((Page-1)*20,Page*20)
+        if(Page<0){
+            return this.itens
+        }else{
+            return this.itens.slice((Page-1)*20,Page*20)
+        }
     }
     async findById(Id: string): Promise<Product | null> {
         const finUnique = this.itens.find(iten=>iten.Id == Id);
