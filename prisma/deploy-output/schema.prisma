@@ -60,3 +60,17 @@ model Price {
   prodRef Product @relation(fields: [ProdId], references: [Id])
   ProdId  String
 }
+
+model StaticLink {
+  Id          Int      @id @default(autoincrement())
+  Link        String
+  GeneratedAt DateTime @default(now())
+  Where       String
+}
+
+model Issue {
+  Id     String   @id @default(uuid())
+  When   DateTime @default(now())
+  Reason String?
+  At     String?
+}

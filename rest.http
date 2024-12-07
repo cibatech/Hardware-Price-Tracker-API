@@ -35,6 +35,10 @@ Content-Type: application/json
     "Email":"jonDoe@gmail.com",
     "Password":"JonDoe"
 }
+#### Rotas de Issues #####
+
+GET http://127.0.0.1:2467/api/issues/place/dev:pichau
+
 
 ######## Rotas Requisitos alex ############
 

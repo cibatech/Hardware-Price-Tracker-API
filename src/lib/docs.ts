@@ -13,6 +13,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
           {name:"api",description:"Todas as rotas da aplicação"},
           {name:"Products",description:"Rotas utilizadas para acessar os produtos"},
           {name:"User",description:"Rotas utilizadas para acessar os usuários da aplicação"},
+          {name:"admin",description:"Rotas utilizadas no painel administrativo da aplicação"}
         ],
       paths: {
         "/api/products/byStore/:Store/:Page":{
@@ -427,6 +428,72 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
             responses: {
               200: {
                 description: 'A Informação foi retornada com sucesso.',
+                content:{
+                  "application/json":{
+                    examples:{
+                      Response:{
+                        value:JSON.parse(`
+                            
+{
+  "Description": "Successfully returned Information",
+  "response": {
+    "FindInThreeStores": [
+      {
+        "Id": "16f48407-57c7-45c2-8ce7-ba9ab370a636",
+        "Title": "Fonte Gamer Rise Mode Zeus, 1000W, 80 Plus Platinum, Modular, PFC Ativo, Preto - RM-PSU-01-PA-1000",
+        "Description": "Fonte Gamer Rise Mode Zeus, 1000W, 80 Plus Platinum, Modular, PFC Ativo, Preto - RM-PSU-01-PA-1000",
+        "Value": 679,
+        "Link": "https://www.kabum.com.br/produto/525054/fonte-gamer-rise-mode-zeus-1000w-80-plus-platinum-modular-pfc-ativo-preto-rm-psu-01-pa-1000",
+        "Where": "hardware/fontes",
+        "Kind": "Kabum",
+        "ImageUrl": "https://images.kabum.com.br/produtos/fotos/525054/fonte-gamer-rise-mode-zeus-1000w-platinum-full-modular-pfc-ativo-preto-rm-psu-01-pa-1000_1724078628_m.jpg",
+        "Slug": "fonte-gamer-rise-mode-zeus-1000w-80-plus-platinum-modular-pfc-ativo-preto-rm-psu-01-pa-1000"
+      },
+      {
+        "Id": "09922dc0-e1e0-40df-9295-7accfb50cc94",
+        "Title": "Fonte Galax Omega GLX1000, 1000W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1AGPFNAFB0",
+        "Description": "Fonte Galax Omega GLX1000, 1000W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1AGPFNAFB0",
+        "Value": 156,
+        "Link": "https://www.pichau.com.br/fonte-galax-omega-glx1000-1000w-atx-3-0-pcie-5-0-full-modular-80-plus-platinum-pgo1agpfnafb0",
+        "Where": "hardware",
+        "Kind": "Pichau",
+        "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo1agpfnafb02.jpg",
+        "Slug": "fonte-galax-omega-glx1000-1000w-atx-30-pcie-50-full-modular-80-plus-platinum-pgo1agpfnafb0"
+      },
+      {
+        "Id": "ce48e954-ebf5-46fe-906a-996f1747f5fe",
+        "Title": "Fonte SuperFrame, 1000W, 80 Plus Gold, Full Modular, Com Conector PCIe 5.0, PFC Ativo, SF-G1000M",
+        "Description": "Fonte SuperFrame, 1000W, 80 Plus Gold, Full Modular, Com Conector PCIe 5.0, PFC Ativo, SF-G1000M",
+        "Value": 649.9,
+        "Link": "https://www.terabyteshop.com.br/produto/22007/fonte-superframe-1000w-80-plus-gold-full-modular-pfc-ativo-sf-g1000m",
+        "Where": "hardware",
+        "Kind": "TeraByte",
+        "ImageUrl": "https://img.terabyteshop.com.br/produto/p/fonte-superframe-1000w-80-plus-gold-full-modular-pfc-ativo-sf-g1000m_148889.jpg",
+        "Slug": "fonte-superframe-1000w-80-plus-gold-full-modular-com-conector-pcie-50-pfc-ativo-sf-g1000m"
+      }
+    ],
+    "BestPrice": {
+      "Id": "09922dc0-e1e0-40df-9295-7accfb50cc94",
+      "Title": "Fonte Galax Omega GLX1000, 1000W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1AGPFNAFB0",
+      "Description": "Fonte Galax Omega GLX1000, 1000W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1AGPFNAFB0",
+      "Value": 156,
+      "Link": "https://www.pichau.com.br/fonte-galax-omega-glx1000-1000w-atx-3-0-pcie-5-0-full-modular-80-plus-platinum-pgo1agpfnafb0",
+      "Where": "hardware",
+      "Kind": "Pichau",
+      "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo1agpfnafb02.jpg",
+      "Slug": "fonte-galax-omega-glx1000-1000w-atx-30-pcie-50-full-modular-80-plus-platinum-pgo1agpfnafb0"
+    }
+  },
+  "Config": {
+    "Id": "09922dc0-e1e0-40df-9295-7accfb50cc94"
+  }
+}
+                          
+                          `)
+                      }
+                    }
+                  }
+                }
               },
               404: {
                 content: {
@@ -1212,7 +1279,53 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
               }
             }
           }
-        }
+        },
+        "/api/issues/place/:Place":{
+          description:"Rota utilizada para fazer uma busca de um erro em especifico dentro do banco de dados a partir do código de localização em que o erro foi criado(Place)",
+          get:{
+            description:"Rota utilizada para fazer uma busca de um erro em especifico dentro do banco de dados a partir do código de localização em que o erro foi criado(Place) ",
+            tags:["api","admin"],
+            parameters:[
+              {
+                name:"place",
+                required:true,
+                schema:{
+                  type:"string"
+                },
+                in:"query"
+              }
+            ],
+            responses:{
+              200:{
+                description:"Informações foram retornadas com sucesso",
+                content:{
+                  "application/json":{
+                    examples:{
+                      Response:{
+                        value:JSON.parse(`
+                            {
+                              "DescriptioN": "Successfully returned response list",
+                              "response": [
+                                {
+                                  "Id": "6211465b-a4a9-4394-8b43-aac80497a2d8",
+                                  "When": "2024-12-07T20:23:22.341Z",
+                                  "Reason": "TimeOut At puppeteer",
+                                  "At": "dev:pichau"
+                                }
+                              ],
+                              "config": {
+                                "Place": "dev:pichau"
+                              }
+                            }
+                          `)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        } 
       },
     },
   }

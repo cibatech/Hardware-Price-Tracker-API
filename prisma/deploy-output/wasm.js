@@ -154,6 +154,20 @@ exports.Prisma.PriceScalarFieldEnum = {
   ProdId: 'ProdId'
 };
 
+exports.Prisma.StaticLinkScalarFieldEnum = {
+  Id: 'Id',
+  Link: 'Link',
+  GeneratedAt: 'GeneratedAt',
+  Where: 'Where'
+};
+
+exports.Prisma.IssueScalarFieldEnum = {
+  Id: 'Id',
+  When: 'When',
+  Reason: 'Reason',
+  At: 'At'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -178,7 +192,9 @@ exports.Prisma.ModelName = {
   TriggerWarning: 'TriggerWarning',
   User: 'User',
   Product: 'Product',
-  Price: 'Price'
+  Price: 'Price',
+  StaticLink: 'StaticLink',
+  Issue: 'Issue'
 };
 
 /**

@@ -85,7 +85,7 @@ describe("Good Case",()=>{
             Id:"1"
         });
 
-        // console.log(ProdRepo)
+        console.log(ProdRepo)
         expect(resp.BestPrice.Value).toBe(1500)
     })
     
