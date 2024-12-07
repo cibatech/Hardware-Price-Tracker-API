@@ -47,8 +47,9 @@ model Product {
 
   Slug String //Core key to the product
 
-  PriceHistory Price[]
-  TrackerList  TriggerWarning[]
+  onInstallment String? //Preço a prestação
+  PriceHistory  Price[]
+  TrackerList   TriggerWarning[]
 }
 
 model Price {

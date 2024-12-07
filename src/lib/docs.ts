@@ -311,7 +311,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
             }
         },
         "/api/products/trends/:Id":{
-            description:"Rota que retorna uma avaliação das tendencias de preço de um produto em especifico.",
+            description:"Rota que retorna uma avaliação das tendencias de preço de um produto em especifico. Enum Good,Bad e Normal",
             get:{
                 tags:["api","Products","Core"],
                 parameters:[{

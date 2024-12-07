@@ -3276,6 +3276,7 @@ export namespace Prisma {
     Kind: $Enums.kind | null
     ImageUrl: string | null
     Slug: string | null
+    onInstallment: string | null
   }
 
   export type ProductMaxAggregateOutputType = {
@@ -3288,6 +3289,7 @@ export namespace Prisma {
     Kind: $Enums.kind | null
     ImageUrl: string | null
     Slug: string | null
+    onInstallment: string | null
   }
 
   export type ProductCountAggregateOutputType = {
@@ -3300,6 +3302,7 @@ export namespace Prisma {
     Kind: number
     ImageUrl: number
     Slug: number
+    onInstallment: number
     _all: number
   }
 
@@ -3322,6 +3325,7 @@ export namespace Prisma {
     Kind?: true
     ImageUrl?: true
     Slug?: true
+    onInstallment?: true
   }
 
   export type ProductMaxAggregateInputType = {
@@ -3334,6 +3338,7 @@ export namespace Prisma {
     Kind?: true
     ImageUrl?: true
     Slug?: true
+    onInstallment?: true
   }
 
   export type ProductCountAggregateInputType = {
@@ -3346,6 +3351,7 @@ export namespace Prisma {
     Kind?: true
     ImageUrl?: true
     Slug?: true
+    onInstallment?: true
     _all?: true
   }
 
@@ -3445,6 +3451,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl: string | null
     Slug: string
+    onInstallment: string | null
     _count: ProductCountAggregateOutputType | null
     _avg: ProductAvgAggregateOutputType | null
     _sum: ProductSumAggregateOutputType | null
@@ -3476,6 +3483,7 @@ export namespace Prisma {
     Kind?: boolean
     ImageUrl?: boolean
     Slug?: boolean
+    onInstallment?: boolean
     PriceHistory?: boolean | Product$PriceHistoryArgs<ExtArgs>
     TrackerList?: boolean | Product$TrackerListArgs<ExtArgs>
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
@@ -3491,6 +3499,7 @@ export namespace Prisma {
     Kind?: boolean
     ImageUrl?: boolean
     Slug?: boolean
+    onInstallment?: boolean
   }, ExtArgs["result"]["product"]>
 
   export type ProductSelectScalar = {
@@ -3503,6 +3512,7 @@ export namespace Prisma {
     Kind?: boolean
     ImageUrl?: boolean
     Slug?: boolean
+    onInstallment?: boolean
   }
 
   export type ProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3528,6 +3538,7 @@ export namespace Prisma {
       Kind: $Enums.kind
       ImageUrl: string | null
       Slug: string
+      onInstallment: string | null
     }, ExtArgs["result"]["product"]>
     composites: {}
   }
@@ -3932,6 +3943,7 @@ export namespace Prisma {
     readonly Kind: FieldRef<"Product", 'kind'>
     readonly ImageUrl: FieldRef<"Product", 'String'>
     readonly Slug: FieldRef<"Product", 'String'>
+    readonly onInstallment: FieldRef<"Product", 'String'>
   }
     
 
@@ -7063,7 +7075,8 @@ export namespace Prisma {
     Where: 'Where',
     Kind: 'Kind',
     ImageUrl: 'ImageUrl',
-    Slug: 'Slug'
+    Slug: 'Slug',
+    onInstallment: 'onInstallment'
   };
 
   export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
@@ -7314,6 +7327,7 @@ export namespace Prisma {
     Kind?: EnumkindFilter<"Product"> | $Enums.kind
     ImageUrl?: StringNullableFilter<"Product"> | string | null
     Slug?: StringFilter<"Product"> | string
+    onInstallment?: StringNullableFilter<"Product"> | string | null
     PriceHistory?: PriceListRelationFilter
     TrackerList?: TriggerWarningListRelationFilter
   }
@@ -7328,6 +7342,7 @@ export namespace Prisma {
     Kind?: SortOrder
     ImageUrl?: SortOrderInput | SortOrder
     Slug?: SortOrder
+    onInstallment?: SortOrderInput | SortOrder
     PriceHistory?: PriceOrderByRelationAggregateInput
     TrackerList?: TriggerWarningOrderByRelationAggregateInput
   }
@@ -7345,6 +7360,7 @@ export namespace Prisma {
     Kind?: EnumkindFilter<"Product"> | $Enums.kind
     ImageUrl?: StringNullableFilter<"Product"> | string | null
     Slug?: StringFilter<"Product"> | string
+    onInstallment?: StringNullableFilter<"Product"> | string | null
     PriceHistory?: PriceListRelationFilter
     TrackerList?: TriggerWarningListRelationFilter
   }, "Id" | "Link">
@@ -7359,6 +7375,7 @@ export namespace Prisma {
     Kind?: SortOrder
     ImageUrl?: SortOrderInput | SortOrder
     Slug?: SortOrder
+    onInstallment?: SortOrderInput | SortOrder
     _count?: ProductCountOrderByAggregateInput
     _avg?: ProductAvgOrderByAggregateInput
     _max?: ProductMaxOrderByAggregateInput
@@ -7379,6 +7396,7 @@ export namespace Prisma {
     Kind?: EnumkindWithAggregatesFilter<"Product"> | $Enums.kind
     ImageUrl?: StringNullableWithAggregatesFilter<"Product"> | string | null
     Slug?: StringWithAggregatesFilter<"Product"> | string
+    onInstallment?: StringNullableWithAggregatesFilter<"Product"> | string | null
   }
 
   export type PriceWhereInput = {
@@ -7632,6 +7650,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    onInstallment?: string | null
     PriceHistory?: PriceCreateNestedManyWithoutProdRefInput
     TrackerList?: TriggerWarningCreateNestedManyWithoutPRefInput
   }
@@ -7646,6 +7665,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    onInstallment?: string | null
     PriceHistory?: PriceUncheckedCreateNestedManyWithoutProdRefInput
     TrackerList?: TriggerWarningUncheckedCreateNestedManyWithoutPRefInput
   }
@@ -7660,6 +7680,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    onInstallment?: NullableStringFieldUpdateOperationsInput | string | null
     PriceHistory?: PriceUpdateManyWithoutProdRefNestedInput
     TrackerList?: TriggerWarningUpdateManyWithoutPRefNestedInput
   }
@@ -7674,6 +7695,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    onInstallment?: NullableStringFieldUpdateOperationsInput | string | null
     PriceHistory?: PriceUncheckedUpdateManyWithoutProdRefNestedInput
     TrackerList?: TriggerWarningUncheckedUpdateManyWithoutPRefNestedInput
   }
@@ -7688,6 +7710,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    onInstallment?: string | null
   }
 
   export type ProductUpdateManyMutationInput = {
@@ -7700,6 +7723,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    onInstallment?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ProductUncheckedUpdateManyInput = {
@@ -7712,6 +7736,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    onInstallment?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PriceCreateInput = {
@@ -8042,6 +8067,7 @@ export namespace Prisma {
     Kind?: SortOrder
     ImageUrl?: SortOrder
     Slug?: SortOrder
+    onInstallment?: SortOrder
   }
 
   export type ProductAvgOrderByAggregateInput = {
@@ -8058,6 +8084,7 @@ export namespace Prisma {
     Kind?: SortOrder
     ImageUrl?: SortOrder
     Slug?: SortOrder
+    onInstallment?: SortOrder
   }
 
   export type ProductMinOrderByAggregateInput = {
@@ -8070,6 +8097,7 @@ export namespace Prisma {
     Kind?: SortOrder
     ImageUrl?: SortOrder
     Slug?: SortOrder
+    onInstallment?: SortOrder
   }
 
   export type ProductSumOrderByAggregateInput = {
@@ -8620,6 +8648,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    onInstallment?: string | null
     PriceHistory?: PriceCreateNestedManyWithoutProdRefInput
   }
 
@@ -8633,6 +8662,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    onInstallment?: string | null
     PriceHistory?: PriceUncheckedCreateNestedManyWithoutProdRefInput
   }
 
@@ -8685,6 +8715,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    onInstallment?: NullableStringFieldUpdateOperationsInput | string | null
     PriceHistory?: PriceUpdateManyWithoutProdRefNestedInput
   }
 
@@ -8698,6 +8729,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    onInstallment?: NullableStringFieldUpdateOperationsInput | string | null
     PriceHistory?: PriceUncheckedUpdateManyWithoutProdRefNestedInput
   }
 
@@ -8845,6 +8877,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    onInstallment?: string | null
     TrackerList?: TriggerWarningCreateNestedManyWithoutPRefInput
   }
 
@@ -8858,6 +8891,7 @@ export namespace Prisma {
     Kind: $Enums.kind
     ImageUrl?: string | null
     Slug: string
+    onInstallment?: string | null
     TrackerList?: TriggerWarningUncheckedCreateNestedManyWithoutPRefInput
   }
 
@@ -8887,6 +8921,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    onInstallment?: NullableStringFieldUpdateOperationsInput | string | null
     TrackerList?: TriggerWarningUpdateManyWithoutPRefNestedInput
   }
 
@@ -8900,6 +8935,7 @@ export namespace Prisma {
     Kind?: EnumkindFieldUpdateOperationsInput | $Enums.kind
     ImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     Slug?: StringFieldUpdateOperationsInput | string
+    onInstallment?: NullableStringFieldUpdateOperationsInput | string | null
     TrackerList?: TriggerWarningUncheckedUpdateManyWithoutPRefNestedInput
   }
 

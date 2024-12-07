@@ -144,7 +144,8 @@ exports.Prisma.ProductScalarFieldEnum = {
   Where: 'Where',
   Kind: 'Kind',
   ImageUrl: 'ImageUrl',
-  Slug: 'Slug'
+  Slug: 'Slug',
+  onInstallment: 'onInstallment'
 };
 
 exports.Prisma.PriceScalarFieldEnum = {

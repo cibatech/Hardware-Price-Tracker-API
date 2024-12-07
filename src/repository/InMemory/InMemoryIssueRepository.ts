@@ -19,4 +19,7 @@ export class InMemoryIssuesRepository implements IssuesRepository {
   async findByAt(at: string): Promise<Issue[]> {
     return this.issues.filter(issue => issue.At === at);
   }
+  async findAll(Page: number): Promise<Issue[]> {
+    return this.issues.slice((Page-1)*20,Page*20);
+  }
 }
