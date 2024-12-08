@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import {GETIssueListByDateController,GETIssueListByAtController } from "../Controllers";
+import {GETIssueListByDateController,GETIssueListByAtController,GETIssuesListPaginatedController } from "../Controllers";
 import {  } from "../../services/Issues/GetIssuesListByDateService";
 
 export async function IssuesRouter(app:FastifyInstance) {
@@ -12,5 +12,10 @@ export async function IssuesRouter(app:FastifyInstance) {
         method:"GET",
         url:"/place/:Place",
         handler:GETIssueListByAtController
+    })
+    app.route({
+        method:"GET",
+        url:"/:Page",
+        handler:GETIssuesListPaginatedController
     })
 }

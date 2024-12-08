@@ -7,7 +7,17 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
         title: 'HPT - API',
         description: 'Source API for consuming Hardware Price Tracker WebScrapping Service',
         version: '1.0.0',
+        contact:{
+          email:"euthierrir@gmail.com",
+          name:"Ciringa_men",url:"https://github.com/ciringa"
+        },
+        
       },
+      servers:[
+        {description:"Aplicação de comparação de preços",url:"https://github.com/cibatech/Hardware-Price-Tracker-App"},
+        {description:"Painel administrativo",url:"https://github.com/cibatech/Hardware-Price-Tracker-Dashboard"},
+        {description:"WebScrapping",url:"https://github.com/cibatech/Hardware-Price-Tracker-Dashboard"}
+      ],
       tags:[
           {name:"Core",description:"Rotas nescessarias"},
           {name:"api",description:"Todas as rotas da aplicação"},
@@ -1280,6 +1290,50 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
             }
           }
         },
+        "/api/issues/:Page":{
+          description:"Rota utilizada para retornar todas as issues registradas dentro do banco de dados",
+          get:{
+            parameters:[              
+                {
+                name: "Page",
+                description: 'Valor de qual pagina será retornado(20 itens por pagina).',
+                schema: {
+                type: 'integer',
+                },
+                in: 'query',
+                }
+              ],
+            description:"Rota utilizada para retornar todas as issues registradas dentro do banco de dados",
+            tags:["api","admin"],
+            responses:{
+              200:{
+                description:"Rota finalizada com sucesso",
+                content:{
+                  "application/json":{
+                    examples:{
+                      Response:{
+                        value:JSON.parse(`{
+  "DescriptioN": "Successfully returned response list",
+  "response": [
+    {
+      "Id": "6211465b-a4a9-4394-8b43-aac80497a2d8",
+      "When": "2024-12-07T20:23:22.341Z",
+      "Reason": "TimeOut At puppeteer",
+      "At": "dev:pichau"
+    }
+  ],
+  "config": {
+    "Page": "1"
+  }
+}`)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "/api/issues/place/:Place":{
           description:"Rota utilizada para fazer uma busca de um erro em especifico dentro do banco de dados a partir do código de localização em que o erro foi criado(Place)",
           get:{
@@ -1325,7 +1379,61 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
               }
             }
           }
-        } 
+        },
+        "api/tracker/create":{
+          description:"Rota utilizada para criar um tracker a partir de um produto e um usuário. Um tracker é uma entidade que sera utilizada para alertar o usuário quando o preço de um produto estiver do seu agrado",
+          post:{
+            tags:["api","User"],
+            requestBody:{
+              description:"Corpo da requisição que sera utilizado para criar o tracker. entregue um preço, um id de produto e um id de usuário como demonstrado no exemplo",
+              required:true,
+              content:{
+                "application/json":{
+                  examples:{
+                    Basic:{
+                      value:JSON.parse(`
+                        {
+    "TargetPrice":200,
+    "ProdId":"0910beb5-489c-4428-9378-62492e58503a",
+    "UserId":"e8eec215-74f7-463a-9aab-29647f3784f5"
+}`)
+                    }
+                  }
+                }
+              },
+              summary:"ProdId:Id do produto, UserId:id do usuário, TriggerValue:valor que enviara o alerta se alcançado"
+            },
+            responses:{
+              201:{
+                description:"Sucesso na criação do tracker",
+                content:{
+                  "application/json":{
+                    examples:{
+                      Response:{
+                        value:JSON.parse(`
+{
+  "Description": "Successfully created a PriceTracker",
+  "response": {
+    "Id": "fceb60df-2aab-4ffb-974e-c950b9c5c76e",
+    "TargetPrice": 200,
+    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
+    "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+  },
+  "config": {
+    "ProdId": "0910beb5-489c-4428-9378-62492e58503a",
+    "TargetPrice": 200,
+    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5"
+  }
+}`)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+        
+        }
       },
     },
   }

@@ -26,7 +26,8 @@ describe("Good Case",()=>{
                     max:10000,
                     min:100
                 }),
-                Where:Choose(["hardware","perifericos"])
+                Where:Choose(["hardware","perifericos"]),
+                onInstallment:"12 vezes de 69,90"
             })   
         }
         

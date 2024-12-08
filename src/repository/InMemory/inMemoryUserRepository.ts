@@ -4,7 +4,7 @@ import { UserRepository } from "../UserRepository";
 import { string } from "zod";
 
 export class InMemoryUserRepository implements UserRepository {
-    private itens: User[] = [];
+    public itens: User[] = [];
 
     async Create(data: Prisma.UserCreateInput): Promise<User> {
         const newUser: User = {

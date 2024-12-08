@@ -26,7 +26,8 @@ describe("Good Case",()=>{
               Slug: "en-random-default-1",
               Title: "Produto Incrível 1",
               Value: 1500,
-              Where: "https://example.com/store1"
+              Where: "https://example.com/store1",
+              onInstallment:"12 vezes de 69,90"
             },
             {
               Description: "Lenovo Thinkpad t440",
@@ -37,7 +38,8 @@ describe("Good Case",()=>{
               Slug: "en-random-default-2",
               Title: "Produto Fantástico 2",
               Value: 2500,
-              Where: "https://example.com/store2"
+              Where: "https://example.com/store2",
+              onInstallment:"12 vezes de 69,90"
             },
             {
               Description: "t440 thinkpad lenovo",
@@ -48,7 +50,8 @@ describe("Good Case",()=>{
               Slug: "en-random-default-3",
               Title: "Produto Maravilhoso 3",
               Value: 3499,
-              Where: "https://example.com/store3"
+              Where: "https://example.com/store3",
+              onInstallment:"12 vezes de 69,90"
             },
             {
               Description: "Lenovo t440 thinkpad",
@@ -59,7 +62,8 @@ describe("Good Case",()=>{
               Slug: "en-random-default-4",
               Title: "Produto Inovador 4",
               Value: 1800,
-              Where: "https://example.com/store4"
+              Where: "https://example.com/store4",
+              onInstallment:"12 vezes de 69,90"
             },
             {
               Description: "Lenovo Thinkpad Linha t440",
@@ -70,7 +74,8 @@ describe("Good Case",()=>{
               Slug: "en-random-default-5",
               Title: "Produto Exclusivo 5",
               Value: 2999,
-              Where: "https://example.com/store5"
+              Where: "https://example.com/store5",
+              onInstallment:"12 vezes de 69,90"
             }
           ];
           //joga os produtos dentro para teste
@@ -85,7 +90,7 @@ describe("Good Case",()=>{
             Id:"1"
         });
 
-        console.log(ProdRepo)
+        // console.log(ProdRepo)
         expect(resp.BestPrice.Value).toBe(1500)
     })
     

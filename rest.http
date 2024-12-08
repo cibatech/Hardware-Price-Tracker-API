@@ -35,10 +35,25 @@ Content-Type: application/json
     "Email":"jonDoe@gmail.com",
     "Password":"JonDoe"
 }
+
+#### Rotas de tracking #####
+
+### Criar Price Tracker
+POST http://127.0.0.1:2467/api/tracker/create
+Content-Type: application/json
+
+{
+    "TargetPrice":200,
+    "ProdId":"0910beb5-489c-4428-9378-62492e58503a",
+    "UserId":"e8eec215-74f7-463a-9aab-29647f3784f5"
+}
+
 #### Rotas de Issues #####
 
 GET http://127.0.0.1:2467/api/issues/place/dev:pichau
 
+####
+GET http://127.0.0.1:2467/api/issues/1
 
 ######## Rotas Requisitos alex ############
 

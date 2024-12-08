@@ -1,0 +1,15 @@
+
+{
+  "Description": "Successfully created a PriceTracker",
+  "response": {
+    "Id": "fceb60df-2aab-4ffb-974e-c950b9c5c76e",
+    "TargetPrice": 200,
+    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
+    "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+  },
+  "config": {
+    "ProdId": "0910beb5-489c-4428-9378-62492e58503a",
+    "TargetPrice": 200,
+    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5"
+  }
+}
