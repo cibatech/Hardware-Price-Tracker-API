@@ -607,7 +607,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                                                             "Slug": "pasta-termica-snowdog-husky-128wmk-3g-snowd-3g"
                                                         }
                                 `)
-                            ] },
+                            ], TotalListLenght:34 },
                           },
                         },
                       },
