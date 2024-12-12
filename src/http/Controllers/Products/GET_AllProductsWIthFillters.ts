@@ -7,12 +7,13 @@ import { InvalidParameterError } from "../../../services/Error/InvalidParameterE
 export async function GETProductsListWithFilltersController(req:FastifyRequest,res:FastifyReply) {
     const service = new GetProductsByFilterUseCase(new PrismaProductRepository);
     
-    const {Page,Category,Max,Min,Store} = z.object({
+    const {Page,Category,Max,Min,Store,Query} = z.object({
         Page:z.string(),
         Category:z.string(),
         Min:z.string(),
         Max:z.string(),
         Store:z.enum(["TeraByte","Pichau","Kabum","null"]),
+        Query:z.string()
 
     }).parse(req.params)
     
@@ -23,14 +24,16 @@ export async function GETProductsListWithFilltersController(req:FastifyRequest,r
             Max:Max=="!null"?Number(Max):null,
             Category:Category?Category:null,
             Min:Min!="null"?Number(Min):null,
-            Store:Store!="null"?Store:null
+            Store:Store!="null"?Store:null,
+            Query:Query!="null"?Query:null
         })
+        
 
         res.status(200).send({
             Description:"Successfully returned products list",
             response,
             Config:{
-                Page
+                Page,Query,Store,Min,Max
             }
         })
     }catch(err){

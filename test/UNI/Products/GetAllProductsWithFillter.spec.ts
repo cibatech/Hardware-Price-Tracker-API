@@ -36,7 +36,7 @@ describe("Good Case",()=>{
     it("Should be able to Return the products with the specified category",async()=>{
         const resp = await SUT.execute({
             Category:"hardware",Store:null,
-            Page:1,Max:null, Min:null
+            Page:1,Max:null, Min:null,Query:null
         })
 
         expect(resp.Return.TotalList[0].Where).toBe("hardware")
@@ -44,18 +44,26 @@ describe("Good Case",()=>{
     it("Should be able to Return the products with the specified Store",async()=>{
         const resp = await SUT.execute({
             Category:null,Store:"Kabum",
-            Page:1,Max:null, Min:null
+            Page:1,Max:null, Min:null,Query:null
         })
 
         expect(resp.Return.TotalList[0].Kind).toBe("Kabum")
     })
     it("Should be able to return all the products between min and max",async()=>{
         const resp = await SUT.execute({
-            Category:null,Min:100, Max:5000,Page:1,Store:null
+            Category:null,Min:100, Max:5000,Page:1,Store:null,Query:null
         })
 
         expect(resp.Return.TotalList[0].Value).toBeGreaterThan(100)
         expect(resp.Return.TotalList[0].Value).toBeLessThan(10000)
+    })
+    it("Should be able to return all the products with the search query",async()=>{
+        const resp = await SUT.execute({
+            Category:null,Store:null,
+            Page:1,Max:null, Min:null,Query:"A"
+        })
+
+        expect(resp.Return.TotalList[0].Description).toContain("A")
     })
 
 })

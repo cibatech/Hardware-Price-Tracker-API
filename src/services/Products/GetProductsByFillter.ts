@@ -7,13 +7,17 @@ interface GetProductsByFilterRequest{
     Page:number,
     Min:number | null,
     Max:number | null,
-    Store:kind | null
+    Store:kind | null,
+    Query:string | null
 }
 export class GetProductsByFilterUseCase{
     constructor(private ProdRepo:ProductRepository){}
-    async execute({Category,Max,Min,Page,Store}:GetProductsByFilterRequest){
+    async execute({Category,Max,Min,Page,Store,Query}:GetProductsByFilterRequest){
         var TotalList = await this.ProdRepo.findAll();
 
+        if(Query){
+            var TotalList = await this.ProdRepo.findBySearchQuery(Query,-1)
+        }
         // Se minimo ou maximo forem informados
         if(Min || Max){
             if(Min && Max){
@@ -34,7 +38,6 @@ export class GetProductsByFilterUseCase{
         if(Store){
             TotalList = TotalList.filter(item=> item.Kind==Store);
         }
-
         //Paginação
         TotalList = TotalList.slice((Page-1)*20,Page*20)
         // console.log(TotalList)
@@ -47,7 +50,8 @@ export class GetProductsByFilterUseCase{
                 Page
             },
             Return:{
-                TotalList
+                TotalList,
+                TotalListLength:TotalList.length
             }
         }
     }

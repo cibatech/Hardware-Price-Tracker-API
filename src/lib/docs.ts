@@ -537,7 +537,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
             },
           },
         },
-        '/api/products/:Category/:Min--:Max/:Store/:Page': {
+        '/api/products/:Category/:Min--:Max/:Store/:Query/:Page': {
           description: "Rota utilizada para realizar uma pesquisa de retorno com filtros.",
           get: {
             tags: ['api', 'Products',"Core"],
@@ -571,6 +571,14 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                 description: 'Valor de qual pagina será retornado(20 itens por pagina).',
                 schema: {
                   type: 'integer',
+                },
+                in: 'query',
+              },
+              {
+                name: "Query",
+                description: 'Valor que será utilizado na pesquisa.',
+                schema: {
+                type: 'string',
                 },
                 in: 'query',
               }

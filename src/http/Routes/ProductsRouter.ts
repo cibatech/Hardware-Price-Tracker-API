@@ -29,7 +29,7 @@ export async function ProductRouter(app:FastifyInstance) {
     })
     app.route({
         method:"GET",
-        url:"/:Category/:Min--:Max/:Store/:Page",
+        url:"/:Category/:Min--:Max/:Store/:Query/:Page",
         handler:GETProductsListWithFilltersController
     })
     app.route({

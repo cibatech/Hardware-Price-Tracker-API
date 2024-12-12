@@ -16,9 +16,15 @@ export class InMemoryProductRepository implements ProductRepository{
     }
     async findBySearchQuery(Query: string, Page: number): Promise<Product[]> {
         var fixArray:Product[] = [];
+
         const findByDescription = this.itens.filter(iten => iten.Description?iten.Description.includes(Query):null);
         fixArray = fixArray.concat(findByDescription);
-        return fixArray
+        if(Page>0){
+            return fixArray.slice((Page-1)*20,Page*20)
+        }else{
+            return fixArray
+        }
+        
     }
     async findBySiteCategory(Where: string,Page:number): Promise<Product[]> {
         if(Page>0){

@@ -14,7 +14,7 @@ GET http://127.0.0.1:2467/api/products/all/-1
 Content-Type: application/json
 
 ### Rota de Pesquisa
-GET http://127.0.0.1:2467/api/products/search/Fonte/1
+GET http://127.0.0.1:2467/api/products/search/Gabinete Gamer Redragon Wideload Lite/1
 
 ### Rotas de usuario #####
 
@@ -58,12 +58,11 @@ GET http://127.0.0.1:2467/api/issues/1
 ######## Rotas Requisitos alex ############
 
 ### Listar produtos de uma categoria com filtros (Categoria: {{Category}}, Min: {{Min}}, Max: {{Max}}, Loja: {{Store}})
-GET  http://127.0.0.1:2467/api/products/hardware/null--null/Pichau/1
+GET  http://127.0.0.1:2467/api/products/hardware/null--null/Pichau/a/1
 Content-Type: application/json
 
 ### Comparar o melhor produto de todas as lojas
-GET http://127.0.0.1:2467/api/products/comparasion/09922dc0-e1e0-40df-9295-7accfb50cc94
-Content-Type: application/json
+GET http://127.0.0.1:2467/api/products/comparasion/3e2e66c5-f05b-4a2b-a01e-39114b95ecaa
 
 ### Avaliação de tendências de um produto específico
 GET http://127.0.0.1:2467/api/products/trends/0910beb5-489c-4428-9378-62492e58503a
