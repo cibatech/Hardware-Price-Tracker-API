@@ -39,6 +39,7 @@ export class GetProductsByFilterUseCase{
             TotalList = TotalList.filter(item=> item.Kind==Store);
         }
         //Paginação
+        const preSliceSize = TotalList.length
         TotalList = TotalList.slice((Page-1)*20,Page*20)
         // console.log(TotalList)
 
@@ -51,7 +52,7 @@ export class GetProductsByFilterUseCase{
             },
             Return:{
                 TotalList,
-                TotalListLength:TotalList.length
+                TotalListLength:preSliceSize
             }
         }
     }
