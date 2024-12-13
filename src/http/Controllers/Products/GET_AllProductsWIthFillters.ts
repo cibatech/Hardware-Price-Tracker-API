@@ -22,7 +22,7 @@ export async function GETProductsListWithFilltersController(req:FastifyRequest,r
         const response = await service.execute({
             Page:a,
             Max:Max!="null"?Number(Max):null,
-            Category:Category="null"?Category:null,
+            Category:Category!="null"?Category:null,
             Min:Min!="null"?Number(Min):null,
             Store:Store!="null"?Store:null,
             Query:Query!="null"?Query:null
