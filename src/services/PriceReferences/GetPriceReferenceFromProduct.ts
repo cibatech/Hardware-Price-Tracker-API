@@ -1,15 +1,17 @@
 import { Price, Product } from "../../../prisma/deploy-output";
 import { PriceReferenceRepository } from "../../repository/PriceRefRepository";
 import { ProductRepository } from "../../repository/ProductRepository";
+import { groupPricesByDate } from "../../utils/algorithims/GroupPriceByDate";
 import { ResourceNotFoundError } from "../Error/ResourceNotFound";
 
 
 interface GetPriceReferenceFromSingleProductByIdParams{
-    Id:string
+    Id:string,
+    PasDays:number // dias no passado
 }
 interface GetPriceReferenceFromSingleProductByIdReturn{
     Product:Product,
-    PriceRef:Price[]
+    PriceRef:Record<string,Price[]> //Dicionário de strings onde encontram-se preços
 }
 
 /**
@@ -35,18 +37,18 @@ export class GetPriceReferenceFromSingleProductByIdUseCase{
      * @returns An object containing the product and its associated price references.
      * @throws {ResourceNotFoundError} If no product is found for the given link.
      */
-    async execute({Id}:GetPriceReferenceFromSingleProductByIdParams):Promise<GetPriceReferenceFromSingleProductByIdReturn>{
+    async execute({Id,PasDays}:GetPriceReferenceFromSingleProductByIdParams):Promise<GetPriceReferenceFromSingleProductByIdReturn>{
         const TheresAnyProductWithThisId = await this.ProductRepo.findById(Id)
         if(!TheresAnyProductWithThisId){
             //Retorna um Error informando a entidade que nao foi encontrada e a chave que nao foi encontrada (No caso o Link).
             throw new ResourceNotFoundError("Product",Id);
         }   
 
-        const FindPriceReferenceWithThisId = await this.priceRepo.findByProduct(TheresAnyProductWithThisId.Id);
-        
+        const FindPriceReferenceWithThisId = await this.priceRepo.findByDay(PasDays,TheresAnyProductWithThisId.Id);
+        const RecordReturnList = groupPricesByDate(FindPriceReferenceWithThisId)
         return{
             Product:TheresAnyProductWithThisId,
-            PriceRef:FindPriceReferenceWithThisId
+            PriceRef:RecordReturnList
         }
     }
 }

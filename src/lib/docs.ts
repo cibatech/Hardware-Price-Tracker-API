@@ -363,19 +363,42 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                 }
             }
         },
-        "/api/products/prices/:Id":{
+        "/api/products/prices/:Id/:PasDays":{
           description:"Rota utilizada pra retornar o histórico de preços de um determinado produto",
           get:{
             tags:["api","Products","Core"],
-            parameters:[{
-              name:"Id",
-              description:"O ID do produto que se deseja acessar",
-              schema:{
-                type:"string"
+            parameters:[
+              {
+                name:"Id",
+                description:"O ID do produto que se deseja acessar",
+                schema:{
+                  type:"string"
+                },
+                required:true,
+                in:"query"
               },
-              required:true,
-              in:"query"
-            }],
+              {
+                name:"PasDays",
+                description:"A quantidade de dias no passado que será usada como filtro. Irá retornar o registro de preços de um produto em até x dias no passado definido por este valor",
+                schema:{
+                  type:"number"
+                },
+                required:true,
+                in:"query",
+                examples:{
+                  Aweek:{
+                    value:7
+                  },
+                  AMonth:{
+                    value:30
+                  },
+                  AYear:{
+                    value:345
+                  }
+                }
+              }
+            
+            ],
             responses:{
               200:{
                 description:"Successfully returned the price list of a single product",
@@ -384,33 +407,79 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                     examples:{
                       Response:{
                         value:JSON.parse(`
+                                                {
+                      "Description": "Successfully returned product's price list from specified time elapse",
+                      "response": {
+                        "Product": {
+                          "Id": "0910beb5-489c-4428-9378-62492e58503a",
+                          "Title": "Water Cooler Rise Mode Gamer Black, RGB, 240mm, AMD/Intel, Preto - RM-WCB-02-RGB",
+                          "Description": "Water Cooler Rise Mode Gamer Black, RGB, 240mm, AMD/Intel, Preto - RM-WCB-02-RGB",
+                          "Value": 179,
+                          "Link": "https://www.kabum.com.br/produto/130043/water-cooler-rise-mode-gamer-black-rgb-240mm-amd-intel-preto-rm-wcb-02-rgb",
+                          "Where": "hardware",
+                          "Kind": "Kabum",
+                          "ImageUrl": "https://images.kabum.com.br/produtos/fotos/130043/water-cooler-rise-mode-gamer-black-rgb-240mm-preto-rm-wcb-02-rgb_1663776681_m.jpg",
+                          "Slug": "water-cooler-rise-mode-gamer-black-rgb-240mm-amdintel-preto-rm-wcb-02-rgb",
+                          "onInstallment": "8x de R$ 26,46"
+                        },
+                        "PriceRef": {
+                          "2024-12-04": [
                             {
-      "Description": "Successfully returned product's price list",
-      "response": {
-        "Product": {
-          "Id": "0910beb5-489c-4428-9378-62492e58503a",
-          "Title": "Water Cooler Rise Mode Gamer Black, RGB, 240mm, AMD/Intel, Preto - RM-WCB-02-RGB",
-          "Description": "Water Cooler Rise Mode Gamer Black, RGB, 240mm, AMD/Intel, Preto - RM-WCB-02-RGB",
-          "Value": 169,
-          "Link": "https://www.kabum.com.br/produto/130043/water-cooler-rise-mode-gamer-black-rgb-240mm-amd-intel-preto-rm-wcb-02-rgb",
-          "Where": "hardware",
-          "Kind": "Kabum",
-          "ImageUrl": "https://images.kabum.com.br/produtos/fotos/130043/water-cooler-rise-mode-gamer-black-rgb-240mm-preto-rm-wcb-02-rgb_1663776681_m.jpg",
-          "Slug": "water-cooler-rise-mode-gamer-black-rgb-240mm-amdintel-preto-rm-wcb-02-rgb"
-        },
-        "PriceRef": [
-          {
-            "Id": "e99e7e9b-504c-4461-b24c-726d76c814b8",
-            "AtDate": "2024-12-04T00:35:04.444Z",
-            "Price": 169,
-            "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
-          }
-        ]
-      },
-      "Config": {
-        "Id": "0910beb5-489c-4428-9378-62492e58503a"
-      }
-    }
+                              "Id": "e99e7e9b-504c-4461-b24c-726d76c814b8",
+                              "AtDate": "2024-12-04T00:35:04.444Z",
+                              "Price": 169,
+                              "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+                            }
+                          ],
+                          "2024-12-05": [
+                            {
+                              "Id": "21064fe6-d36f-40b0-b3f1-36b892524d1b",
+                              "AtDate": "2024-12-05T00:38:28.109Z",
+                              "Price": 169,
+                              "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+                            },
+                            {
+                              "Id": "55669e33-0d10-4d66-a5dd-0b46db41363d",
+                              "AtDate": "2024-12-05T00:40:23.505Z",
+                              "Price": 169,
+                              "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+                            }
+                          ],
+                          "2024-12-07": [
+                            {
+                              "Id": "039ca1f2-6680-46aa-9453-3e0179a8d151",
+                              "AtDate": "2024-12-07T15:52:24.059Z",
+                              "Price": 179,
+                              "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+                            },
+                            {
+                              "Id": "ca983626-d466-4c44-ae0a-86fdc02e3744",
+                              "AtDate": "2024-12-07T15:52:59.099Z",
+                              "Price": 179,
+                              "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+                            }
+                          ],
+                          "2024-12-08": [
+                            {
+                              "Id": "f99f5a6a-d512-4fc3-98df-f123fd7bbf2b",
+                              "AtDate": "2024-12-08T15:32:39.059Z",
+                              "Price": 179,
+                              "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+                            },
+                            {
+                              "Id": "4f02d656-c5a9-42ec-8846-60061632f0e3",
+                              "AtDate": "2024-12-08T15:33:23.921Z",
+                              "Price": 179,
+                              "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+                            }
+                          ]
+                        }
+                      },
+                      "Config": {
+                        "Id": "0910beb5-489c-4428-9378-62492e58503a",
+                        "PasDays": "90"
+                      }
+                    }
                           `)
                       }
                     }

@@ -69,6 +69,6 @@ GET http://127.0.0.1:2467/api/products/trends/0910beb5-489c-4428-9378-62492e5850
 Content-Type: application/json
 
 ### Retorno da lista de preços de um determinado produto
-GET http://127.0.0.1:2467/api/products/prices/0910beb5-489c-4428-9378-62492e58503a
+GET http://127.0.0.1:2467/api/products/prices/0910beb5-489c-4428-9378-62492e58503a/90
 Content-Type: application/json
 

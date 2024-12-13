@@ -39,7 +39,7 @@ export async function ProductRouter(app:FastifyInstance) {
     })
     app.route({
         method:"GET",
-        url:"/prices/:Id",
+        url:"/prices/:Id/:PasDays",
         handler:GETPRiceReferenceFromSingleProductController
     })
     app.route({
