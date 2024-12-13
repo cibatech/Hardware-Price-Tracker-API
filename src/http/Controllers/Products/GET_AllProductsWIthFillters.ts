@@ -21,8 +21,8 @@ export async function GETProductsListWithFilltersController(req:FastifyRequest,r
         let a = Number(Page)
         const response = await service.execute({
             Page:a,
-            Max:Max=="!null"?Number(Max):null,
-            Category:Category?Category:null,
+            Max:Max!="null"?Number(Max):null,
+            Category:Category!="null"?Category:null,
             Min:Min!="null"?Number(Min):null,
             Store:Store!="null"?Store:null,
             Query:Query!="null"?Query:null
