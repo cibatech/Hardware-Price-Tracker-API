@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 import {GetPriceTrackerFromProductUseCase} from "../../../services"
 import { PrismaPriceTrackerRepository } from "../../../repository/Prisma/PrismaPriceTrackerRepository";
-import { ResourceNotFoundError } from "../../../services/Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../../Error/ResourceNotFound";
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 
 export async function GETPriceTrackerFromProductController(req:FastifyRequest,res:FastifyReply) {

@@ -2,8 +2,8 @@ import { Product } from "../../../prisma/deploy-output";
 import { ProductRepository } from "../../repository/ProductRepository";
 import { FindBestProductPrice } from "../../utils/algorithims/FindBestPrice";
 import { ClosestProduct } from "../../utils/algorithims/FindClosestProduct";
-import { GotEmptyList } from "../Error/InternalServerError";
-import { ResourceNotFoundError } from "../Error/ResourceNotFound";
+import { GotEmptyList } from "../../Error/InternalServerError";
+import { ResourceNotFoundError } from "../../Error/ResourceNotFound";
 
 interface EveryStoreReturn{
     KabumAlternative:Product,

@@ -1,6 +1,6 @@
 import { PriceTrackerRepository } from "../../repository/PriceTracker";
 import { UserRepository } from "../../repository/UserRepository";
-import { ResourceNotFoundError } from "../Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../Error/ResourceNotFound";
 
 export class GetPriceTrackerFromUserUseCase{
     constructor(private PriceTrackerRepo:PriceTrackerRepository,private UserRepo:UserRepository){}

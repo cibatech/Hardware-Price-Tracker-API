@@ -1,6 +1,6 @@
 import { Product } from "../../../prisma/deploy-output";
 import { ProductRepository } from "../../repository/ProductRepository";
-import { InvalidParameterError } from "../Error/InvalidParameterError";
+import { InvalidParameterError } from "../../Error/InvalidParameterError";
 
 interface GetProductListParams{
     Page:number

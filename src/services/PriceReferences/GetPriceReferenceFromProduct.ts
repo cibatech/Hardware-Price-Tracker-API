@@ -2,7 +2,7 @@ import { Price, Product } from "../../../prisma/deploy-output";
 import { PriceReferenceRepository } from "../../repository/PriceRefRepository";
 import { ProductRepository } from "../../repository/ProductRepository";
 import { groupPricesByDate } from "../../utils/algorithims/GroupPriceByDate";
-import { ResourceNotFoundError } from "../Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../Error/ResourceNotFound";
 
 
 interface GetPriceReferenceFromSingleProductByIdParams{

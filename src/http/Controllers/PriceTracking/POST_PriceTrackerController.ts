@@ -4,8 +4,8 @@ import { PrismaPriceTrackerRepository } from "../../../repository/Prisma/PrismaP
 import { PrismaUserRepository } from "../../../repository/Prisma/PrismaUserRepository";
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 import { z } from "zod";
-import { ResourceNotFoundError } from "../../../services/Error/ResourceNotFound";
-import { TriedInvalidOperation } from "../../../services/Error/InvalidOperationTried";
+import { ResourceNotFoundError } from "../../../Error/ResourceNotFound";
+import { TriedInvalidOperation } from "../../../Error/InvalidOperationTried";
 export async function POSTPriceTrackerController(req:FastifyRequest, res:FastifyReply) {
     const service = new CreatePriceTrackerUseCase(new PrismaPriceTrackerRepository,
                                               new PrismaUserRepository,

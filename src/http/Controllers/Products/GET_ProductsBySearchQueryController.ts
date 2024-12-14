@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { GetProductListUseCase, GetProductListFromQueryUseCase} from "../../../services";
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 import { z } from "zod";
-import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
+import { InvalidParameterError } from "../../../Error/InvalidParameterError";
 
 export async function GETProductListFromQueryController(req:FastifyRequest,res:FastifyReply) {
     const service = new GetProductListFromQueryUseCase(new PrismaProductRepository)

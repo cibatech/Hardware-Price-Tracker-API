@@ -3,7 +3,7 @@ import { z } from "zod";
 import {GetPriceTrackerFromUserUseCase} from "../../../services"
 import { PrismaPriceTrackerRepository } from "../../../repository/Prisma/PrismaPriceTrackerRepository";
 import { PrismaUserRepository } from "../../../repository/Prisma/PrismaUserRepository";
-import { ResourceNotFoundError } from "../../../services/Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../../Error/ResourceNotFound";
 
 export async function GETPriceTrackerFromUserController(req:FastifyRequest,res:FastifyReply) {
     const {UserId} = z.object({

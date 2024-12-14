@@ -1,6 +1,6 @@
 import { TriggerWarning } from "../../../prisma/deploy-output";
 import { PriceTrackerRepository } from "../../repository/PriceTracker";
-import { ResourceNotFoundError } from "../Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../Error/ResourceNotFound";
 
 export class UpdatePriceTrackerUseCase{
     constructor(private PriceTrackerRepo:PriceTrackerRepository){}

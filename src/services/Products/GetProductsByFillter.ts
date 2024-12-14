@@ -1,6 +1,6 @@
 import { kind } from "../../../prisma/deploy-output";
 import { ProductRepository } from "../../repository/ProductRepository";
-import { InvalidParameterError } from "../Error/InvalidParameterError";
+import { InvalidParameterError } from "../../Error/InvalidParameterError";
 
 interface GetProductsByFilterRequest{
     Category:string | null,

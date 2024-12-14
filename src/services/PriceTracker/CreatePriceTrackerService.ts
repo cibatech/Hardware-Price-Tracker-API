@@ -2,8 +2,8 @@ import { Prisma, TriggerWarning } from "../../../prisma/deploy-output";
 import { PriceTrackerRepository } from "../../repository/PriceTracker";
 import { ProductRepository } from "../../repository/ProductRepository";
 import { UserRepository } from "../../repository/UserRepository";
-import { TriedInvalidOperation } from "../Error/InvalidOperationTried";
-import { ResourceNotFoundError } from "../Error/ResourceNotFound";
+import { TriedInvalidOperation } from "../../Error/InvalidOperationTried";
+import { ResourceNotFoundError } from "../../Error/ResourceNotFound";
 
 interface CreatePriceTrackerRequest{
     Data:Prisma.TriggerWarningUncheckedCreateInput

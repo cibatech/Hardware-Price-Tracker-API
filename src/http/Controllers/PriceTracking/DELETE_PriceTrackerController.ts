@@ -2,8 +2,8 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 import {DeletePriceTrackerUseCase} from "../../../services"
 import { PrismaPriceTrackerRepository } from "../../../repository/Prisma/PrismaPriceTrackerRepository";
-import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
-import { ResourceNotFoundError } from "../../../services/Error/ResourceNotFound";
+import { InvalidParameterError } from "../../../Error/InvalidParameterError";
+import { ResourceNotFoundError } from "../../../Error/ResourceNotFound";
 export async function DELETEPriceTrackerController(req:FastifyRequest,res:FastifyReply) {
     const {Id} = z.object({
         Id:z.string()

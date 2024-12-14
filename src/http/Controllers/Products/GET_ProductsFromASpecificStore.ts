@@ -3,7 +3,7 @@ import { GetProdListFromASpecificStoreUseCase } from "../../../services";
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 import { z } from "zod";
 import { kind } from "../../../../prisma/deploy-output";
-import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
+import { InvalidParameterError } from "../../../Error/InvalidParameterError";
 
 export async function GETProductListFromASpecificStoreController(req:FastifyRequest,res:FastifyReply) {
     const service = new GetProdListFromASpecificStoreUseCase(new PrismaProductRepository)

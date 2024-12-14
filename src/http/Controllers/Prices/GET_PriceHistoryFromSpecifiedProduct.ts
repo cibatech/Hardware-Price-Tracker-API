@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { GetPriceReferenceFromSingleProductByIdUseCase, GetProductListUseCase, GetProductsByFilterUseCase } from "../../../services";
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 import { z } from "zod";
-import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
+import { InvalidParameterError } from "../../../Error/InvalidParameterError";
 import { PrismaPriceRepository } from "../../../repository/Prisma/PrismaPriceRepository";
 
 export async function GETPRiceReferenceFromSingleProductController(req:FastifyRequest,res:FastifyReply) {

@@ -4,7 +4,7 @@ import { InMemoryPriceRepository } from "../../../src/repository/InMemory/inMemo
 import { InMemoryProductRepository } from "../../../src/repository/InMemory/inMemoryProductRepository";
 import { faker } from "@faker-js/faker";
 import { randomUUID } from "crypto";
-import { ResourceNotFoundError } from "../../../src/services/Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../../src/Error/ResourceNotFound";
 import { record } from "zod";
 
 

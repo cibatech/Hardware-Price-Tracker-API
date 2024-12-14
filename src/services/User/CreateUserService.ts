@@ -1,6 +1,6 @@
 import { Prisma, User } from "../../../prisma/deploy-output";
 import { UserRepository } from "../../repository/UserRepository";
-import { ResourceAlreadyExistsError } from "../Error/ResourceAlreadyExistsError";
+import { ResourceAlreadyExistsError } from "../../Error/ResourceAlreadyExistsError";
 
 export class CreateUserUseCase{
     constructor(private UserRepo:UserRepository){}

@@ -6,8 +6,8 @@ import { InMemoryUserRepository } from "../../../src/repository/InMemory/inMemor
 import { faker } from "@faker-js/faker";
 import { UserLoginUseCase } from "../../../src/services/User/UserLoginService";
 import { Prisma } from "../../../prisma/deploy-output";
-import { InvalidParameterError } from "../../../src/services/Error/InvalidParameterError";
-import { ResourceNotFoundError } from "../../../src/services/Error/ResourceNotFound";
+import { InvalidParameterError } from "../../../src/Error/InvalidParameterError";
+import { ResourceNotFoundError } from "../../../src/Error/ResourceNotFound";
 
 var SUT:UserLoginUseCase
 var UserRepo:InMemoryUserRepository

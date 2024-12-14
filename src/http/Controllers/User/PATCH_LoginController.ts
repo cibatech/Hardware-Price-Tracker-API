@@ -2,8 +2,8 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { UserLoginUseCase } from "../../../services/User/UserLoginService";
 import { PrismaUserRepository } from "../../../repository/Prisma/PrismaUserRepository";
 import { z } from "zod";
-import { ResourceNotFoundError } from "../../../services/Error/ResourceNotFound";
-import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
+import { ResourceNotFoundError } from "../../../Error/ResourceNotFound";
+import { InvalidParameterError } from "../../../Error/InvalidParameterError";
 
 export async function PatchLoginController(req:FastifyRequest,res:FastifyReply) {
     const service = new UserLoginUseCase(new PrismaUserRepository);

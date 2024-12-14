@@ -3,12 +3,11 @@ import { ProductRouter } from "./Routes/ProductsRouter";
 import { UserRouter } from "./Routes/UserRouter";
 import { IssuesRouter } from "./Routes/IssuesRouter";
 import { PriceTrackerRouter } from "./Routes/PriceTrackerRouter";
+import { PreHandlerHook } from "./Hooks/PreHandler";
 
 export async function Router(app:FastifyInstance) {
-    app.addHook("preHandler",(req,res,done)=>{
-        console.log(req.routeOptions)
-        done()
-    })
+    //initialize prehandler hook
+    app.addHook("preHandler",PreHandlerHook)
     
     //Products Routes
     app.register(ProductRouter,{

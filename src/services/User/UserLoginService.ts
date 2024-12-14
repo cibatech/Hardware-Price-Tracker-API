@@ -1,6 +1,6 @@
 import { UserRepository } from "../../repository/UserRepository";
-import { InvalidParameterError } from "../Error/InvalidParameterError";
-import { ResourceNotFoundError } from "../Error/ResourceNotFound";
+import { InvalidParameterError } from "../../Error/InvalidParameterError";
+import { ResourceNotFoundError } from "../../Error/ResourceNotFound";
 interface UserLoginRequest{
     Email:string,
     Password:String

@@ -3,25 +3,26 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { CreatePriceTrackerUseCase } from "../../../src/services";
 import { InMemoryPriceRepository } from "../../../src/repository/InMemory/inMemoryPriceRepository";
 import { InMemoryUserRepository } from "../../../src/repository/InMemory/inMemoryUserRepository";
-import { InMemoryPriceTracker } from "../../../src/repository/InMemory/InMemoryPriceTrackerRepository";
+
 import { Faker, faker } from "@faker-js/faker";
 import { InMemoryProductRepository } from "../../../src/repository/InMemory/inMemoryProductRepository";
 import { Choose } from "../../../src/utils/Choose";
 import { randomUUID } from "crypto";
 import { Product, User } from "../../../prisma/deploy-output";
-import { ResourceNotFoundError } from "../../../src/services/Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../../src/Error/ResourceNotFound";
+import { InMemoryPriceTrackerRepository } from "../../../src/repository/InMemory/InMemoryPriceTrackerRepository";
 
 
 var SUT:CreatePriceTrackerUseCase 
 var UserRepo:InMemoryUserRepository
-var TrigerRepo:InMemoryPriceTracker
+var TrigerRepo:InMemoryPriceTrackerRepository
 var ProductRepo:InMemoryProductRepository
 var Product:Product
 var User:User
 describe("Good Case",()=>{
     beforeEach(async()=>{
         UserRepo = new InMemoryUserRepository();
-        TrigerRepo = new InMemoryPriceTracker();
+        TrigerRepo = new InMemoryPriceTrackerRepository();
         ProductRepo = new InMemoryProductRepository();
         SUT = new CreatePriceTrackerUseCase(TrigerRepo,UserRepo,ProductRepo);
         

@@ -2,7 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 import { CreateUserUseCase } from "../../../services/User/CreateUserService";
 import { PrismaUserRepository } from "../../../repository/Prisma/PrismaUserRepository";
-import { ResourceAlreadyExistsError } from "../../../services/Error/ResourceAlreadyExistsError";
+import { ResourceAlreadyExistsError } from "../../../Error/ResourceAlreadyExistsError";
 
 export async function CreateUserController(req:FastifyRequest,res:FastifyReply) {
     const {Email,Password} = z.object({
