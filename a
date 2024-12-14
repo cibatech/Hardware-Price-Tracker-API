@@ -1,15 +1,13 @@
-
 {
-  "Description": "Successfully created a PriceTracker",
-  "response": {
-    "Id": "fceb60df-2aab-4ffb-974e-c950b9c5c76e",
-    "TargetPrice": 200,
+  "Description": "Price Tracker sucessfully updated with the new value",
+  "resp": {
+    "Id": "308ee8c1-2293-4014-b6c4-22da191deb96",
+    "TargetPrice": 350,
     "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
-    "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+    "ProdId": "b3de1ff1-886b-4881-8374-fcdf324b6ba4"
   },
   "config": {
-    "ProdId": "0910beb5-489c-4428-9378-62492e58503a",
-    "TargetPrice": 200,
-    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5"
+    "Id": "308ee8c1-2293-4014-b6c4-22da191deb96",
+    "value": "350"
   }
 }

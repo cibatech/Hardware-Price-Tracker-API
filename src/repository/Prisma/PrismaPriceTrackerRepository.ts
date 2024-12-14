@@ -32,4 +32,20 @@ export class PrismaPriceTrackerRepository implements PriceTrackerRepository {
       },
     });
   }
+
+  async delete(Id: string): Promise<TriggerWarning> {
+    return await prisma.triggerWarning.delete({
+      where:{
+        Id
+      }
+    })
+  }
+  async update(Id: string, data: Partial<TriggerWarning>): Promise<TriggerWarning> {
+    return await prisma.triggerWarning.update({
+      where:{
+        Id
+      },
+      data
+    })
+  }
 }

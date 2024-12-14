@@ -44,9 +44,16 @@ Content-Type: application/json
 
 {
     "TargetPrice":200,
-    "ProdId":"0910beb5-489c-4428-9378-62492e58503a",
+    "ProdId":"b3de1ff1-886b-4881-8374-fcdf324b6ba4",
     "UserId":"e8eec215-74f7-463a-9aab-29647f3784f5"
 }
+
+### Atualizar price Tracker
+PUT http://127.0.0.1:2467/api/tracker/update/308ee8c1-2293-4014-b6c4-22da191deb96/350
+
+
+### Deletar Price Tracker
+DELETE http://127.0.0.1:2467/api/tracker/delete/bb91bc86-2ba2-44a9-8043-563f4d392c5b
 
 #### Rotas de Issues #####
 

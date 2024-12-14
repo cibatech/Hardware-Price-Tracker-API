@@ -23,7 +23,8 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
           {name:"api",description:"Todas as rotas da aplicação"},
           {name:"Products",description:"Rotas utilizadas para acessar os produtos"},
           {name:"User",description:"Rotas utilizadas para acessar os usuários da aplicação"},
-          {name:"admin",description:"Rotas utilizadas no painel administrativo da aplicação"}
+          {name:"admin",description:"Rotas utilizadas no painel administrativo da aplicação"},
+          {name:"tracker",description:"Rotas utilizada pelo usuário para criar e gerenciar alertas de preço"}
         ],
       paths: {
         "/api/products/byStore/:Store/:Page":{
@@ -1460,7 +1461,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
         "api/tracker/create":{
           description:"Rota utilizada para criar um tracker a partir de um produto e um usuário. Um tracker é uma entidade que sera utilizada para alertar o usuário quando o preço de um produto estiver do seu agrado",
           post:{
-            tags:["api","User"],
+            tags:["api","User","tracker"],
             requestBody:{
               description:"Corpo da requisição que sera utilizado para criar o tracker. entregue um preço, um id de produto e um id de usuário como demonstrado no exemplo",
               required:true,
@@ -1510,6 +1511,112 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
             }
           },
         
+        },
+        "api/tracker/update/:Id/:value":{
+          description:"Rota utilizada para atualizar o valor do tracker na API",
+          put:{
+            description:"Rota utilizada para atualizar um Price Tracker",
+            responses:{
+              201:{
+                description:"Atualizou com sucesso o price tracker",
+                content:{
+                  "application/json":{
+                    examples:{
+                      exemplo1:{
+                        value:JSON.parse(`
+                          {
+  "Description": "Price Tracker sucessfully updated with the new value",
+  "resp": {
+    "Id": "308ee8c1-2293-4014-b6c4-22da191deb96",
+    "TargetPrice": 350,
+    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
+    "ProdId": "b3de1ff1-886b-4881-8374-fcdf324b6ba4"
+  },
+  "config": {
+    "Id": "308ee8c1-2293-4014-b6c4-22da191deb96",
+    "value": "350"
+  }
+}
+                          `)
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            tags:["api","User","tracker"],
+            parameters:[
+              {
+                name:"Id",
+                description:"Refere-se ao ID do price Tracker que deseja deletar",
+                schema:{
+                  type:"string",
+                },
+                example:{
+                  Exemplo1:{
+                  value:"308ee8c1-2293-4014-b6c4-22da191deb96"
+                  }
+                },
+                in:"query",required:true
+              },
+              {
+                name:"value",
+                description:"O novo valor a ser indexado ao tracker",
+                schema:{
+                  type:"number"
+                },
+                in:"query",required:true
+              }
+            ]
+          }
+        },
+        "api/tracker/delete/:Id":{
+          description:"Rota utilizada para deletar um tracker",
+          delete:{
+            description:"Rota utilizada para deletar um tracker",
+            parameters:[
+              {
+                name:"Id",
+                description:"Refere-se ao ID do price Tracker que deseja deletar",
+                schema:{
+                  type:"string",
+                },
+                example:{
+                  Exemplo1:{
+                  value:"308ee8c1-2293-4014-b6c4-22da191deb96"
+                  }
+                },
+                in:"query",required:true
+              }
+            ],
+            tags:["api","User","tracker"],   
+            responses:{
+              202:{
+                description:"Tracker deletado com sucesso",
+                content:{
+                  "application/json":{
+                    example:{
+                      example1:{
+                        value:JSON.parse(`
+                          {
+  "Description": "Price Tracker sucessfully deleted",
+  "resp": {
+    "Id": "bb91bc86-2ba2-44a9-8043-563f4d392c5b",
+    "TargetPrice": 200,
+    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
+    "ProdId": "b3de1ff1-886b-4881-8374-fcdf324b6ba4"
+  },
+  "config": {
+    "Id": "bb91bc86-2ba2-44a9-8043-563f4d392c5b"
+  }
+}`)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
     },
