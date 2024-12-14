@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { CreateUserController,PatchLoginController } from "../Controllers";
+import { CreateUserController,PatchLoginController,PUTUpdateUserPasswordController} from "../Controllers";
 
 export async function UserRouter(app:FastifyInstance) {
     app.route({
@@ -11,5 +11,10 @@ export async function UserRouter(app:FastifyInstance) {
         method:"PATCH",
         url:"/login",
         handler:PatchLoginController
+    })
+    app.route({
+        method:"PUT",
+        url:"/password",
+        handler:PUTUpdateUserPasswordController
     })
 }

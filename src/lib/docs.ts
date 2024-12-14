@@ -1906,6 +1906,40 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
             }
           }
 
+        },
+        "api/user/password":{
+          put:{
+            description:"Rota usada para atualizar a senha de um usuário, recebendo seu email e uma nova senha como parametro",
+            tags:["api","User"],
+            requestBody:{
+              description:"Corpo da requisição",
+              content:{
+                "application/json":{
+                  examples:{
+                    example1:{
+                      description:"Os valores a serem fornecidos, Um Email e uma nova senha",
+                      value:{Email:"jonDoe@gmail.com",Password:"JonDoePassword"}
+                    }
+                  }
+                }
+              },
+              required:true,summary:"Email - Email a ser fornecido, Password - Nova senha do usuário"
+            },
+            responses:{
+              201:{
+                description:"Atualização realizada com sucesso",
+                content:{
+                  "application/json":{
+                    examples:{
+                      example1:{
+                        value:""
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
     },
