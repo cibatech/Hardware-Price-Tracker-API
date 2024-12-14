@@ -5,7 +5,7 @@ import {  } from "../../services/Issues/GetIssuesListByDateService";
 export async function IssuesRouter(app:FastifyInstance) {
     app.route({
         method:"GET",
-        url:"/date/:date",
+        url:"/date/:pasDays",
         handler:GETIssueListByDateController
     })
     app.route({
@@ -18,4 +18,5 @@ export async function IssuesRouter(app:FastifyInstance) {
         url:"/:Page",
         handler:GETIssuesListPaginatedController
     })
+
 }

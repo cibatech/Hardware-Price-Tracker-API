@@ -3,7 +3,7 @@ import { IssuesRepository } from "../../repository/IssueRepository";
 
 export class GetIssuesByDateUseCase{
     constructor(private IssuesRepo:IssuesRepository){}
-    async execute(date:Date):Promise<Issue[]>{
-        return this.IssuesRepo.findByDate(date)
+    async execute(pasDays:number):Promise<Issue[]>{
+        return this.IssuesRepo.findByDate(pasDays)
     }
 }

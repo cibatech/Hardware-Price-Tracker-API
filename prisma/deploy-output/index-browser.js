@@ -135,6 +135,12 @@ exports.Prisma.UserScalarFieldEnum = {
   Password: 'Password'
 };
 
+exports.Prisma.ScrapScalarFieldEnum = {
+  Id: 'Id',
+  CreatedAt: 'CreatedAt',
+  Scraped: 'Scraped'
+};
+
 exports.Prisma.ProductScalarFieldEnum = {
   Id: 'Id',
   Title: 'Title',
@@ -192,6 +198,7 @@ exports.kind = exports.$Enums.kind = {
 exports.Prisma.ModelName = {
   TriggerWarning: 'TriggerWarning',
   User: 'User',
+  Scrap: 'Scrap',
   Product: 'Product',
   Price: 'Price',
   StaticLink: 'StaticLink',

@@ -35,6 +35,12 @@ model User {
   Triggers TriggerWarning[]
 }
 
+model Scrap {
+  Id        Int      @id @default(autoincrement())
+  CreatedAt DateTime @default(now())
+  Scraped   String
+}
+
 model Product {
   Id          String  @id @default(uuid())
   Title       String?

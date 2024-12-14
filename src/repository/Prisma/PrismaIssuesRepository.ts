@@ -11,20 +11,18 @@ export class PrismaIssuesRepository implements IssuesRepository {
     });
   }
 
-  async findByDate(date: Date): Promise<Issue[]> {
-    const startOfDay = new Date(date);
-    startOfDay.setHours(0, 0, 0, 0);
-
-    const endOfDay = new Date(date);
-    endOfDay.setHours(23, 59, 59, 999);
+  async findByDate(daysAgo:number): Promise<Issue[]> {
+    const now = new Date(); // Data atual
+    const pastDate = new Date();
+    pastDate.setDate(now.getDate() - daysAgo); // Data inicial (dias no passado)
 
     return await prisma.issue.findMany({
-      where: {
-        When: {
-          gte: startOfDay,
-          lte: endOfDay,
-        },
-      },
+        where: {
+              When: {
+                gte: pastDate, // Maior ou igual à data no passado
+                lte: now       // Menor ou igual à data atual
+            }
+        }
     });
   }
 

@@ -1700,6 +1700,212 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
               }
             }
           }
+        },
+        "api/issues/date/:pasDays":{
+          get:{
+            description:"Retorna a lista de de erros que aconteceu no intervalo de tempo delimitado no parametro",
+            tags:["api","admin"],
+            responses:{
+              200:{
+                description:"Retorno com sucesso dos erros",
+                content:{
+                  "application/json":{
+                    examples:{
+                      example1:{
+                        value:JSON.parse(`{
+  "DescriptioN": "Successfully returned response list",
+  "response": [
+    {
+      "Id": "6211465b-a4a9-4394-8b43-aac80497a2d8",
+      "When": "2024-12-07T20:23:22.341Z",
+      "Reason": "TimeOut At puppeteer",
+      "At": "dev:pichau"
+    },
+    {
+      "Id": "08978978-df61-4180-9049-f683f9fe0631",
+      "When": "2024-12-08T15:50:47.785Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "28aa6a09-aa2b-4320-a556-fb6143ee9b60",
+      "When": "2024-12-12T00:55:32.284Z",
+      "Reason": "Internal Puppeteer Error",
+      "At": "Deploy:Kabum"
+    },
+    {
+      "Id": "c283e885-5ed0-4fad-9e0e-0246058f71e2",
+      "When": "2024-12-12T00:56:14.594Z",
+      "Reason": "Internal Puppeteer Error",
+      "At": "Deploy:Kabum"
+    },
+    {
+      "Id": "e3b4aa40-f54e-4b24-a8e3-0236599b593c",
+      "When": "2024-12-12T00:56:56.598Z",
+      "Reason": "Internal Puppeteer Error",
+      "At": "Deploy:Kabum"
+    },
+    {
+      "Id": "d9659328-29e2-4d4b-bfe6-0a0501a5c70c",
+      "When": "2024-12-12T00:59:23.260Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "39db98f7-5cf8-4f03-998e-e0d8f1690ee5",
+      "When": "2024-12-12T00:59:23.260Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "2984e270-915c-40cd-a36e-07f1c86e05a7",
+      "When": "2024-12-12T01:01:30.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "10f9724a-2d04-43e6-97cf-e0faf42337b3",
+      "When": "2024-12-12T01:01:30.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "9aac739a-2836-43ad-9085-234977d192c8",
+      "When": "2024-12-12T01:03:38.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "e003c95c-fff1-42c6-aac1-b6662543ac8f",
+      "When": "2024-12-12T01:03:38.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Pichau"
+    },
+    {
+      "Id": "07babe19-4a87-40f1-8ed5-2b92acb9a079",
+      "When": "2024-12-12T01:03:38.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "68c798c3-dc80-4819-b4fa-25d865c5e2ae",
+      "When": "2024-12-12T01:03:38.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "5ae37880-4bf5-408d-b3a3-7bdfaf36bb3d",
+      "When": "2024-12-12T01:03:38.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "82ddd893-404c-456c-a56f-868ce212e2be",
+      "When": "2024-12-12T01:03:38.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "899490d6-7bb5-43e3-bcf9-20c2bea9c4c0",
+      "When": "2024-12-12T01:03:38.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    },
+    {
+      "Id": "eef29fae-8837-47ec-a431-e117a35601ea",
+      "When": "2024-12-12T01:03:38.008Z",
+      "Reason": "Created empty or zero value",
+      "At": "Deploy:Terabyte"
+    }
+  ],
+  "config": {
+    "pasDays": "90"
+  }
+}`)
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            parameters:[
+              {
+                name:"PasDays",
+                description:"A quantidade de dias no passado que será usada como filtro. Irá retornar o registro de preços de um produto em até x dias no passado definido por este valor",
+                schema:{
+                  type:"number"
+                },
+                required:true,
+                in:"query",
+                examples:{
+                  Aweek:{
+                    value:7
+                  },
+                  AMonth:{
+                    value:30
+                  },
+                  AYear:{
+                    value:345
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "/api/scrap/date/:PasDays":{
+          description:"Retorna a lista de Scraps que aconteceu durante um determinado periodo de tempo",
+          get:{
+            description:"Retorna a lista de Scraps que aconteceu durante um determinado periodo de tempo",
+            tags:["api","admin"],
+            parameters:[
+              {
+                name:"PasDays",
+                description:"A quantidade de dias no passado que será usada como filtro. Irá retornar o registro de scraps feitos na aplicação em até x dias no passado definido por este valor",
+                schema:{
+                  type:"number"
+                },
+                required:true,
+                in:"query",
+                examples:{
+                  Aweek:{
+                    value:7
+                  },
+                  AMonth:{
+                    value:30
+                  },
+                  AYear:{
+                    value:345
+                  }
+                }
+              }
+            ],
+            responses:{
+              200:{
+                description:"Retorno com sucesso",
+                content:{
+                  "application/json":{
+                    examples:{
+                      Example1:{
+                        value:JSON.parse(`
+{
+  "Description": "Successfully returned Scrap Registry",
+  "response": [{
+    "Id": 90,
+    "CreatedAt": "Date",
+    "Scraped": "pichau"
+  }],
+  "config": {
+    "PasDays": "90"
+  }
+}`)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
         }
       },
     },

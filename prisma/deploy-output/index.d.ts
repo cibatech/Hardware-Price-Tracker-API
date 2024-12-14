@@ -24,6 +24,11 @@ export type TriggerWarning = $Result.DefaultSelection<Prisma.$TriggerWarningPayl
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
+ * Model Scrap
+ * 
+ */
+export type Scrap = $Result.DefaultSelection<Prisma.$ScrapPayload>
+/**
  * Model Product
  * 
  */
@@ -204,6 +209,16 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs>;
+
+  /**
+   * `prisma.scrap`: Exposes CRUD operations for the **Scrap** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Scraps
+    * const scraps = await prisma.scrap.findMany()
+    * ```
+    */
+  get scrap(): Prisma.ScrapDelegate<ExtArgs>;
 
   /**
    * `prisma.product`: Exposes CRUD operations for the **Product** model.
@@ -687,6 +702,7 @@ export namespace Prisma {
   export const ModelName: {
     TriggerWarning: 'TriggerWarning',
     User: 'User',
+    Scrap: 'Scrap',
     Product: 'Product',
     Price: 'Price',
     StaticLink: 'StaticLink',
@@ -706,7 +722,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "triggerWarning" | "user" | "product" | "price" | "staticLink" | "issue"
+      modelProps: "triggerWarning" | "user" | "scrap" | "product" | "price" | "staticLink" | "issue"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -847,6 +863,76 @@ export namespace Prisma {
           count: {
             args: Prisma.UserCountArgs<ExtArgs>
             result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      Scrap: {
+        payload: Prisma.$ScrapPayload<ExtArgs>
+        fields: Prisma.ScrapFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ScrapFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ScrapFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload>
+          }
+          findFirst: {
+            args: Prisma.ScrapFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ScrapFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload>
+          }
+          findMany: {
+            args: Prisma.ScrapFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload>[]
+          }
+          create: {
+            args: Prisma.ScrapCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload>
+          }
+          createMany: {
+            args: Prisma.ScrapCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ScrapCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload>[]
+          }
+          delete: {
+            args: Prisma.ScrapDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload>
+          }
+          update: {
+            args: Prisma.ScrapUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload>
+          }
+          deleteMany: {
+            args: Prisma.ScrapDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ScrapUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ScrapUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ScrapPayload>
+          }
+          aggregate: {
+            args: Prisma.ScrapAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateScrap>
+          }
+          groupBy: {
+            args: Prisma.ScrapGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ScrapGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ScrapCountArgs<ExtArgs>
+            result: $Utils.Optional<ScrapCountAggregateOutputType> | number
           }
         }
       }
@@ -3243,6 +3329,894 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Scrap
+   */
+
+  export type AggregateScrap = {
+    _count: ScrapCountAggregateOutputType | null
+    _avg: ScrapAvgAggregateOutputType | null
+    _sum: ScrapSumAggregateOutputType | null
+    _min: ScrapMinAggregateOutputType | null
+    _max: ScrapMaxAggregateOutputType | null
+  }
+
+  export type ScrapAvgAggregateOutputType = {
+    Id: number | null
+  }
+
+  export type ScrapSumAggregateOutputType = {
+    Id: number | null
+  }
+
+  export type ScrapMinAggregateOutputType = {
+    Id: number | null
+    CreatedAt: Date | null
+    Scraped: string | null
+  }
+
+  export type ScrapMaxAggregateOutputType = {
+    Id: number | null
+    CreatedAt: Date | null
+    Scraped: string | null
+  }
+
+  export type ScrapCountAggregateOutputType = {
+    Id: number
+    CreatedAt: number
+    Scraped: number
+    _all: number
+  }
+
+
+  export type ScrapAvgAggregateInputType = {
+    Id?: true
+  }
+
+  export type ScrapSumAggregateInputType = {
+    Id?: true
+  }
+
+  export type ScrapMinAggregateInputType = {
+    Id?: true
+    CreatedAt?: true
+    Scraped?: true
+  }
+
+  export type ScrapMaxAggregateInputType = {
+    Id?: true
+    CreatedAt?: true
+    Scraped?: true
+  }
+
+  export type ScrapCountAggregateInputType = {
+    Id?: true
+    CreatedAt?: true
+    Scraped?: true
+    _all?: true
+  }
+
+  export type ScrapAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Scrap to aggregate.
+     */
+    where?: ScrapWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scraps to fetch.
+     */
+    orderBy?: ScrapOrderByWithRelationInput | ScrapOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ScrapWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scraps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scraps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Scraps
+    **/
+    _count?: true | ScrapCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ScrapAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ScrapSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ScrapMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ScrapMaxAggregateInputType
+  }
+
+  export type GetScrapAggregateType<T extends ScrapAggregateArgs> = {
+        [P in keyof T & keyof AggregateScrap]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateScrap[P]>
+      : GetScalarType<T[P], AggregateScrap[P]>
+  }
+
+
+
+
+  export type ScrapGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ScrapWhereInput
+    orderBy?: ScrapOrderByWithAggregationInput | ScrapOrderByWithAggregationInput[]
+    by: ScrapScalarFieldEnum[] | ScrapScalarFieldEnum
+    having?: ScrapScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ScrapCountAggregateInputType | true
+    _avg?: ScrapAvgAggregateInputType
+    _sum?: ScrapSumAggregateInputType
+    _min?: ScrapMinAggregateInputType
+    _max?: ScrapMaxAggregateInputType
+  }
+
+  export type ScrapGroupByOutputType = {
+    Id: number
+    CreatedAt: Date
+    Scraped: string
+    _count: ScrapCountAggregateOutputType | null
+    _avg: ScrapAvgAggregateOutputType | null
+    _sum: ScrapSumAggregateOutputType | null
+    _min: ScrapMinAggregateOutputType | null
+    _max: ScrapMaxAggregateOutputType | null
+  }
+
+  type GetScrapGroupByPayload<T extends ScrapGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ScrapGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ScrapGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ScrapGroupByOutputType[P]>
+            : GetScalarType<T[P], ScrapGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ScrapSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Id?: boolean
+    CreatedAt?: boolean
+    Scraped?: boolean
+  }, ExtArgs["result"]["scrap"]>
+
+  export type ScrapSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Id?: boolean
+    CreatedAt?: boolean
+    Scraped?: boolean
+  }, ExtArgs["result"]["scrap"]>
+
+  export type ScrapSelectScalar = {
+    Id?: boolean
+    CreatedAt?: boolean
+    Scraped?: boolean
+  }
+
+
+  export type $ScrapPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Scrap"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      Id: number
+      CreatedAt: Date
+      Scraped: string
+    }, ExtArgs["result"]["scrap"]>
+    composites: {}
+  }
+
+  type ScrapGetPayload<S extends boolean | null | undefined | ScrapDefaultArgs> = $Result.GetResult<Prisma.$ScrapPayload, S>
+
+  type ScrapCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ScrapFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ScrapCountAggregateInputType | true
+    }
+
+  export interface ScrapDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Scrap'], meta: { name: 'Scrap' } }
+    /**
+     * Find zero or one Scrap that matches the filter.
+     * @param {ScrapFindUniqueArgs} args - Arguments to find a Scrap
+     * @example
+     * // Get one Scrap
+     * const scrap = await prisma.scrap.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ScrapFindUniqueArgs>(args: SelectSubset<T, ScrapFindUniqueArgs<ExtArgs>>): Prisma__ScrapClient<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Scrap that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {ScrapFindUniqueOrThrowArgs} args - Arguments to find a Scrap
+     * @example
+     * // Get one Scrap
+     * const scrap = await prisma.scrap.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ScrapFindUniqueOrThrowArgs>(args: SelectSubset<T, ScrapFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ScrapClient<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Scrap that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScrapFindFirstArgs} args - Arguments to find a Scrap
+     * @example
+     * // Get one Scrap
+     * const scrap = await prisma.scrap.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ScrapFindFirstArgs>(args?: SelectSubset<T, ScrapFindFirstArgs<ExtArgs>>): Prisma__ScrapClient<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Scrap that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScrapFindFirstOrThrowArgs} args - Arguments to find a Scrap
+     * @example
+     * // Get one Scrap
+     * const scrap = await prisma.scrap.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ScrapFindFirstOrThrowArgs>(args?: SelectSubset<T, ScrapFindFirstOrThrowArgs<ExtArgs>>): Prisma__ScrapClient<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Scraps that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScrapFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Scraps
+     * const scraps = await prisma.scrap.findMany()
+     * 
+     * // Get first 10 Scraps
+     * const scraps = await prisma.scrap.findMany({ take: 10 })
+     * 
+     * // Only select the `Id`
+     * const scrapWithIdOnly = await prisma.scrap.findMany({ select: { Id: true } })
+     * 
+     */
+    findMany<T extends ScrapFindManyArgs>(args?: SelectSubset<T, ScrapFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Scrap.
+     * @param {ScrapCreateArgs} args - Arguments to create a Scrap.
+     * @example
+     * // Create one Scrap
+     * const Scrap = await prisma.scrap.create({
+     *   data: {
+     *     // ... data to create a Scrap
+     *   }
+     * })
+     * 
+     */
+    create<T extends ScrapCreateArgs>(args: SelectSubset<T, ScrapCreateArgs<ExtArgs>>): Prisma__ScrapClient<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Scraps.
+     * @param {ScrapCreateManyArgs} args - Arguments to create many Scraps.
+     * @example
+     * // Create many Scraps
+     * const scrap = await prisma.scrap.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ScrapCreateManyArgs>(args?: SelectSubset<T, ScrapCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Scraps and returns the data saved in the database.
+     * @param {ScrapCreateManyAndReturnArgs} args - Arguments to create many Scraps.
+     * @example
+     * // Create many Scraps
+     * const scrap = await prisma.scrap.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Scraps and only return the `Id`
+     * const scrapWithIdOnly = await prisma.scrap.createManyAndReturn({ 
+     *   select: { Id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ScrapCreateManyAndReturnArgs>(args?: SelectSubset<T, ScrapCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Scrap.
+     * @param {ScrapDeleteArgs} args - Arguments to delete one Scrap.
+     * @example
+     * // Delete one Scrap
+     * const Scrap = await prisma.scrap.delete({
+     *   where: {
+     *     // ... filter to delete one Scrap
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ScrapDeleteArgs>(args: SelectSubset<T, ScrapDeleteArgs<ExtArgs>>): Prisma__ScrapClient<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Scrap.
+     * @param {ScrapUpdateArgs} args - Arguments to update one Scrap.
+     * @example
+     * // Update one Scrap
+     * const scrap = await prisma.scrap.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ScrapUpdateArgs>(args: SelectSubset<T, ScrapUpdateArgs<ExtArgs>>): Prisma__ScrapClient<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Scraps.
+     * @param {ScrapDeleteManyArgs} args - Arguments to filter Scraps to delete.
+     * @example
+     * // Delete a few Scraps
+     * const { count } = await prisma.scrap.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ScrapDeleteManyArgs>(args?: SelectSubset<T, ScrapDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Scraps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScrapUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Scraps
+     * const scrap = await prisma.scrap.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ScrapUpdateManyArgs>(args: SelectSubset<T, ScrapUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Scrap.
+     * @param {ScrapUpsertArgs} args - Arguments to update or create a Scrap.
+     * @example
+     * // Update or create a Scrap
+     * const scrap = await prisma.scrap.upsert({
+     *   create: {
+     *     // ... data to create a Scrap
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Scrap we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ScrapUpsertArgs>(args: SelectSubset<T, ScrapUpsertArgs<ExtArgs>>): Prisma__ScrapClient<$Result.GetResult<Prisma.$ScrapPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Scraps.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScrapCountArgs} args - Arguments to filter Scraps to count.
+     * @example
+     * // Count the number of Scraps
+     * const count = await prisma.scrap.count({
+     *   where: {
+     *     // ... the filter for the Scraps we want to count
+     *   }
+     * })
+    **/
+    count<T extends ScrapCountArgs>(
+      args?: Subset<T, ScrapCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ScrapCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Scrap.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScrapAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ScrapAggregateArgs>(args: Subset<T, ScrapAggregateArgs>): Prisma.PrismaPromise<GetScrapAggregateType<T>>
+
+    /**
+     * Group by Scrap.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ScrapGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ScrapGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ScrapGroupByArgs['orderBy'] }
+        : { orderBy?: ScrapGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ScrapGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetScrapGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Scrap model
+   */
+  readonly fields: ScrapFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Scrap.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ScrapClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Scrap model
+   */ 
+  interface ScrapFieldRefs {
+    readonly Id: FieldRef<"Scrap", 'Int'>
+    readonly CreatedAt: FieldRef<"Scrap", 'DateTime'>
+    readonly Scraped: FieldRef<"Scrap", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Scrap findUnique
+   */
+  export type ScrapFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * Filter, which Scrap to fetch.
+     */
+    where: ScrapWhereUniqueInput
+  }
+
+  /**
+   * Scrap findUniqueOrThrow
+   */
+  export type ScrapFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * Filter, which Scrap to fetch.
+     */
+    where: ScrapWhereUniqueInput
+  }
+
+  /**
+   * Scrap findFirst
+   */
+  export type ScrapFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * Filter, which Scrap to fetch.
+     */
+    where?: ScrapWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scraps to fetch.
+     */
+    orderBy?: ScrapOrderByWithRelationInput | ScrapOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Scraps.
+     */
+    cursor?: ScrapWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scraps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scraps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Scraps.
+     */
+    distinct?: ScrapScalarFieldEnum | ScrapScalarFieldEnum[]
+  }
+
+  /**
+   * Scrap findFirstOrThrow
+   */
+  export type ScrapFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * Filter, which Scrap to fetch.
+     */
+    where?: ScrapWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scraps to fetch.
+     */
+    orderBy?: ScrapOrderByWithRelationInput | ScrapOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Scraps.
+     */
+    cursor?: ScrapWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scraps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scraps.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Scraps.
+     */
+    distinct?: ScrapScalarFieldEnum | ScrapScalarFieldEnum[]
+  }
+
+  /**
+   * Scrap findMany
+   */
+  export type ScrapFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * Filter, which Scraps to fetch.
+     */
+    where?: ScrapWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Scraps to fetch.
+     */
+    orderBy?: ScrapOrderByWithRelationInput | ScrapOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Scraps.
+     */
+    cursor?: ScrapWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Scraps from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Scraps.
+     */
+    skip?: number
+    distinct?: ScrapScalarFieldEnum | ScrapScalarFieldEnum[]
+  }
+
+  /**
+   * Scrap create
+   */
+  export type ScrapCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * The data needed to create a Scrap.
+     */
+    data: XOR<ScrapCreateInput, ScrapUncheckedCreateInput>
+  }
+
+  /**
+   * Scrap createMany
+   */
+  export type ScrapCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Scraps.
+     */
+    data: ScrapCreateManyInput | ScrapCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Scrap createManyAndReturn
+   */
+  export type ScrapCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Scraps.
+     */
+    data: ScrapCreateManyInput | ScrapCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Scrap update
+   */
+  export type ScrapUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * The data needed to update a Scrap.
+     */
+    data: XOR<ScrapUpdateInput, ScrapUncheckedUpdateInput>
+    /**
+     * Choose, which Scrap to update.
+     */
+    where: ScrapWhereUniqueInput
+  }
+
+  /**
+   * Scrap updateMany
+   */
+  export type ScrapUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Scraps.
+     */
+    data: XOR<ScrapUpdateManyMutationInput, ScrapUncheckedUpdateManyInput>
+    /**
+     * Filter which Scraps to update
+     */
+    where?: ScrapWhereInput
+  }
+
+  /**
+   * Scrap upsert
+   */
+  export type ScrapUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * The filter to search for the Scrap to update in case it exists.
+     */
+    where: ScrapWhereUniqueInput
+    /**
+     * In case the Scrap found by the `where` argument doesn't exist, create a new Scrap with this data.
+     */
+    create: XOR<ScrapCreateInput, ScrapUncheckedCreateInput>
+    /**
+     * In case the Scrap was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ScrapUpdateInput, ScrapUncheckedUpdateInput>
+  }
+
+  /**
+   * Scrap delete
+   */
+  export type ScrapDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
+    /**
+     * Filter which Scrap to delete.
+     */
+    where: ScrapWhereUniqueInput
+  }
+
+  /**
+   * Scrap deleteMany
+   */
+  export type ScrapDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Scraps to delete
+     */
+    where?: ScrapWhereInput
+  }
+
+  /**
+   * Scrap without action
+   */
+  export type ScrapDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Scrap
+     */
+    select?: ScrapSelect<ExtArgs> | null
   }
 
 
@@ -7066,6 +8040,15 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+  export const ScrapScalarFieldEnum: {
+    Id: 'Id',
+    CreatedAt: 'CreatedAt',
+    Scraped: 'Scraped'
+  };
+
+  export type ScrapScalarFieldEnum = (typeof ScrapScalarFieldEnum)[keyof typeof ScrapScalarFieldEnum]
+
+
   export const ProductScalarFieldEnum: {
     Id: 'Id',
     Title: 'Title',
@@ -7170,6 +8153,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7194,20 +8191,6 @@ export namespace Prisma {
    * Reference to a field of type 'kind[]'
    */
   export type ListEnumkindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'kind[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'DateTime'
-   */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-  /**
-   * Reference to a field of type 'DateTime[]'
-   */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
   /**
    * Deep Input Types
@@ -7312,6 +8295,50 @@ export namespace Prisma {
     Id?: StringWithAggregatesFilter<"User"> | string
     Email?: StringWithAggregatesFilter<"User"> | string
     Password?: StringWithAggregatesFilter<"User"> | string
+  }
+
+  export type ScrapWhereInput = {
+    AND?: ScrapWhereInput | ScrapWhereInput[]
+    OR?: ScrapWhereInput[]
+    NOT?: ScrapWhereInput | ScrapWhereInput[]
+    Id?: IntFilter<"Scrap"> | number
+    CreatedAt?: DateTimeFilter<"Scrap"> | Date | string
+    Scraped?: StringFilter<"Scrap"> | string
+  }
+
+  export type ScrapOrderByWithRelationInput = {
+    Id?: SortOrder
+    CreatedAt?: SortOrder
+    Scraped?: SortOrder
+  }
+
+  export type ScrapWhereUniqueInput = Prisma.AtLeast<{
+    Id?: number
+    AND?: ScrapWhereInput | ScrapWhereInput[]
+    OR?: ScrapWhereInput[]
+    NOT?: ScrapWhereInput | ScrapWhereInput[]
+    CreatedAt?: DateTimeFilter<"Scrap"> | Date | string
+    Scraped?: StringFilter<"Scrap"> | string
+  }, "Id">
+
+  export type ScrapOrderByWithAggregationInput = {
+    Id?: SortOrder
+    CreatedAt?: SortOrder
+    Scraped?: SortOrder
+    _count?: ScrapCountOrderByAggregateInput
+    _avg?: ScrapAvgOrderByAggregateInput
+    _max?: ScrapMaxOrderByAggregateInput
+    _min?: ScrapMinOrderByAggregateInput
+    _sum?: ScrapSumOrderByAggregateInput
+  }
+
+  export type ScrapScalarWhereWithAggregatesInput = {
+    AND?: ScrapScalarWhereWithAggregatesInput | ScrapScalarWhereWithAggregatesInput[]
+    OR?: ScrapScalarWhereWithAggregatesInput[]
+    NOT?: ScrapScalarWhereWithAggregatesInput | ScrapScalarWhereWithAggregatesInput[]
+    Id?: IntWithAggregatesFilter<"Scrap"> | number
+    CreatedAt?: DateTimeWithAggregatesFilter<"Scrap"> | Date | string
+    Scraped?: StringWithAggregatesFilter<"Scrap"> | string
   }
 
   export type ProductWhereInput = {
@@ -7638,6 +8665,45 @@ export namespace Prisma {
     Id?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
     Password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ScrapCreateInput = {
+    CreatedAt?: Date | string
+    Scraped: string
+  }
+
+  export type ScrapUncheckedCreateInput = {
+    Id?: number
+    CreatedAt?: Date | string
+    Scraped: string
+  }
+
+  export type ScrapUpdateInput = {
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Scraped?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ScrapUncheckedUpdateInput = {
+    Id?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Scraped?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ScrapCreateManyInput = {
+    Id?: number
+    CreatedAt?: Date | string
+    Scraped: string
+  }
+
+  export type ScrapUpdateManyMutationInput = {
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Scraped?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ScrapUncheckedUpdateManyInput = {
+    Id?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Scraped?: StringFieldUpdateOperationsInput | string
   }
 
   export type ProductCreateInput = {
@@ -8009,6 +9075,57 @@ export namespace Prisma {
     Password?: SortOrder
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type ScrapCountOrderByAggregateInput = {
+    Id?: SortOrder
+    CreatedAt?: SortOrder
+    Scraped?: SortOrder
+  }
+
+  export type ScrapAvgOrderByAggregateInput = {
+    Id?: SortOrder
+  }
+
+  export type ScrapMaxOrderByAggregateInput = {
+    Id?: SortOrder
+    CreatedAt?: SortOrder
+    Scraped?: SortOrder
+  }
+
+  export type ScrapMinOrderByAggregateInput = {
+    Id?: SortOrder
+    CreatedAt?: SortOrder
+    Scraped?: SortOrder
+  }
+
+  export type ScrapSumOrderByAggregateInput = {
+    Id?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -8148,17 +9265,6 @@ export namespace Prisma {
     _max?: NestedEnumkindFilter<$PrismaModel>
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type PriceCountOrderByAggregateInput = {
     Id?: SortOrder
     AtDate?: SortOrder
@@ -8186,20 +9292,6 @@ export namespace Prisma {
 
   export type PriceSumOrderByAggregateInput = {
     Price?: SortOrder
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StaticLinkCountOrderByAggregateInput = {
@@ -8334,6 +9426,10 @@ export namespace Prisma {
     deleteMany?: TriggerWarningScalarWhereInput | TriggerWarningScalarWhereInput[]
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type PriceCreateNestedManyWithoutProdRefInput = {
     create?: XOR<PriceCreateWithoutProdRefInput, PriceUncheckedCreateWithoutProdRefInput> | PriceCreateWithoutProdRefInput[] | PriceUncheckedCreateWithoutProdRefInput[]
     connectOrCreate?: PriceCreateOrConnectWithoutProdRefInput | PriceCreateOrConnectWithoutProdRefInput[]
@@ -8440,10 +9536,6 @@ export namespace Prisma {
     connect?: ProductWhereUniqueInput
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
   export type ProductUpdateOneRequiredWithoutPriceHistoryNestedInput = {
     create?: XOR<ProductCreateWithoutPriceHistoryInput, ProductUncheckedCreateWithoutPriceHistoryInput>
     connectOrCreate?: ProductCreateOrConnectWithoutPriceHistoryInput
@@ -8521,6 +9613,31 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -8594,31 +9711,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumkindFilter<$PrismaModel>
     _max?: NestedEnumkindFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type UserCreateWithoutTriggersInput = {
@@ -9032,6 +10124,10 @@ export namespace Prisma {
      * @deprecated Use UserDefaultArgs instead
      */
     export type UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ScrapDefaultArgs instead
+     */
+    export type ScrapArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ScrapDefaultArgs<ExtArgs>
     /**
      * @deprecated Use ProductDefaultArgs instead
      */

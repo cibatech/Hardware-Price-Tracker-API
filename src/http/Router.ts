@@ -4,6 +4,7 @@ import { UserRouter } from "./Routes/UserRouter";
 import { IssuesRouter } from "./Routes/IssuesRouter";
 import { PriceTrackerRouter } from "./Routes/PriceTrackerRouter";
 import { PreHandlerHook } from "./Hooks/PreHandler";
+import { ScrapRouter } from "./Routes/scrapRegistryRouter";
 
 export async function Router(app:FastifyInstance) {
     //initialize prehandler hook
@@ -24,5 +25,9 @@ export async function Router(app:FastifyInstance) {
     //Price tracker routes
     app.register(PriceTrackerRouter,{
         prefix:"/tracker"
+    })
+    //Scrap return for admin route
+    app.register(ScrapRouter,{
+        prefix:"/scrap"
     })
 }

@@ -9,11 +9,16 @@ export class InMemoryIssuesRepository implements IssuesRepository {
     return p?p:null;
   }
 
-  async findByDate(date: Date): Promise<Issue[]> {
-    const targetDate = date.toISOString().split("T")[0]; // Comparar apenas a data
-    return this.issues.filter(
-      issue => issue.When.toISOString().split("T")[0] === targetDate
-    );
+  async findByDate(daysAgo: number): Promise<Issue[]> {
+    const now = new Date();
+    const pastDate = new Date();
+    pastDate.setDate(now.getDate() - daysAgo); // Calcula a data no passado
+
+    // Filtra os itens cujo `AtDate` está no intervalo de tempo
+    const filteredPrices = this.issues.filter(item => {
+        return item.When >= pastDate && item.When <= now;
+    });
+    return filteredPrices;
   }
 
   async findByAt(at: string): Promise<Issue[]> {
