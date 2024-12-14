@@ -4,6 +4,11 @@
     "dev": "npx tsx --watch src/server.ts",
     "test": "npx vitest --run"
   },
+  "version": "1.5.9",
+  "author": {
+    "name": "Thierrir Alencar da Silva","email": "thierriralencar1614@gmail.com"
+  },
+  "description": "A API To provide fullscale suport do price tracking features",
   "dependencies": {
     "@faker-js/faker": "^9.2.0",
     "@fastify/cors": "^10.0.1",

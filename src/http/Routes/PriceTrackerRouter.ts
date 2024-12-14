@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import {POSTPriceTrackerController,PUTPriceTrackerController,DELETEPriceTrackerController } from "../Controllers";
+import {POSTPriceTrackerController,PUTPriceTrackerController,DELETEPriceTrackerController,GETPriceTrackerFromProductController,GETPriceTrackerFromUserController } from "../Controllers/PriceTracking";
 
 
 export async function PriceTrackerRouter(app:FastifyInstance) {
@@ -17,5 +17,15 @@ export async function PriceTrackerRouter(app:FastifyInstance) {
         handler:DELETEPriceTrackerController,
         method:"DELETE",
         url:"/delete/:Id",
+    })
+    app.route({
+        handler:GETPriceTrackerFromProductController,
+        method:"GET",
+        url:"/fromproduct/:ProdId",
+    })
+    app.route({
+        handler:GETPriceTrackerFromUserController,
+        method:"GET",
+        url:"/fromuser/:UserId",
     })
 }

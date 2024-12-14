@@ -1,13 +1,28 @@
+
 {
-  "Description": "Price Tracker sucessfully updated with the new value",
-  "resp": {
-    "Id": "308ee8c1-2293-4014-b6c4-22da191deb96",
-    "TargetPrice": 350,
-    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
-    "ProdId": "b3de1ff1-886b-4881-8374-fcdf324b6ba4"
-  },
+  "Description": "Successfully returned priceTracker list from provided user",
+  "resp": [
+    {
+      "Id": "fceb60df-2aab-4ffb-974e-c950b9c5c76e",
+      "TargetPrice": 200,
+      "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
+      "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+    }
+  ]
+}
+
+
+{
+  "Description": "Successfully returned priceTracker list from provided Product",
+  "resp": [
+    {
+      "Id": "e68cd7eb-4d05-425d-9249-4a80d098165e",
+      "TargetPrice": 200,
+      "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
+      "ProdId": "b3de1ff1-886b-4881-8374-fcdf324b6ba4"
+    }
+  ],
   "config": {
-    "Id": "308ee8c1-2293-4014-b6c4-22da191deb96",
-    "value": "350"
+    "ProdId": "b3de1ff1-886b-4881-8374-fcdf324b6ba4"
   }
 }

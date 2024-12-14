@@ -1,0 +1,20 @@
+### Rotas de usuario #####
+
+### Criar Usuário
+POST http://127.0.0.1:2467/api/user/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "Email":"jonDoe@gmail.com",
+    "Password":"JonDoe"
+}
+
+### Logar usuário
+PATCH http://127.0.0.1:2467/api/user/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "Email":"jonDoe@gmail.com",
+    "Password":"JonDoe"
+}
+

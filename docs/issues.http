@@ -1,0 +1,6 @@
+#### Rotas de Issues #####
+
+GET http://127.0.0.1:2467/api/issues/place/dev:pichau
+
+####
+GET http://127.0.0.1:2467/api/issues/1

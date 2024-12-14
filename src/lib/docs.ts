@@ -1617,6 +1617,89 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
               }
             }
           }
+        },
+        "api/tracker/fromuser/:UserId":{
+          description:"Retorna a lista de avisos de preço de um determinado usuário",
+          get:{
+            tags:["api","User","tracker"],   
+            parameters:[
+              {
+                name:"UserId",description:"Id do usuário conectado que deseja acessar a lista de avisos",
+                schema:{
+                  type:"string",description:"Em formato de UUID"
+                },in:"query",required:true
+              }
+            ],
+            responses:{
+              200:{
+                description:"Retorno com sucesso das informações",
+                content:{
+                  "application/json":{
+                    examples:{
+                      example1:{
+                        value:JSON.parse(`
+{
+  "Description": "Successfully returned priceTracker list from provided user",
+  "resp": [
+    {
+      "Id": "fceb60df-2aab-4ffb-974e-c950b9c5c76e",
+      "TargetPrice": 200,
+      "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
+      "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+    }
+  ]
+}
+`)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "api/tracker/fromproduct/:ProdId":{
+          description:"Retorna a lista de avisos de preço de um determinado usuário",
+          get:{
+            tags:["api","User","tracker"],   
+            parameters:[
+              {
+                name:"ProdId",description:"Id do produto conectado que se deseja coletar os trackers",
+                schema:{
+                  type:"string",description:"Em formato de UUID"
+                },in:"query",required:true
+              }
+            ],
+            responses:{
+              200:{
+                description:"Retorno com sucesso das informações",
+                content:{
+                  "application/json":{
+                    examples:{
+                      example1:{
+                        value:JSON.parse(`
+{
+  "Description": "Successfully returned priceTracker list from provided Product",
+  "resp": [
+    {
+      "Id": "e68cd7eb-4d05-425d-9249-4a80d098165e",
+      "TargetPrice": 200,
+      "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
+      "ProdId": "b3de1ff1-886b-4881-8374-fcdf324b6ba4"
+    }
+  ],
+  "config": {
+    "ProdId": "b3de1ff1-886b-4881-8374-fcdf324b6ba4"
+  }
+}
+`)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
     },

@@ -1,0 +1,24 @@
+#### Rotas de tracking #####
+
+### Criar Price Tracker
+POST http://127.0.0.1:2467/api/tracker/create
+Content-Type: application/json
+
+{
+    "TargetPrice":200,
+    "ProdId":"b3de1ff1-886b-4881-8374-fcdf324b6ba4",
+    "UserId":"e8eec215-74f7-463a-9aab-29647f3784f5"
+}
+
+### Atualizar price Tracker
+PUT http://127.0.0.1:2467/api/tracker/update/308ee8c1-2293-4014-b6c4-22da191deb96/350
+
+
+### Deletar Price Tracker
+DELETE http://127.0.0.1:2467/api/tracker/delete/bb91bc86-2ba2-44a9-8043-563f4d392c5b
+
+### Get por usuários
+GET http://127.0.0.1:2467/api/tracker/fromuser/e8eec215-74f7-463a-9aab-29647f3784f5
+
+### Get por Produtos
+GET http://127.0.0.1:2467/api/tracker/fromproduct/b3de1ff1-886b-4881-8374-fcdf324b6ba4
