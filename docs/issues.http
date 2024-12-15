@@ -11,4 +11,4 @@ GET http://127.0.0.1:2467/api/issues/date/90
 
 
 ###
-GET http://127.0.0.1:2467/api/scrap/date/90
+GET http://127.0.0.1:2467/api/scrap/date/365
