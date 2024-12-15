@@ -1889,11 +1889,39 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                         value:JSON.parse(`
 {
   "Description": "Successfully returned Scrap Registry",
-  "response": [{
-    "Id": 90,
-    "CreatedAt": "Date",
-    "Scraped": "pichau"
-  }],
+  "response": {
+    "ScrapList": [
+      {
+        "Id": 8,
+        "CreatedAt": "2024-12-03T00:00:00.000Z",
+        "Scraped": "TeraByte"
+      },
+      {
+        "Id": 6,
+        "CreatedAt": "2024-12-03T00:00:00.000Z",
+        "Scraped": "Pichau"
+      },
+      {
+        "Id": 7,
+        "CreatedAt": "2024-12-03T00:00:00.000Z",
+        "Scraped": "Kabum"
+      }
+    ],
+    "ScrapInfo": {
+      "Jan": 0,
+      "Fev": 0,
+      "Mar": 0,
+      "Abr": 0,
+      "Mai": 0,
+      "Jun": 0,
+      "Jul": 0,
+      "Ago": 0,
+      "Set": 0,
+      "Out": 0,
+      "Nov": 0,
+      "Dez": 3
+    }
+  },
   "config": {
     "PasDays": "90"
   }
