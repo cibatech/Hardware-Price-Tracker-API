@@ -132,6 +132,7 @@ exports.Prisma.TriggerWarningScalarFieldEnum = {
 exports.Prisma.UserScalarFieldEnum = {
   Id: 'Id',
   Email: 'Email',
+  UserName: 'UserName',
   Password: 'Password'
 };
 

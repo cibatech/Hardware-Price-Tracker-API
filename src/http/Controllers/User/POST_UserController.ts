@@ -5,14 +5,15 @@ import { PrismaUserRepository } from "../../../repository/Prisma/PrismaUserRepos
 import { ResourceAlreadyExistsError } from "../../../Error/ResourceAlreadyExistsError";
 
 export async function CreateUserController(req:FastifyRequest,res:FastifyReply) {
-    const {Email,Password} = z.object({
+    const {Email,Password,UserName} = z.object({
         Email:z.string(),
-        Password:z.string()
+        Password:z.string(),
+        UserName:z.string().optional()
     }).parse(req.body)
     const service = new CreateUserUseCase(new PrismaUserRepository)
     try{
         const response = await service.execute({
-            Email,Password
+            Email,Password,UserName
         })
         res.status(201).send({
             Description:"Successfully created the user",

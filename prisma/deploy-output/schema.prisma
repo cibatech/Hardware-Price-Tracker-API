@@ -30,6 +30,7 @@ model TriggerWarning {
 model User {
   Id       String @id @default(uuid())
   Email    String
+  UserName String @default("RandomUser")
   Password String
 
   Triggers TriggerWarning[]

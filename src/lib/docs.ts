@@ -1021,7 +1021,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                 "application/json":{
                   examples:{
                     JonDoe:{
-                      value:JSON.parse(`{"Email":"jonDoe@gmail.com","Password":"JonDoePassword"}`)
+                      value:JSON.parse(`{"Email":"jonDoe@gmail.com","Password":"JonDoePassword","UserName":"randomUser"}`)
                     }
                   }
                 }
@@ -1892,6 +1892,31 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
   "response": {
     "ScrapList": [
       {
+        "Id": 1,
+        "CreatedAt": "2024-02-17T00:00:00.000Z",
+        "Scraped": "Pichau"
+      },
+      {
+        "Id": 3,
+        "CreatedAt": "2024-06-13T00:00:00.000Z",
+        "Scraped": "Kabum"
+      },
+      {
+        "Id": 4,
+        "CreatedAt": "2024-06-13T00:00:00.000Z",
+        "Scraped": "TeraByte"
+      },
+      {
+        "Id": 2,
+        "CreatedAt": "2024-06-13T00:00:00.000Z",
+        "Scraped": "Pichau"
+      },
+      {
+        "Id": 5,
+        "CreatedAt": "2024-02-17T00:00:00.000Z",
+        "Scraped": "Kabum"
+      },
+      {
         "Id": 8,
         "CreatedAt": "2024-12-03T00:00:00.000Z",
         "Scraped": "TeraByte"
@@ -1908,22 +1933,58 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
       }
     ],
     "ScrapInfo": {
-      "Jan": 0,
-      "Fev": 0,
-      "Mar": 0,
-      "Abr": 0,
-      "Mai": 0,
-      "Jun": 0,
-      "Jul": 0,
-      "Ago": 0,
-      "Set": 0,
-      "Out": 0,
-      "Nov": 0,
-      "Dez": 3
+      "Jan": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Fev": {
+        "succeeded": 2,
+        "failed": 0
+      },
+      "Mar": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Abr": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Mai": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Jun": {
+        "succeeded": 3,
+        "failed": 0
+      },
+      "Jul": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Ago": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Set": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Out": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Nov": {
+        "succeeded": 0,
+        "failed": 0
+      },
+      "Dez": {
+        "succeeded": 3,
+        "failed": 17
+      }
     }
   },
   "config": {
-    "PasDays": "90"
+    "PasDays": "365"
   }
 }`)
                       }
@@ -1967,6 +2028,42 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                 }
               }
             }
+          }
+        },
+        "api/user/profile/:UserId":{
+          get:{
+            tags:["api","User"],
+            description:"Rota utilizada para retornar informações de Perfil do usuário",
+            responses:{
+              200:{
+                description:"Retorno padrão",
+                content:{
+                  "application/json":{
+                    examples:{
+                      example1:{
+                        value:JSON.parse(`
+                          {
+  "Description": "Successfully returned profile information",
+  "response": {
+    "Email": "jonDoe@gmail.com",
+    "UserName": "RandomUser"
+  }
+}
+                          `)
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            parameters:[
+              {
+                name:"UserId",description:"Id do usuário conectado que deseja acessar o profile",
+                schema:{
+                  type:"string",description:"Em formato de UUID"
+                },in:"query",required:true
+              }
+            ]
           }
         }
       },
