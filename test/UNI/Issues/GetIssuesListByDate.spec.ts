@@ -29,7 +29,7 @@ describe("GetIssuesByDate Use Case", () => {
         When:specificDate
     })
 
-    const response = await getIssuesByDate.execute(specificDate)
+    const response = await getIssuesByDate.execute(30)
     expect(response[0].When).toBe(specificDate)
   });
 });

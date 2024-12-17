@@ -1891,46 +1891,6 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
   "Description": "Successfully returned Scrap Registry",
   "response": {
     "ScrapList": [
-      {
-        "Id": 1,
-        "CreatedAt": "2024-02-17T00:00:00.000Z",
-        "Scraped": "Pichau"
-      },
-      {
-        "Id": 3,
-        "CreatedAt": "2024-06-13T00:00:00.000Z",
-        "Scraped": "Kabum"
-      },
-      {
-        "Id": 4,
-        "CreatedAt": "2024-06-13T00:00:00.000Z",
-        "Scraped": "TeraByte"
-      },
-      {
-        "Id": 2,
-        "CreatedAt": "2024-06-13T00:00:00.000Z",
-        "Scraped": "Pichau"
-      },
-      {
-        "Id": 5,
-        "CreatedAt": "2024-02-17T00:00:00.000Z",
-        "Scraped": "Kabum"
-      },
-      {
-        "Id": 8,
-        "CreatedAt": "2024-12-03T00:00:00.000Z",
-        "Scraped": "TeraByte"
-      },
-      {
-        "Id": 6,
-        "CreatedAt": "2024-12-03T00:00:00.000Z",
-        "Scraped": "Pichau"
-      },
-      {
-        "Id": 7,
-        "CreatedAt": "2024-12-03T00:00:00.000Z",
-        "Scraped": "Kabum"
-      }
     ],
     "ScrapInfo": {
       "Jan": {

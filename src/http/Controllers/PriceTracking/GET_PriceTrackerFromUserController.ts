@@ -4,13 +4,14 @@ import {GetPriceTrackerFromUserUseCase} from "../../../services"
 import { PrismaPriceTrackerRepository } from "../../../repository/Prisma/PrismaPriceTrackerRepository";
 import { PrismaUserRepository } from "../../../repository/Prisma/PrismaUserRepository";
 import { ResourceNotFoundError } from "../../../Error/ResourceNotFound";
+import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 
 export async function GETPriceTrackerFromUserController(req:FastifyRequest,res:FastifyReply) {
     const {UserId} = z.object({
         UserId:z.string().uuid()
     }).parse(req.params)
 
-    const service = new GetPriceTrackerFromUserUseCase(new PrismaPriceTrackerRepository,new PrismaUserRepository)
+    const service = new GetPriceTrackerFromUserUseCase(new PrismaPriceTrackerRepository,new PrismaUserRepository, new PrismaProductRepository)
     try{
         const resp = await service.execute(UserId)
 
