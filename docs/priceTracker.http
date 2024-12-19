@@ -1,12 +1,12 @@
 #### Rotas de tracking #####
 
 ### Criar Price Tracker
-POST http://127.0.0.1:2467/api/tracker/create
+POST https://hardware-price-tracker-api.onrender.com/api/tracker/create
 Content-Type: application/json
 
 {
     "TargetPrice":200,
-    "ProdId":"b3de1ff1-886b-4881-8374-fcdf324b6ba4",
+    "ProdId":"0063dd0b-d6bf-4b2c-984c-cf7cc15822f7",
     "UserId":"e8eec215-74f7-463a-9aab-29647f3784f5"
 }
 

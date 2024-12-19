@@ -18,15 +18,20 @@ export class GetPriceTrackerFromUserUseCase{
         const findByUser = await this.PriceTrackerRepo.findByUser(UserId)
 
         const ResponseList:GetPriceTrackerInformations[] = []
-
-        findByUser.forEach(async e=>{
+    
+        for(let i=0;i<findByUser.length;i++){
+            const e = findByUser[i]
             const product = await this.ProdRepo.findById(e.ProdId);
             ResponseList.push({
                 TargetPrice:e.TargetPrice,
                 ProdImage:product?product.ImageUrl:null,
                 ProdName:product?product.Title:null,
             })
-        })
+        }
+
+       
+
+        console.log(ResponseList)
         return ResponseList
     }
 }
