@@ -23,7 +23,7 @@ export class PrismaProductRepository implements ProductRepository{
             return await prisma.product.findMany({
                 where:{
                     Description:{
-                        contains:Query
+                        contains:Query.toLowerCase()
                     }
                 },
                 take:Page*20,

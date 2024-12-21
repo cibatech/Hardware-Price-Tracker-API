@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { GetProductPriceEvaluationUseCase } from "../../src/services/Products/GetProductPriceEvalutation";
-import { InMemoryProductRepository } from "../../src/repository/InMemory/inMemoryProductRepository";
-import { InMemoryPriceRepository } from "../../src/repository/InMemory/inMemoryPriceRepository";
-import { Choose } from "../../src/utils/Choose";
+import { GetProductPriceEvaluationUseCase } from "../../../src/services/Products/GetProductPriceEvalutation";
+import { InMemoryProductRepository } from "../../../src/repository/InMemory/inMemoryProductRepository";
+import { InMemoryPriceRepository } from "../../../src/repository/InMemory/inMemoryPriceRepository";
+import { Choose } from "../../../src/utils/Choose";
 import { faker } from "@faker-js/faker";
 import { randomUUID } from "crypto";
-import { evaluation } from "../../src/lib/enums";
+import { evaluation } from "../../../src/lib/enums";
 
 
 
@@ -30,7 +30,7 @@ describe("Good Case",async()=>{
             Slug:"en-random-default",
             Title:faker.internet.displayName(),
             Value:500,
-            Where:"hardware"
+            Where:"hardware",onInstallment:null
         })
 
         //cria variações de preço desse produto

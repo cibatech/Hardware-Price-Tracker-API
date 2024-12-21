@@ -6,5 +6,6 @@ export interface PriceTrackerRepository{
     findByUser(UserId:string):Promise<TriggerWarning[]>
     findByProduct(ProdId:string):Promise<TriggerWarning[]>
     delete(Id:string):Promise<TriggerWarning>
+    // deleteMany(UserId:string):Promise<TriggerWarning[]>
     update(Id:string,data:Partial<TriggerWarning>):Promise<TriggerWarning>
 }

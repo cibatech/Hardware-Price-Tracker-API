@@ -5,7 +5,8 @@ import { ProductRepository } from "../../repository/ProductRepository";
 interface GetPriceTrackerInformations {
     TargetPrice:number,
     ProdImage:string | null,
-    ProdName:string | null
+    ProdName:string | null,
+    Id:string
 }
 
 export class GetPriceTrackerFromUserUseCase{
@@ -23,13 +24,12 @@ export class GetPriceTrackerFromUserUseCase{
             const e = findByUser[i]
             const product = await this.ProdRepo.findById(e.ProdId);
             ResponseList.push({
+                Id:e.Id,   
                 TargetPrice:e.TargetPrice,
                 ProdImage:product?product.ImageUrl:null,
                 ProdName:product?product.Title:null,
             })
         }
-
-       
 
         console.log(ResponseList)
         return ResponseList

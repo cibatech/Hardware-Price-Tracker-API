@@ -1644,8 +1644,20 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
     {
       "Id": "fceb60df-2aab-4ffb-974e-c950b9c5c76e",
       "TargetPrice": 200,
-      "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
-      "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+      "ProdImage": "https://images.kabum.com.br/produtos/fotos/130043/water-cooler-rise-mode-gamer-black-rgb-240mm-preto-rm-wcb-02-rgb_1663776681_m.jpg",
+      "ProdName": "Water Cooler Rise Mode Gamer Black, RGB, 240mm, AMD/Intel, Preto - RM-WCB-02-RGB"
+    },
+    {
+      "Id": "e68cd7eb-4d05-425d-9249-4a80d098165e",
+      "TargetPrice": 200,
+      "ProdImage": null,
+      "ProdName": "Gabinete Cooler Master HAF 500, ARGB, Mid-Tower, Lateral de Vidro, Com 4 Fans, Preto, H500-KGNN-S00"
+    },
+    {
+      "Id": "0416278d-f775-4ee8-863d-22996f3db5ef",
+      "TargetPrice": 200,
+      "ProdImage": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/f/f/ff9d548g8000hc38edc01.jpg",
+      "ProdName": "Memoria Team Group Xtreem ARGB, 48GB (2X24GB), DDR5, 8000MHz, C38, Preto, FF9D548G8000HC38EDC01"
     }
   ]
 }

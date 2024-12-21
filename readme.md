@@ -40,11 +40,12 @@ Após o projeto acesse seus host e sua porta (indicado pelo resultado no console
 
 ### Algoritimos de comparação de produtos entre lojas
 
-A aplicação backend utiliza do algoritmo LCS (Longest Common Subsequence) para correlacionar produtos de diferentes lojas ja qe estes websites utilizam diferentes termologias para descrever um mesmo produto, causando problematizações no contexto de uma aplicação backend. 
+A aplicação backend utiliza uma serie de algoritmos para correlacionar produtos de diferentes lojas dentre eles LCS (Longest Common Subsequence). Isso se faz necessário porque esses sites frequentemente utilizam terminologias distintas para descrever um mesmo produto, o que pode causar desafios na integração e unificação de informações no backend.
 
 1. Aplicação
-O Algoritimo foi utilizado na rota de comparação de produtos de modo a providenciar com facilicade produtos semelhantes ao objetivado em diferentes lojas, ultrapassando obstaculos como a diferença no modo em se descrever um mesmo produto em diferentes lojas. 
-O algoritimo funciona através de um sistema de pontuação que avalia qual index em uma string de titulos possui a maior semelhança com o objeto que está sendo buscado. O método observa o valor dos caracteres e compara-os com o da string padrão para retorna qual dos index dentro da lista possui a maior correlação. 
+O algoritmo é empregado na rota de comparação de produtos para identificar, de maneira eficiente, itens semelhantes entre diferentes lojas. Ele supera obstáculos como variações na nomenclatura e formatação de títulos, proporcionando maior precisão na correspondência.
+
+O funcionamento do LCS baseia-se em um sistema de pontuação que avalia qual título dentro de uma lista apresenta a maior similaridade com o objeto buscado. Esse sistema compara os caracteres de cada título com a string de referência, identificando o índice da lista que possui a maior correlação. Assim, o algoritmo determina a subsequência comum mais longa entre as strings, gerando um escore de similaridade.
 
 2. Considerações
-Embora o uso desse algoritmo no contexto providencie uma solução para o correçacionamento de diferentes modos de escrever um mesmo titulo de um produto, a utilização dele abre margens para confusões e problemas de escalabilidade. Em geral métodos mais funcionais como a modularização de um titulo poderiam funcionar melhor no contexto aplicado
+Embora o uso do LCS ofereça uma solução prática para lidar com variações na descrição de produtos, ele apresenta limitações, especialmente em termos de escalabilidade e precisão em cenários mais complexos. Métodos complementares ou alternativos, como a tokenização e modularização dos títulos, poderiam oferecer resultados mais robustos e reduzir ambiguidades. Além disso, estratégias mais avançadas, como o uso de aprendizado de máquina ou algoritmos baseados em semântica, podem ser consideradas para melhorar o desempenho e a eficiência do sistema.

@@ -24,7 +24,7 @@ describe("Good Case",()=>{
               Kind: "Pichau",
               Link: "https://example.com/product1",
               Slug: "en-random-default-1",
-              Title: "Produto Incrível 1",
+              Title: "Lenovo Thinkpad modelo t440",
               Value: 1500,
               Where: "https://example.com/store1",
               onInstallment:"12 vezes de 69,90"
@@ -36,7 +36,7 @@ describe("Good Case",()=>{
               Kind: "Kabum",
               Link: "https://example.com/product2",
               Slug: "en-random-default-2",
-              Title: "Produto Fantástico 2",
+              Title: "Lenovo Thinkpad t440",
               Value: 2500,
               Where: "https://example.com/store2",
               onInstallment:"12 vezes de 69,90"
@@ -48,7 +48,7 @@ describe("Good Case",()=>{
               Kind: "TeraByte",
               Link: "https://example.com/product3",
               Slug: "en-random-default-3",
-              Title: "Produto Maravilhoso 3",
+              Title: "t440 thinkpad lenovo",
               Value: 3499,
               Where: "https://example.com/store3",
               onInstallment:"12 vezes de 69,90"
