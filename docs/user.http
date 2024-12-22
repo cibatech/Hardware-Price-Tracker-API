@@ -5,8 +5,8 @@ POST http://127.0.0.1:2467/api/user/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "Email":"jonDoe@gmail.com",
-    "Password":"JonDoe"
+    "Email":"xeseloc467@cctoolz.com",
+    "Password":"1234"
 }
 
 ### Logar usuário
@@ -14,10 +14,25 @@ PATCH http://127.0.0.1:2467/api/user/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "Email":"jonDoe@gmail.com",
-    "Password":"JonDoe"
+    "Email":"xeseloc467@cctoolz.com",
+    "Password":"Flamengo"
 }
 
 ### Profile 
 GET http://127.0.0.1:2467/api/user/profile/e8eec215-74f7-463a-9aab-29647f3784f5
 
+### 
+
+GET http://127.0.0.1:2467/api/user/sendcode/xeseloc467@cctoolz.com
+
+###
+
+PUT http://127.0.0.1:2467/api/user/passbycode
+Content-Type: application/json
+
+{
+        "UserProvidedCode":"926-335-863",
+        "StoredCode":"926-335-863",
+        "Email":"xeseloc467@cctoolz.com",
+        "Password":"Flamengo"
+}

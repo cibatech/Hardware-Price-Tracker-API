@@ -1,4 +1,7 @@
+import { faker } from "@faker-js/faker";
 import { Product } from "../../../prisma/deploy-output";
+import { randomUUID } from "crypto";
+import { Choose } from "../Choose";
 
 // Normalizes a text by removing punctuation, converting to lowercase, and trimming spaces
 function normalizeText(text:string) {
@@ -44,7 +47,21 @@ function FindSimilarity(title1:string, title2:string) {
 
 // Finds the product with the highest combined similarity score
 export function ClosestProduct(refTitle:string, ProdList:Product[]) {
-  let bestProduct = null;
+  let bestProduct:Product = {
+    Description:String(faker.lorem.text()),
+    Id:String(randomUUID()),
+    ImageUrl:faker.internet.url(),
+    Kind:Choose(["Pichau","TeraByte","Kabum"]), //Chooses one of the three options
+    Link:faker.internet.url(),
+    Slug:"en-random-default",
+    Title:faker.internet.displayName(),
+    Value:faker.number.int({
+        max:10000,
+        min:100
+    }),
+    Where:Choose(["hardware","perifericos"]),
+    onInstallment:"12 vezes de 69,90"
+  };
   let greatestSimilarity = 0;
 
   const normalizedRefTitle = normalizeText(refTitle);
@@ -63,7 +80,9 @@ export function ClosestProduct(refTitle:string, ProdList:Product[]) {
           greatestSimilarity = combinedScore;
           bestProduct = product;
       }
+
   });
+
 
   return bestProduct;
 }

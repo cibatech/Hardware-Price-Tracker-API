@@ -24,7 +24,8 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
           {name:"Products",description:"Rotas utilizadas para acessar os produtos"},
           {name:"User",description:"Rotas utilizadas para acessar os usuários da aplicação"},
           {name:"admin",description:"Rotas utilizadas no painel administrativo da aplicação"},
-          {name:"tracker",description:"Rotas utilizada pelo usuário para criar e gerenciar alertas de preço"}
+          {name:"tracker",description:"Rotas utilizada pelo usuário para criar e gerenciar alertas de preço"},
+          {name:"validation",description:"Rotas utilizada para validação de usuário"}
         ],
       paths: {
         "/api/products/byStore/:Store/:Page":{
@@ -2036,6 +2037,104 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                 },in:"query",required:true
               }
             ]
+          }
+        },
+        "/api/user/passbycode/:Email":{
+          get:{
+            tags:["api","User","Validation"],
+            description:"Rota utilizada para recuperação de senha. Envia um email para o endereço fornecido e retorna um código. O FrontEnd deve guardar esse código para fornece-lo posteriormente na rota de update de senha",
+            parameters:[
+              {
+                name:"Email",description:"O endereço de email fornecido para recuperação",
+                schema:{
+                  type:"string",
+                  example:"xeseloc467@cctoolz.com"
+                },
+                in:"Query",required:true
+              }
+            ],
+            responses:{
+              200:{
+                description:"O email foi enviado com sucesso",
+                content:{
+                  "application/json":{
+                    examples:{
+                      example1:{
+                        value:JSON.parse(`
+                          
+                              {
+  "Description": "Sent Recovery code",
+  "CodeSent": "896-785-689",
+  "config": {
+    "Email": "xeseloc467@cctoolz.com"
+  }
+}
+                          `)
+                      }
+                    }
+                  }
+                } 
+              }
+            }
+          }
+        },
+        "/api/user/passbycode":{
+          put:{
+            description:"Rota utilizada para atualizar a senha sem as nescessidade de login. Verifica-se o código digitado pelo usuário com o código que foi enviado na rota 'api/users/passcode/:Eamil', Recebe tambem o email do usuário e a sua nova senha como parametros ",
+            tags:["api","User","Validation"],
+            requestBody:{
+              description:"Corpo nescessario para a requisição",
+              required:true,
+              content:{
+                "application/json":{
+                  examples:{
+                    example1:{
+                      value:JSON.parse(`
+                          {
+                                "UserProvidedCode":"926-335-863",
+                                "StoredCode":"926-335-863",
+                                "Email":"xeseloc467@cctoolz.com",
+                                "Password":"Flamengo"
+                        }
+                        `)
+                    }          
+                  }
+                }
+              },
+              summary:JSON.parse(`
+                  {
+        "UserProvidedCode":"código inserido pelo usuário",
+        "StoredCode":"Código armazenado a partir da rota api/users/passcode/:Email",
+        "Email":"Email do usuário",
+        "Password":"Nova senha"
+}
+                `)
+            },
+            responses:{
+              201:{
+                description:"Atualização realizada com sucesso",
+                content:{
+                  "application/json":{
+                    examples:{
+                      example1:{
+                        value:JSON.parse(`
+                            {
+  "Description": "Successfully updated password",
+  "NewPassword": "Flamengo",
+  "config": {
+    "Email": "xeseloc467@cctoolz.com",
+    "UserProvidedCode": "926-335-863",
+    "StoredCode": "926-335-863",
+    "Password": "Flamengo"
+  }
+}
+                          `)
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
