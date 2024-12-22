@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "db:ui": " npx prisma studio --schema='prisma/deploy-output/schema.prisma'",
+    "db:ui": " npx prisma studio --schema=prisma/deploy-output/schema.prisma",
     "dev": "npx tsx --watch src/server.ts",
     "test": "npx vitest --run"
   },

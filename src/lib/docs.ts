@@ -25,7 +25,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
           {name:"User",description:"Rotas utilizadas para acessar os usuários da aplicação"},
           {name:"admin",description:"Rotas utilizadas no painel administrativo da aplicação"},
           {name:"tracker",description:"Rotas utilizada pelo usuário para criar e gerenciar alertas de preço"},
-          {name:"validation",description:"Rotas utilizada para validação de usuário"}
+          {name:"Validation",description:"Rotas utilizada para validação de usuário"}
         ],
       paths: {
         "/api/products/byStore/:Store/:Page":{
@@ -1493,15 +1493,15 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
 {
   "Description": "Successfully created a PriceTracker",
   "response": {
-    "Id": "fceb60df-2aab-4ffb-974e-c950b9c5c76e",
-    "TargetPrice": 200,
-    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5",
-    "ProdId": "0910beb5-489c-4428-9378-62492e58503a"
+    "Id": "1b1f8389-c84e-4684-a9ec-36bd1b424d28",
+    "ProdImage": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo50botnatb01.jpg",
+    "ProdName": "Fonte Galax Omega GL500S, 500W, 80 Plus Bronze, Preto, PGO50BOTNATB0",
+    "TargetPrice": 1200
   },
   "config": {
-    "ProdId": "0910beb5-489c-4428-9378-62492e58503a",
-    "TargetPrice": 200,
-    "UserId": "e8eec215-74f7-463a-9aab-29647f3784f5"
+    "ProdId": "01b76354-1470-4426-a9a6-a6e01bcd9bcc",
+    "TargetPrice": 1200,
+    "UserId": "3525649d-41bb-446e-b9c8-fdce04dd62c1"
   }
 }`)
                       }

@@ -11,7 +11,7 @@ interface GetPriceTrackerInformations {
 
 export class GetPriceTrackerFromUserUseCase{
     constructor(private PriceTrackerRepo:PriceTrackerRepository,private UserRepo:UserRepository,private ProdRepo:ProductRepository){}
-    async execute(UserId:string){
+    async execute(UserId:string):Promise<GetPriceTrackerInformations[]>{
         const DoesTheUserExists = await this.UserRepo.FindById(UserId)
         if(!DoesTheUserExists){
             throw new ResourceNotFoundError("User",UserId);

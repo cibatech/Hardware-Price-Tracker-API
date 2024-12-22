@@ -19,7 +19,7 @@ describe("Good Case",()=>{
             Kind:Choose(["Pichau","TeraByte","Kabum"]), //Chooses one of the three options
             Link:faker.internet.url(),
             Slug:"en-random-default",
-            Title:faker.internet.displayName(),
+            Title:"Computador Muito Legal",
             Value:faker.number.int({
                 max:10000,
                 min:100

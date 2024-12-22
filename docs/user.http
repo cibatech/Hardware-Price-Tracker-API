@@ -31,8 +31,8 @@ PUT http://127.0.0.1:2467/api/user/passbycode
 Content-Type: application/json
 
 {
-        "UserProvidedCode":"926-335-863",
-        "StoredCode":"926-335-863",
+        "UserProvidedCode":"728-216-355",
+        "StoredCode":"728-216-355",
         "Email":"xeseloc467@cctoolz.com",
         "Password":"Flamengo"
 }

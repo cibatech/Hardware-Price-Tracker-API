@@ -48,7 +48,7 @@ describe("Good Case",()=>{
         Product = ProductRepo.itens[0]
 
         UserRepo.itens.push({
-            Id:randomUUID(),Email:faker.internet.email(),Password:faker.internet.password()
+            Id:randomUUID(),Email:faker.internet.email(),Password:faker.internet.password(),UserName:faker.internet.username()
         })
         User = UserRepo.itens[0]
 
@@ -63,8 +63,8 @@ describe("Good Case",()=>{
         })
 
         expect(res.TargetPrice).toBe(999);
-        expect(res.ProdId).toBe(Product.Id)
-        expect(res.UserId).toBe(User.Id)
+        expect(res.ProdName).toBe(Product.Title)
+        expect(res.ProdImage).toBe(Product.ImageUrl)
     })
     it("Should no be able to create a price tracker with a non-existent user",async()=>{
         await expect(SUT.execute({

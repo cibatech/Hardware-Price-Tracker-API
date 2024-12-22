@@ -9,9 +9,16 @@ interface CreatePriceTrackerRequest{
     Data:Prisma.TriggerWarningUncheckedCreateInput
 }
 
+interface GetPriceTrackerInformations {
+    TargetPrice:number,
+    ProdImage:string | null,
+    ProdName:string | null,
+    Id:string
+}
+
 export class CreatePriceTrackerUseCase{
     constructor(private PriceRepo:PriceTrackerRepository, private UserRepo:UserRepository,private productRepo:ProductRepository){}
-    async execute({Data}:CreatePriceTrackerRequest):Promise<TriggerWarning>{
+    async execute({Data}:CreatePriceTrackerRequest):Promise<GetPriceTrackerInformations>{
         const doesTheUserExists = await this.UserRepo.FindById(Data.UserId);
         if(!doesTheUserExists){
             throw new ResourceNotFoundError("User", Data.UserId);
@@ -27,7 +34,14 @@ export class CreatePriceTrackerUseCase{
             }
         });
 
-        const createPriceTracker = this.PriceRepo.create(Data)
-        return createPriceTracker
+        const createPriceTracker = await this.PriceRepo.create(Data)
+
+
+        return {
+            Id:createPriceTracker.Id,
+            ProdImage:doesTheProductExists.ImageUrl,
+            ProdName:doesTheProductExists.Title,
+            TargetPrice:createPriceTracker.TargetPrice
+        }
     }
 }
