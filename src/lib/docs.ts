@@ -613,6 +613,26 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
             tags: ['api', 'Products',"Core"],
             parameters: [
               {
+                name:"Category",
+                description:"Categoria de produtos a ser utilizada na pesquisa",
+                in:"query",required:false,
+                schema:{
+                  enum:[
+                    "perifericos",
+                    "hardware",
+                    "hardware/disco-rigido-hd",
+                    "hardware/processadores",
+                    "hardware/fontes",
+                    "hardware/memoria-ram",
+                    "hardware/motherboard",
+                    "hardware/memorias",
+                    "hardware/hard-disk",
+                    "hardware/fonte",
+                    "hardware/hard-disk-e-ssd"
+                  ]
+                }
+              },
+              {
                 name: 'Max',
                 description: 'Valor máximo na busca de um produto.',
                 schema: {
@@ -680,7 +700,276 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                             ], TotalListLenght:34 },
                           },
                         },
+                      
                       },
+                      "Exemplo de retorno com valores nulos":{
+                        value:JSON.parse(`
+                            {
+  "Description": "Successfully returned products list",
+  "response": {
+    "providedParams": {
+      "Category": null,
+      "Min": null,
+      "Max": null,
+      "Page": 1
+    },
+    "Return": {
+      "TotalList": [
+        {
+          "Id": "66854604-2040-40fb-a887-f96982bd777d",
+          "Title": "Gabinete Cooler Master Masterbox TD500 Mesh V2, ARGB, Lateral de Vidro, Com 3 Fans, Preto, TD500V2-KGNN-S00",
+          "Description": "Gabinete Cooler Master Masterbox TD500 Mesh V2, ARGB, Lateral de Vidro, Com 3 Fans, Preto, TD500V2-KGNN-S00",
+          "Value": 1058.81,
+          "Link": "https://www.pichau.com.br/gabinete-cooler-master-masterbox-td500-mesh-v2-argb-lateral-de-vidro-com-3-fans-preto-td500v2-kgnn-s00",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/t/d/td500v2-kgnn-s001.jpg",
+          "Slug": "gabinete-cooler-master-masterbox-td500-mesh-v2-argb-lateral-de-vidro-com-3-fans-preto-td500v2-kgnn-s00",
+          "onInstallment": null
+        },
+        {
+          "Id": "12e4fd66-48ed-44ce-8dc6-b346058cb9f6",
+          "Title": "Fonte Acer AC1000, 1000W, 80 Plus Gold, Full Modular Preto, ACER-AC1000",
+          "Description": "Fonte Acer AC1000, 1000W, 80 Plus Gold, Full Modular Preto, ACER-AC1000",
+          "Value": 1764.69,
+          "Link": "https://www.pichau.com.br/fonte-acer-ac1000-1000w-80-plus-gold-full-modular-preto-acer-ac1000",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/a/c/acer-ac1000.jpg",
+          "Slug": "fonte-acer-ac1000-1000w-80-plus-gold-full-modular-preto-acer-ac1000",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "d203c490-c1c0-46e1-abf5-3ebfdaf4fbd3",
+          "Title": "Fonte Galax Omega GLX1200, 1200W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1BGPFNAFB0",
+          "Description": "Fonte Galax Omega GLX1200, 1200W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1BGPFNAFB0",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-galax-omega-glx1200-1200w-atx-3-0-pcie-5-0-full-modular-80-plus-platinum-pgo1bgpfnafb0",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo1bgpfnafb0.jpg",
+          "Slug": "fonte-galax-omega-glx1200-1200w-atx-30-pcie-50-full-modular-80-plus-platinum-pgo1bgpfnafb0",
+          "onInstallment": "em até 12x de R$ 308,82"
+        },
+        {
+          "Id": "09922dc0-e1e0-40df-9295-7accfb50cc94",
+          "Title": "Fonte Galax Omega GLX1000, 1000W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1AGPFNAFB0",
+          "Description": "Fonte Galax Omega GLX1000, 1000W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Platinum, PGO1AGPFNAFB0",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-galax-omega-glx1000-1000w-atx-3-0-pcie-5-0-full-modular-80-plus-platinum-pgo1agpfnafb0",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo1agpfnafb02.jpg",
+          "Slug": "fonte-galax-omega-glx1000-1000w-atx-30-pcie-50-full-modular-80-plus-platinum-pgo1agpfnafb0",
+          "onInstallment": "em até 12x de R$ 308,82"
+        },
+        {
+          "Id": "56493c15-8eab-4785-af89-371127a49e29",
+          "Title": "Fonte Galax Omega GLX850, 850W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Gold, PGO85GPTNAFB0",
+          "Description": "Fonte Galax Omega GLX850, 850W, ATX 3.0, PCIe 5.0, Full-Modular, 80 Plus Gold, PGO85GPTNAFB0",
+          "Value": 1058.81,
+          "Link": "https://www.pichau.com.br/fonte-galax-omega-glx850-850w-atx-3-0-pcie-5-0-full-modular-80-plus-gold-pgo85gptnafb0",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo85gptnafb02.jpg",
+          "Slug": "fonte-galax-omega-glx850-850w-atx-30-pcie-50-full-modular-80-plus-gold-pgo85gptnafb0",
+          "onInstallment": "em até 12x de R$ 308,82"
+        },
+        {
+          "Id": "2e6b1579-cdb2-4246-9c4a-ad7e06aecfe8",
+          "Title": "Fonte Galax Omega GL650S, 650W, 80 Plus Bronze, Preto, PGO65BOTNATB0",
+          "Description": "Fonte Galax Omega GL650S, 650W, 80 Plus Bronze, Preto, PGO65BOTNATB0",
+          "Value": 517.63,
+          "Link": "https://www.pichau.com.br/fonte-galax-omega-gl650s-650w-80-plus-bronze-preto-pgo65botnatb0",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo65botnatb02.jpg",
+          "Slug": "fonte-galax-omega-gl650s-650w-80-plus-bronze-preto-pgo65botnatb0",
+          "onInstallment": "em até 12x de R$ 308,82"
+        },
+        {
+          "Id": "01b76354-1470-4426-a9a6-a6e01bcd9bcc",
+          "Title": "Fonte Galax Omega GL500S, 500W, 80 Plus Bronze, Preto, PGO50BOTNATB0",
+          "Description": "Fonte Galax Omega GL500S, 500W, 80 Plus Bronze, Preto, PGO50BOTNATB0",
+          "Value": 411.75,
+          "Link": "https://www.pichau.com.br/fonte-galax-omega-gl500s-500w-80-plus-bronze-preto-pgo50botnatb0",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/p/g/pgo50botnatb01.jpg",
+          "Slug": "fonte-galax-omega-gl500s-500w-80-plus-bronze-preto-pgo50botnatb0",
+          "onInstallment": "em até 12x de R$ 308,82"
+        },
+        {
+          "Id": "b3de1ff1-886b-4881-8374-fcdf324b6ba4",
+          "Title": "Gabinete Cooler Master HAF 500, ARGB, Mid-Tower, Lateral de Vidro, Com 4 Fans, Preto, H500-KGNN-S00",
+          "Description": "Gabinete Cooler Master HAF 500, ARGB, Mid-Tower, Lateral de Vidro, Com 4 Fans, Preto, H500-KGNN-S00",
+          "Value": 1329.4,
+          "Link": "https://www.pichau.com.br/gabinete-cooler-master-haf-500-argb-mid-tower-lateral-de-vidro-com-4-fans-preto-h500-kgnn-s00",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/h/5/h500-kgnn-s0023124.jpg",
+          "Slug": "gabinete-cooler-master-haf-500-argb-mid-tower-lateral-de-vidro-com-4-fans-preto-h500-kgnn-s00",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "d82cb782-0c7c-480e-8430-4f47e20e7a32",
+          "Title": "Gabinete Gamer Cooler Master HAF 700 EVO, Full-Tower, Lateral De Vidro, Branco, H700E-WGNN-S00",
+          "Description": "Gabinete Gamer Cooler Master HAF 700 EVO, Full-Tower, Lateral De Vidro, Branco, H700E-WGNN-S00",
+          "Value": 2999,
+          "Link": "https://www.pichau.com.br/gabinete-gamer-cooler-master-haf-700-evo-full-tower-lateral-de-vidro-branco-h700e-wgnn-s00",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/h/7/h700e-wgnn-s00.jpg",
+          "Slug": "gabinete-gamer-cooler-master-haf-700-evo-full-tower-lateral-de-vidro-branco-h700e-wgnn-s00",
+          "onInstallment": "em até 12x de R$ 308,82"
+        },
+        {
+          "Id": "fbe97a6f-dc2e-4fb6-9731-02326a006023",
+          "Title": "Gabinete Gamer Cooler Master Ncore 100 Max, Com 1 Fan, Fonte 850W e Water Cooler 120mm, Cinza, NR100-MNNN85-SL0",
+          "Description": "Gabinete Gamer Cooler Master Ncore 100 Max, Com 1 Fan, Fonte 850W e Water Cooler 120mm, Cinza, NR100-MNNN85-SL0",
+          "Value": 4117.63,
+          "Link": "https://www.pichau.com.br/gabinete-gamer-cooler-master-ncore-100-max-com-1-fan-fonte-850w-e-water-cooler-120mm-cinza-nr100-mnnn85-sl0",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/n/r/nr100-mnnn85-sl0.jpg",
+          "Slug": "gabinete-gamer-cooler-master-ncore-100-max-com-1-fan-fonte-850w-e-water-cooler-120mm-cinza-nr100-mnnn85-sl0",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "50adf50f-05cf-497d-87ee-c4d1f558092e",
+          "Title": "Gabinete Gamer Cooler Master QUBE 500 Flatpack, Modular, Mid-Tower, Lateral de Vidro, Com 1 Fan, Branco, Q500-WGNN-S00",
+          "Description": "Gabinete Gamer Cooler Master QUBE 500 Flatpack, Modular, Mid-Tower, Lateral de Vidro, Com 1 Fan, Branco, Q500-WGNN-S00",
+          "Value": 941.16,
+          "Link": "https://www.pichau.com.br/gabinete-gamer-cooler-master-qube-500-flatpack-modular-mid-tower-lateral-de-vidro-com-1-fan-branco-q500-wgnn-s00",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/q/5/q500-wgnn-s00.jpg",
+          "Slug": "gabinete-gamer-cooler-master-qube-500-flatpack-modular-mid-tower-lateral-de-vidro-com-1-fan-branco-q500-wgnn-s00",
+          "onInstallment": "em até 12x de R$ 308,82"
+        },
+        {
+          "Id": "2f565b7c-f82d-46c0-a0d7-f8dc448a9248",
+          "Title": "Fonte Gigabyte UD Gold, 750W, Full Modular, 80 Plus Gold, Preto, GP-UD750GM",
+          "Description": "Fonte Gigabyte UD Gold, 750W, Full Modular, 80 Plus Gold, Preto, GP-UD750GM",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-gigabyte-ud-gold-750w-full-modular-80-plus-gold-preto-gp-ud750gm",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/g/p/gp-ud750gm3.jpg",
+          "Slug": "fonte-gigabyte-ud-gold-750w-full-modular-80-plus-gold-preto-gp-ud750gm",
+          "onInstallment": "em até 12x de R$ 308,82"
+        },
+        {
+          "Id": "faa96782-3bf8-486e-a1d5-09f371dad29f",
+          "Title": "Fonte Seasonic Vertex PX-850, Full-Modular, 850W, ATX 3.0, PCIe 5.0, 80 Plus Platinum, Preta, 12851PXAFS",
+          "Description": "Fonte Seasonic Vertex PX-850, Full-Modular, 850W, ATX 3.0, PCIe 5.0, 80 Plus Platinum, Preta, 12851PXAFS",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-px-850-full-modular-850w-atx-3-0-pcie-5-0-80-plus-platinum-preta-12851pxafs",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12851pxafs11.jpg",
+          "Slug": "fonte-seasonic-vertex-px-850-full-modular-850w-atx-30-pcie-50-80-plus-platinum-preta-12851pxafs",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "28a6a7f9-bf0b-4b53-ba1c-86f9d4dbf285",
+          "Title": "Fonte Seasonic Vertex PX-1200, Full-Modular, 1200W, ATX 3.0, PCIe 5.0, 80 Plus Platinum, Preta, 12122PXAFS",
+          "Description": "Fonte Seasonic Vertex PX-1200, Full-Modular, 1200W, ATX 3.0, PCIe 5.0, 80 Plus Platinum, Preta, 12122PXAFS",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-px-1200-full-modular-1200w-atx-3-0-pcie-5-0-80-plus-platinum-preta-12122pxafs",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12122pxafs.jpg",
+          "Slug": "fonte-seasonic-vertex-px-1200-full-modular-1200w-atx-30-pcie-50-80-plus-platinum-preta-12122pxafs",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "d4f0660b-7ae9-44c6-a58f-44cb60e701ae",
+          "Title": "Fonte Seasonic Vertex PX-1000, Full-Modular, 1000W, ATX 3.0, PCIe 5.0, 80 Plus Platinum, Preta, 12102PXAFS",
+          "Description": "Fonte Seasonic Vertex PX-1000, Full-Modular, 1000W, ATX 3.0, PCIe 5.0, 80 Plus Platinum, Preta, 12102PXAFS",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-px-1000-full-modular-1000w-atx-3-0-pcie-5-0-80-plus-platinum-preta-12102pxafs",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12102pxafs.jpg",
+          "Slug": "fonte-seasonic-vertex-px-1000-full-modular-1000w-atx-30-pcie-50-80-plus-platinum-preta-12102pxafs",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "7a5981b2-cf8d-4ef2-b338-5b9962db42d3",
+          "Title": "Fonte Seasonic Vertex GX-1200, 1200W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12122GXAFS",
+          "Description": "Fonte Seasonic Vertex GX-1200, 1200W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12122GXAFS",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-gx-1200-1200w-atx-3-0-pcie-5-0-full-modular-80-plus-gold-preto-12122gxafs",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12122gxafs5.jpg",
+          "Slug": "fonte-seasonic-vertex-gx-1200-1200w-atx-30-pcie-50-full-modular-80-plus-gold-preto-12122gxafs",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "55f2993f-37cc-4dc1-94e8-adde2360c135",
+          "Title": "Gabinete Cooler Master Masterbox TD500 Mesh ARGB Lateral Vidro Temp Branco, MCB-D500D-WGNN-S01",
+          "Description": "Gabinete Cooler Master Masterbox TD500 Mesh ARGB Lateral Vidro Temp Branco, MCB-D500D-WGNN-S01",
+          "Value": 1058.71,
+          "Link": "https://www.pichau.com.br/gabinete-cooler-master-masterbox-td500-mesh-argb-lateral-vidro-temp-branco-mcb-d500d-wgnn-s01",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/m/c/mcb-d500d-wgnn-s016.jpg",
+          "Slug": "gabinete-cooler-master-masterbox-td500-mesh-argb-lateral-vidro-temp-branco-mcb-d500d-wgnn-s01",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "c8bd9dce-7168-4e35-98c2-870874e6797f",
+          "Title": "Fonte Seasonic Vertex GX-1000, 1000W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12102GXAFS",
+          "Description": "Fonte Seasonic Vertex GX-1000, 1000W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12102GXAFS",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-gx-1000-1000w-atx-3-0-pcie-5-0-full-modular-80-plus-gold-preto-12102gxafs",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12102gxafsv21.jpg",
+          "Slug": "fonte-seasonic-vertex-gx-1000-1000w-atx-30-pcie-50-full-modular-80-plus-gold-preto-12102gxafs",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "19566310-59f0-4196-bfc8-77ca84d7c9fa",
+          "Title": "Fonte Seasonic Vertex GX-850, 850W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12851GXAFS",
+          "Description": "Fonte Seasonic Vertex GX-850, 850W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12851GXAFS",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-gx-850-850w-atx-3-0-pcie-5-0-full-modular-80-plus-gold-preto-12851gxafs",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12851gxafs2.jpg",
+          "Slug": "fonte-seasonic-vertex-gx-850-850w-atx-30-pcie-50-full-modular-80-plus-gold-preto-12851gxafs",
+          "onInstallment": "em até 9x de R$ 13,07"
+        },
+        {
+          "Id": "ab84dadf-1df3-4b17-9c43-92dbfe6dec61",
+          "Title": "Fonte Seasonic Vertex GX-750, 750W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12751GXAFS",
+          "Description": "Fonte Seasonic Vertex GX-750, 750W, ATX 3.0, PCIe 5.0, Full Modular, 80 Plus Gold, Preto, 12751GXAFS",
+          "Value": 156,
+          "Link": "https://www.pichau.com.br/fonte-seasonic-vertex-gx-750-750w-atx-3-0-pcie-5-0-full-modular-80-plus-gold-preto-12751gxafs",
+          "Where": "hardware",
+          "Kind": "Pichau",
+          "ImageUrl": "https://media.pichau.com.br/media/catalog/product/cache/ef72d3c27864510e5d4c0ce69bade259/1/2/12751gxafs5.jpg",
+          "Slug": "fonte-seasonic-vertex-gx-750-750w-atx-30-pcie-50-full-modular-80-plus-gold-preto-12751gxafs",
+          "onInstallment": "em até 9x de R$ 13,07"
+        }
+      ],
+      "TotalListLength": 528
+    }
+  },
+  "Config": {
+    "Page": "1",
+    "Query": "null",
+    "Store": "null",
+    "Min": "null",
+    "Max": "null"
+  }
+}
+                          
+                          `)
+                      }
                     },
                   },
                 },
@@ -2104,6 +2393,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
         },
         "/api/tracker/delete/all/:UserId":{
           delete:{
+            tags:["api","User","tracker"],   
             description:"Rota para deletar todos os alertas de um determinado usuário",
             responses:{
               202:{

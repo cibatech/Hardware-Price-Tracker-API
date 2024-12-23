@@ -59,13 +59,13 @@ export class PrismaProductRepository implements ProductRepository{
     async findBySiteCategory(Where: string,Page:number): Promise<Product[]> {
         return Page>0?await prisma.product.findMany({
             where:{
-                Where
+                Where:Where.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             },
             take:Page*20,
             skip:(Page-1)*20
         }):await prisma.product.findMany({
             where:{
-                Where
+                Where:Where.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             }
         })
         
@@ -84,7 +84,7 @@ export class PrismaProductRepository implements ProductRepository{
         return await prisma.product.findMany({
             where:{
                 Where:{
-                    contains:Category
+                    contains:Category.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
                 }
             },
             take:Page*20,

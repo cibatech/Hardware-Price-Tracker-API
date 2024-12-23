@@ -1,7 +1,7 @@
 ######## Rotas Requisitos alex ############
 
 ### Listar produtos de uma categoria com filtros (Categoria: {{Category}}, Min: {{Min}}, Max: {{Max}}, Loja: {{Store}})
-GET  http://127.0.0.1:2467/api/products/hardware/null--null/Pichau/a/1
+GET  http://127.0.0.1:2467/api/products/null/null--null/null/null/1
 Content-Type: application/json
 
 ### Comparar o melhor produto de todas as lojas

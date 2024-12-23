@@ -28,9 +28,9 @@ export class InMemoryProductRepository implements ProductRepository{
     }
     async findBySiteCategory(Where: string,Page:number): Promise<Product[]> {
         if(Page>0){
-            return this.itens.filter(iten=>iten.Where == Where).slice((Page-1)*20,Page*20);
+            return this.itens.filter(iten=>iten.Where == Where.normalize("NFD").replace(/[\u0300-\u036f]/g, "")).slice((Page-1)*20,Page*20);
         }else{ // do this for dev and test algorithism latter
-            return this.itens.filter(iten=>iten.Where == Where)
+            return this.itens.filter(iten=>iten.Where == Where.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
         }
     }
     async returnByPage(Page: number): Promise<Product[]> {
