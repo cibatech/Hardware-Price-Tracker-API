@@ -7,6 +7,13 @@ import { OpenAPiConfig } from "./docs";
 
 export const app = fastify()
 
+app.route({
+   method:"GET",
+   url:"/",
+    handler:(req,res)=>{
+        res.redirect("https://hardware-price-tracker-app.vercel.app/")
+    }
+})
 app.register(Router,{
     prefix:"/api"
 })

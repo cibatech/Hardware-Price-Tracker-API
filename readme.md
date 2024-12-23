@@ -35,6 +35,8 @@ npx tsx prisma migrate dev
 npm run dev
 ```
 
+Ou acesso o link online <a href="https://hardware-price-tracker-api.onrender.com">https://hardware-price-tracker-api.onrender.com</a>
+
 ## Documentação
 Após o projeto acesse seus host e sua porta (indicado pelo resultado no console). Acesse a rota /docs que lhe oferecerá uma descrição completa e detalhada baseada em **OpenAPI** da aplicação. 
 Ou acesse a <a href="https://hardware-price-tracker-api.onrender.com/docs">Documentação Online da API</a>

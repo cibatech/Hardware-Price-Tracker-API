@@ -26,7 +26,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
           {name:"tracker",description:"Rotas utilizada pelo usuário para criar e gerenciar alertas de preço"},
           {name:"Validation",description:"Rotas utilizada para validação de usuário"}
         ],
-      paths: {
+      paths:{
         "/api/products/byStore/:Store/:Page":{
             description:"Rota que retorna todas os produtos dentro de uma loja",
             get:{
@@ -617,6 +617,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                 description:"Categoria de produtos a ser utilizada na pesquisa",
                 in:"query",required:false,
                 schema:{
+                  type:"string",
                   enum:[
                     "perifericos",
                     "hardware",
@@ -653,6 +654,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                 description: 'Filtro a partir da loja. enum de: [Terabyte,Pichau,Kabum]',
                 schema: {
                   type: 'string',
+                  enum:["TeraByte","Pichau","Kabum","null"]
                 },
                 in: 'query',
               },

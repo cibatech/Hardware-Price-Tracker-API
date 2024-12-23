@@ -33,7 +33,7 @@ export async function GETProductsListWithFilltersController(req:FastifyRequest,r
             Description:"Successfully returned products list",
             response,
             Config:{
-                Page,Query,Store,Min,Max
+                Page,Query,Store,Min,Max,Category
             }
         })
     }catch(err){
