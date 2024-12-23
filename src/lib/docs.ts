@@ -621,15 +621,15 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                   enum:[
                     "perifericos",
                     "hardware",
-                    "hardware/disco-rigido-hd",
-                    "hardware/processadores",
-                    "hardware/fontes",
-                    "hardware/memoria-ram",
-                    "hardware/motherboard",
-                    "hardware/memorias",
-                    "hardware/hard-disk",
-                    "hardware/fonte",
-                    "hardware/hard-disk-e-ssd"
+                    "disco-rigido-hd",
+                    "processadores",
+                    "fontes",
+                    "memoria-ram",
+                    "motherboard",
+                    "memorias",
+                    "hard-disk",
+                    "fonte",
+                    "hard-disk-e-ssd"
                   ]
                 }
               },

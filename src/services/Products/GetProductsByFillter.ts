@@ -32,7 +32,7 @@ export class GetProductsByFilterUseCase{
         }
         //Se categoria for informada
         if(Category){
-            TotalList = TotalList.filter(item=> item.Where==Category);
+            TotalList = TotalList.filter(item=> item.Where.includes(Category));
         }
         //Se A loja for informada
         if(Store){
