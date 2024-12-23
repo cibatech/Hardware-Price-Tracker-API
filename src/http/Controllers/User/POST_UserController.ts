@@ -21,10 +21,27 @@ export async function CreateUserController(req:FastifyRequest,res:FastifyReply) 
             to:Email,
             subject:"No-Reply bem vindo ao HPT",
             text:`
-                Este email foi cadastrado no HardwarePriceTracker
-                Estamos muito felizes em recebe-lo. Agora você pode monitorar os preços dos produtos em diferentes lojas de hardware na palma da sua mão.
+Olá ${UserName},
 
-                CibaTech 2024
+Seja muito bem-vindo(a) ao HTP - Hardware Price Tracker, a solução criada pela Cibatech para tornar sua experiência de compras de hardware mais inteligente, prática e econômica!
+
+Estamos muito felizes em tê-lo(a) conosco. Com o HTP, você terá acesso a ferramentas avançadas de monitoramento de preços e receberá alertas personalizados para aproveitar as melhores ofertas do mercado.
+
+O que você pode fazer com o HTP:
+Acompanhar preços em tempo real: monitore os valores dos seus produtos favoritos.
+Definir metas de preço: seja avisado(a) assim que o preço atingir o valor desejado.
+Receber dicas e insights: aproveite ofertas exclusivas e tendências de mercado.
+Seu próximo passo? Comece configurando sua conta e adicione os itens que deseja monitorar. Clique no botão abaixo para acessar a plataforma:
+
+👉 https://hardware-price-tracker-app.vercel.app
+
+Se precisar de ajuda ou tiver dúvidas, nossa equipe de suporte estará à disposição pelo e-mail suporte@cibatech.com.
+
+Mais uma vez, seja bem-vindo(a)! Estamos aqui para transformar sua experiência de compras em algo simples e eficiente.
+
+Atenciosamente,
+Equipe Cibatech
+Simplificando suas compras com tecnologia.
                 `
         })
         res.status(201).send({

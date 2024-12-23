@@ -9,15 +9,7 @@ export class DeletePriceTrackerUseCase{
         if(!DoesTheTrackerExists){
             throw new ResourceNotFoundError("Price Tracker",Id);
         }
-        if(Id!="all"){
-            const deleted = await this.PriceTRepo.delete(Id);
-            return deleted
-        }else{
-            const deleted = await this.PriceTRepo.delete(Id);
-            return deleted
-        }
-
-
-
+        const deleted = await this.PriceTRepo.delete(Id);
+        return deleted
     }
 }

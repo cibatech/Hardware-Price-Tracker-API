@@ -23,11 +23,10 @@ GET http://127.0.0.1:2467/api/user/profile/e8eec215-74f7-463a-9aab-29647f3784f5
 
 ### 
 
-GET http://127.0.0.1:2467/api/user/sendcode/xeseloc467@cctoolz.com
+GET https://hardware-price-tracker-api.onrender.com/api/user/sendcode/xeseloc467@cctoolz.com
 
 ###
-
-PUT http://127.0.0.1:2467/api/user/passbycode
+PUT https://hardware-price-tracker-api.onrender.com/api/user/passbycode
 Content-Type: application/json
 
 {

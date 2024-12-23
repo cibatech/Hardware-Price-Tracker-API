@@ -11,7 +11,6 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
           email:"euthierrir@gmail.com",
           name:"Ciringa_men",url:"https://github.com/ciringa"
         },
-        
       },
       servers:[
         {description:"Aplicação de comparação de preços",url:"https://github.com/cibatech/Hardware-Price-Tracker-App"},
@@ -1969,40 +1968,6 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
           }
 
         },
-        "api/user/password":{
-          put:{
-            description:"Rota usada para atualizar a senha de um usuário, recebendo seu email e uma nova senha como parametro",
-            tags:["api","User"],
-            requestBody:{
-              description:"Corpo da requisição",
-              content:{
-                "application/json":{
-                  examples:{
-                    example1:{
-                      description:"Os valores a serem fornecidos, Um Email e uma nova senha",
-                      value:{Email:"jonDoe@gmail.com",Password:"JonDoePassword"}
-                    }
-                  }
-                }
-              },
-              required:true,summary:"Email - Email a ser fornecido, Password - Nova senha do usuário"
-            },
-            responses:{
-              201:{
-                description:"Atualização realizada com sucesso",
-                content:{
-                  "application/json":{
-                    examples:{
-                      example1:{
-                        value:""
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "api/user/profile/:UserId":{
           get:{
             tags:["api","User"],
@@ -2039,7 +2004,7 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
             ]
           }
         },
-        "/api/user/passbycode/:Email":{
+        "/api/user/sendcode/:Email":{
           get:{
             tags:["api","User","Validation"],
             description:"Rota utilizada para recuperação de senha. Envia um email para o endereço fornecido e retorna um código. O FrontEnd deve guardar esse código para fornece-lo posteriormente na rota de update de senha",
@@ -2135,6 +2100,28 @@ export const OpenAPiConfig:FastifyDynamicSwaggerOptions={
                 }
               }
             }
+          }
+        },
+        "/api/tracker/delete/all/:UserId":{
+          delete:{
+            description:"Rota para deletar todos os alertas de um determinado usuário",
+            responses:{
+              202:{
+                description:"Sucesso"
+              }
+            },
+            parameters:[
+              {
+                name:"UserId",
+                description:"Define o Id Do usuário que se deseja excluir a lista de alertas",
+                in:"Query",
+                required:true,
+                schema:{
+                  type:"string",
+                  example:"3525649d-41bb-446e-b9c8-fdce04dd62c1"
+                }
+              }
+            ]
           }
         }
       },
