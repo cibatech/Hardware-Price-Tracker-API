@@ -1,6 +1,6 @@
 import { Product } from "../../../prisma/deploy-output";
 import { ProductRepository } from "../../repository/ProductRepository";
-import { InvalidParameterError } from "../Error/InvalidParameterError";
+import { InvalidParameterError } from "../../Error/InvalidParameterError";
 
 interface GetProductListParams{
     Page:number
@@ -35,7 +35,7 @@ export class GetProductListUseCase{
     */
     async execute({Page}:GetProductListParams):Promise<GetProductListResponse>{
         console.log("Get service called")
-        if(Page<0){
+        if(Page<-1){
             throw new InvalidParameterError("Page","use something between 0 and 999")
         }
 

@@ -1,5 +1,5 @@
 import { ProductRepository } from "../../repository/ProductRepository";
-import { InvalidParameterError } from "../Error/InvalidParameterError";
+import { InvalidParameterError } from "../../Error/InvalidParameterError";
 
 export class GetProdListFromCategoryUseCase{
     constructor(private ProdRepo:ProductRepository){}

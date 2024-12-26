@@ -1,0 +1,18 @@
+
+### Listar produtos de uma loja específica (página {{Page}})
+GET http://127.0.0.1:2467/api/products/byStore/Pichau/1
+Content-Type: application/json
+
+### Listar produtos de uma categoria específica (página {{Page}})
+GET https://hardware-price-tracker-api.onrender.com/api/products/category/memoria/1
+Content-Type: application/json
+
+### Listar todos os produtos (página {{Page}})
+GET http://127.0.0.1:2467/api/products/all/1
+Content-Type: application/json
+
+### Rota de Pesquisa
+GET http://127.0.0.1:2467/api/products/search/Gabinete Gamer Redragon Wideload Lite/1
+
+
+

@@ -3,9 +3,9 @@ import { GetPriceReferenceFromSingleProductByIdUseCase, GetProdListFromASpecific
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 import { z } from "zod";
 import { kind } from "../../../../prisma/deploy-output";
-import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
+import { InvalidParameterError } from "../../../Error/InvalidParameterError";
 import { PrismaPriceRepository } from "../../../repository/Prisma/PrismaPriceRepository";
-import { ResourceNotFoundError } from "../../../services/Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../../Error/ResourceNotFound";
 import { GetProductPriceEvaluationUseCase } from "../../../services/Products/GetProductPriceEvalutation";
 
 export async function GETProductEvaluationController(req:FastifyRequest,res:FastifyReply) {

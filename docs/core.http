@@ -1,0 +1,17 @@
+######## Rotas Requisitos alex ############
+
+### Listar produtos de uma categoria com filtros (Categoria: {{Category}}, Min: {{Min}}, Max: {{Max}}, Loja: {{Store}})
+GET  http://127.0.0.1:2467/api/products/memorias/null--null/null/null/1
+Content-Type: application/json
+
+### Comparar o melhor produto de todas as lojas
+GET http://127.0.0.1:2467/api/products/comparasion/3e2e66c5-f05b-4a2b-a01e-39114b95ecaa
+
+### Avaliação de tendências de um produto específico
+GET http://127.0.0.1:2467/api/products/trends/0910beb5-489c-4428-9378-62492e58503a
+Content-Type: application/json
+
+### Retorno da lista de preços de um determinado produto
+GET http://127.0.0.1:2467/api/products/prices/0910beb5-489c-4428-9378-62492e58503a/90
+Content-Type: application/json
+

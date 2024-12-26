@@ -4,7 +4,8 @@ import { InMemoryPriceRepository } from "../../../src/repository/InMemory/inMemo
 import { InMemoryProductRepository } from "../../../src/repository/InMemory/inMemoryProductRepository";
 import { faker } from "@faker-js/faker";
 import { randomUUID } from "crypto";
-import { ResourceNotFoundError } from "../../../src/services/Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../../src/Error/ResourceNotFound";
+import { record } from "zod";
 
 
 var SUT:GetPriceReferenceFromSingleProductByIdUseCase;
@@ -28,14 +29,21 @@ describe("Good Case",()=>{
                 max:10000,
                 min:100
             }),
-            Where:faker.internet.url()
+            Where:faker.internet.url(),
+            onInstallment:null
         })
         const {Id} = ProdRepo.itens[0]
-
+        PriceRepo.list.push({
+            AtDate:new Date("2024-12-12T00:00:00.000Z"),
+            Id:randomUUID(),
+            Price:200,
+            ProdId:Id
+        })
         for(let i=0;i<22;i++){
             PriceRepo.list.push({
                 AtDate:faker.date.past({
-                    refDate:new Date()
+                    refDate:new Date(),
+                    years:2
                 }),
                 Id:randomUUID(),
                 Price:faker.number.int({
@@ -50,11 +58,10 @@ describe("Good Case",()=>{
     })
     it("Should be able to return a price list from a single product",async()=>{
         const {Id} = ProdRepo.itens[0]
-        const response = await SUT.execute({Id});
-
+        const response = await SUT.execute({Id,PasDays:90});
         // console.log(response)
         expect(response.Product.Id).toBe(Id);
-        expect(response.PriceRef.length).toBe(22);
+        expect(response.PriceRef["2024-12-12"][0].Price).toBe(200);
     })
 })
 
@@ -66,7 +73,7 @@ describe("Bad Case",()=>{
     })
     it("Should not be able to return a product price list from a non existing product",async()=>{
         await expect(SUT.execute({
-            Id:"ID that does not exists"
+            Id:"ID that does not exists",PasDays:90
         })).rejects.toBeInstanceOf(ResourceNotFoundError);
     })
 })

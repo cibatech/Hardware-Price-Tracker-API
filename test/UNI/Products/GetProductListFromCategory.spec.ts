@@ -26,7 +26,8 @@ describe("Good Case",()=>{
                     max:10000,
                     min:100
                 }),
-                Where:"hardware"
+                Where:"hardware",
+                onInstallment:"12 vezes de 69,90"
             })   
         }
         

@@ -3,9 +3,9 @@ import { GetProdListFromASpecificStoreUseCase } from "../../../services";
 import { PrismaProductRepository } from "../../../repository/Prisma/PrismaProductRepository";
 import { z } from "zod";
 import { kind } from "../../../../prisma/deploy-output";
-import { InvalidParameterError } from "../../../services/Error/InvalidParameterError";
+import { InvalidParameterError } from "../../../Error/InvalidParameterError";
 import { GetProductPriceCompareBetweenDiferentStoresUseCase } from "../../../services/Products/GetProductComparissonBetweenStores";
-import { ResourceNotFoundError } from "../../../services/Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../../Error/ResourceNotFound";
 
 export async function GETBestProductFromAllStoresController(req:FastifyRequest,res:FastifyReply) {
     const service = new GetProductPriceCompareBetweenDiferentStoresUseCase(new PrismaProductRepository)

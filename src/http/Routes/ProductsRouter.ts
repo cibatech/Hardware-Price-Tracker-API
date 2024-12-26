@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import {GETProductsListWithFilltersController , GETBestProductFromAllStoresController, GETProductEvaluationController, GETProductListFromASpecificStoreController, GETProductListFromCategoryController, GETProductsListController, GETPRiceReferenceFromSingleProductController } from "../Controllers";
+import {GETProductsListWithFilltersController , GETBestProductFromAllStoresController, GETProductEvaluationController, GETProductListFromASpecificStoreController, GETProductListFromCategoryController, GETProductsListController, GETPRiceReferenceFromSingleProductController, GETProductListFromQueryController } from "../Controllers";
 
 export async function ProductRouter(app:FastifyInstance) {
     app.route({
@@ -29,7 +29,7 @@ export async function ProductRouter(app:FastifyInstance) {
     })
     app.route({
         method:"GET",
-        url:"/:Category/:Min--:Max/:Store/:Page",
+        url:"/:Category/:Min--:Max/:Store/:Query/:Page",
         handler:GETProductsListWithFilltersController
     })
     app.route({
@@ -39,7 +39,12 @@ export async function ProductRouter(app:FastifyInstance) {
     })
     app.route({
         method:"GET",
-        url:"/prices/:Id",
+        url:"/prices/:Id/:PasDays",
         handler:GETPRiceReferenceFromSingleProductController
+    })
+    app.route({
+        method:"GET",
+        url:"/search/:Query/:Page",
+        handler:GETProductListFromQueryController
     })
 }

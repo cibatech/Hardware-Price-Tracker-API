@@ -25,7 +25,8 @@ describe("Good Case",()=>{
                     max:10000,
                     min:100
                 }),
-                Where:faker.internet.url()
+                Where:faker.internet.url(),
+                onInstallment:"12 vezes de 69,90"
             })   
         }
         

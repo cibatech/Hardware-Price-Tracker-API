@@ -1,7 +1,7 @@
 import { evaluation } from "../../lib/enums";
 import { PriceReferenceRepository } from "../../repository/PriceRefRepository";
 import { ProductRepository } from "../../repository/ProductRepository";
-import { ResourceNotFoundError } from "../Error/ResourceNotFound";
+import { ResourceNotFoundError } from "../../Error/ResourceNotFound";
 
 /**
  * Enum que define os tipos de avaliação de preço para um produto.
