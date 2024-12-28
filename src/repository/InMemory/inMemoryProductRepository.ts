@@ -1,4 +1,5 @@
 import { kind, Product } from "../../../prisma/deploy-output";
+import { normalizeText } from "../../utils/normalizeText";
 import { ProductRepository } from "../ProductRepository";
 
 export class InMemoryProductRepository implements ProductRepository{
@@ -17,7 +18,7 @@ export class InMemoryProductRepository implements ProductRepository{
     async findBySearchQuery(Query: string, Page: number): Promise<Product[]> {
         var fixArray:Product[] = [];
         Query = Query.toLowerCase()
-        const findByDescription = this.itens.filter(iten => iten.Description?iten.Description.includes(Query):null);
+        const findByDescription = this.itens.filter(iten => iten.Title?normalizeText(iten.Title).includes(Query):null);
         fixArray = fixArray.concat(findByDescription);
         if(Page>0){
             return fixArray.slice((Page-1)*20,Page*20)

@@ -1,10 +1,20 @@
-# Hardware Price Tracker API
+<p align="center">
+  <img align="center" height="300" src="https://github.com/ismael-henrique-dev/Hardware-Price-Tracker-App/raw/main/public/sponsor-icon.png"  />
+</p>
+<h1 align="center">Hardware Price Tracker API</h1>
+<p align="center">
+<img align="center" src = "https://img.shields.io/badge/NPM-10.5.2-gray?style=flat&labelColor=green">
+<img align="center" src = "https://img.shields.io/badge/TypeScript-5.4.5-gray?style=flat&labelColor=blue" >
+</p>
+
 Backend para uma aplicação de comparação de preços entre lojas de informatica brasileiras. Esta API oferece o suporte backend para o consumo dos dados obtidos através do scrapping. 
 
 ## Índice
 
 1. [Rodando o Projeto](#rodando-o-projeto)
-1. [Documentação](#documentação)
+2. [Documentação](#o-que-aprendi-durante-o-projeto)
+3. [Documentação](#documentação)
+    - [lcs](#algoritimos-de-comparação-de-produtos-entre-lojas)
 
 ## Rodando o Projeto
 
@@ -36,6 +46,15 @@ npm run dev
 ```
 
 Ou acesso o link online <a href="https://hardware-price-tracker-api.onrender.com">https://hardware-price-tracker-api.onrender.com</a>
+
+## O que Aprendi durante o Projeto?
+
+- Solucionar problemas envolvendo banco de dados extensos
+- Otimização 
+- Trabalho em equipe e técnicas de comunicação 
+- Tratamento de Erros complexo 
+- Desenvolvimento de métodos para admnistração da aplicação 
+- Trabalho com múltiplos bancos de dados
 
 ## Documentação
 Após o projeto acesse seus host e sua porta (indicado pelo resultado no console). Acesse a rota /docs que lhe oferecerá uma descrição completa e detalhada baseada em **OpenAPI** da aplicação. 

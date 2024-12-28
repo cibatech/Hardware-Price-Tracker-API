@@ -50,7 +50,7 @@ describe("Good Case",()=>{
 
     it("Should be able to Return the products list by query",async()=>{
         const response = await SUT.execute({Page:1,Query:"Computador"})
-        expect(response[0].Description).contain("Computador")
+        expect(response[0].Title).contain("Computador")
     })
 
 })

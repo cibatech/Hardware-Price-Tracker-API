@@ -1,5 +1,6 @@
 import { ProductRepository } from "../../repository/ProductRepository";
 import { InvalidParameterError } from "../../Error/InvalidParameterError";
+import { normalizeText } from "../../utils/normalizeText";
 
 
 interface GetProductListFromQueryParams{
@@ -16,7 +17,7 @@ export class GetProductListFromQueryUseCase{
             throw new InvalidParameterError("Page","Try To provide a number between 0 and infinite")
         }
 
-        const ResponseList = await this.ProdRepo.findBySearchQuery(Query,Page);
+        const ResponseList = await this.ProdRepo.findBySearchQuery(normalizeText(Query),Page);
         
         return ResponseList
     }

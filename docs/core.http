@@ -1,7 +1,7 @@
 ######## Rotas Requisitos alex ############
 
 ### Listar produtos de uma categoria com filtros (Categoria: {{Category}}, Min: {{Min}}, Max: {{Max}}, Loja: {{Store}})
-GET  http://127.0.0.1:2467/api/products/memorias/null--null/null/null/1
+GET  https://hardware-price-tracker-api.onrender.com/api/products/fontes/null--null/null/null/2
 Content-Type: application/json
 
 ### Comparar o melhor produto de todas as lojas

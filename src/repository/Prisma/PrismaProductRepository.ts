@@ -1,5 +1,6 @@
 import { kind, Product } from "../../../prisma/deploy-output";
 import { prisma } from "../../lib/prisma";
+import { normalizeText } from "../../utils/normalizeText";
 import { ProductRepository } from "../ProductRepository";
 
 export class PrismaProductRepository implements ProductRepository{
@@ -19,25 +20,23 @@ export class PrismaProductRepository implements ProductRepository{
     }
 
     async findBySearchQuery(Query: string, Page: number): Promise<Product[]> {
-        if(Page>0){
-            return await prisma.product.findMany({
-                where:{
-                    Description:{
-                        contains:Query.toLowerCase()
-                    }
+        const normalizedQuery = Query.toLowerCase();
+    
+        const pageSize = 20;
+        const skip = Page > 0 ? (Page - 1) * pageSize : 0;
+    
+        const products = await prisma.product.findMany({
+            where: {
+                Title: {
+                    contains: normalizedQuery,
+                    mode: 'insensitive', // Faz a busca insensível a maiúsculas e minúsculas
                 },
-                take:Page*20,
-                skip:(Page-1)*20
-            })
-        }else{
-            return await prisma.product.findMany({
-                where:{
-                    Description:{
-                        contains:Query
-                    }
-                }
-            })
-        }
+            },
+            skip: skip,
+            take: pageSize,
+        });
+    
+        return products;
     }
     async findBySite(WebSite: kind,Page:number): Promise<Product[]> {
         if(Page<0){

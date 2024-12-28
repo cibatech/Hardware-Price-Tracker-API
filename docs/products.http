@@ -12,7 +12,7 @@ GET http://127.0.0.1:2467/api/products/all/1
 Content-Type: application/json
 
 ### Rota de Pesquisa
-GET http://127.0.0.1:2467/api/products/search/Gabinete Gamer Redragon Wideload Lite/1
+GET http://127.0.0.1:2467/api/products/search/gabinete/1
 
 
 

@@ -2,15 +2,10 @@ import { faker } from "@faker-js/faker";
 import { Product } from "../../../prisma/deploy-output";
 import { randomUUID } from "crypto";
 import { Choose } from "../Choose";
+import { normalizeText } from "../normalizeText";
 
 // Normalizes a text by removing punctuation, converting to lowercase, and trimming spaces
-function normalizeText(text:string) {
-  return text
-      .toLowerCase()
-      .replace(/[^\w\s]/g, '') // Remove punctuation
-      .replace(/\s+/g, ' ')    // Normalize spaces
-      .trim();
-}
+
 
 // Jaccard Similarity function compares sets of words
 function jaccardSimilarity(a:string, b:string) {

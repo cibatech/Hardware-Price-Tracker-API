@@ -60,10 +60,10 @@ describe("Good Case",()=>{
     it("Should be able to return all the products with the search query",async()=>{
         const resp = await SUT.execute({
             Category:null,Store:null,
-            Page:1,Max:null, Min:null,Query:"A"
+            Page:1,Max:null, Min:null,Query:"a"
         })
 
-        expect(resp.Return.TotalList[0].Description).toContain("A")
+        expect(resp.Return.TotalList[0].Description).toContain("a")
     })
 
 })

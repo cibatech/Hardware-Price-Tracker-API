@@ -10,7 +10,8 @@ export class InMemoryUserRepository implements UserRepository {
         const newUser: User = {
             Email:String(data.Email),
             Id:randomUUID(),
-            Password:String(data.Password)
+            Password:String(data.Password),
+            UserName:String(data.UserName)
         };
         this.itens.push(newUser);
         return newUser;
@@ -41,7 +42,8 @@ export class InMemoryUserRepository implements UserRepository {
         const newuser:User = {
             Email:data.Email?String(data.Email):oldId.Email,
             Id:oldId.Id,
-            Password:data.Password?String(data.Password):oldId.Password
+            Password:data.Password?String(data.Password):oldId.Password,
+            UserName:data.UserName?String(data.UserName):oldId.UserName
         }
         this.itens[Index] = newuser
         return this.itens[Index];
