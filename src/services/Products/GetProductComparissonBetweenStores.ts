@@ -1,7 +1,7 @@
 import { Product } from "../../../prisma/deploy-output";
 import { ProductRepository } from "../../repository/ProductRepository";
 import { FindBestProductPrice } from "../../utils/algorithims/FindBestPrice";
-import { ClosestProduct } from "../../utils/algorithims/LongestCommonSubstring";
+import { findMostSimilarString } from "../../utils/algorithims/LongestSimilarityByJacartMethod";
 import { GotEmptyList } from "../../Error/InternalServerError";
 import { ResourceNotFoundError } from "../../Error/ResourceNotFound";
 
@@ -23,7 +23,7 @@ export class GetProductPriceCompareBetweenDiferentStoresUseCase{
         if(!doesTheProductReallyExists){
             throw new ResourceNotFoundError("Product",Id)
         }
-        const QueryTitle = String(doesTheProductReallyExists.Title)
+
         //Get Every Store product List
         const Pichau_ProdList = await this.ProdRepo.findBySite("Pichau",-1);
         const Kabum_ProdList = await this.ProdRepo.findBySite("Kabum",-1);
@@ -33,10 +33,10 @@ export class GetProductPriceCompareBetweenDiferentStoresUseCase{
             throw new GotEmptyList("GetProductPriceCompareBetweenDiferentStoresUseCase")
         }
 
-        const MatchProductFromPichau = ClosestProduct(QueryTitle,Pichau_ProdList)
-        const MatchProductFromKabum = ClosestProduct(QueryTitle,Kabum_ProdList)
-        const MatchProductFromTerabyte = ClosestProduct(QueryTitle,TeraByte_ProdList)
-
+        const MatchProductFromPichau = findMostSimilarString(doesTheProductReallyExists,Pichau_ProdList)
+        const MatchProductFromKabum = findMostSimilarString(doesTheProductReallyExists,Kabum_ProdList)
+        const MatchProductFromTerabyte = findMostSimilarString(doesTheProductReallyExists,TeraByte_ProdList)
+        
         console.log([
             MatchProductFromKabum,
             MatchProductFromPichau,
