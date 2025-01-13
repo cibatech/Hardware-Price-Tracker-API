@@ -12,7 +12,7 @@ Backend para uma aplicação de comparação de preços entre lojas de informati
 ## Índice
 
 1. [Rodando o Projeto](#rodando-o-projeto)
-2. [Documentação](#o-que-aprendi-durante-o-projeto)
+2. [O que Aprendi?](#o-que-aprendi-durante-o-projeto)
 3. [Documentação](#documentação)
     - [lcs](#algoritimos-de-comparação-de-produtos-entre-lojas)
 
